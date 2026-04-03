@@ -56,7 +56,9 @@ public class GdxGame extends Game {
 		batch.dispose();
 		menuScreen.dispose();
 		characterSelectionScreen.dispose();
-		gameScreen.dispose();
+		if (gameScreen != null) {
+			gameScreen.dispose();
+		}
 		resourceManager.dispose();
 	}
 }

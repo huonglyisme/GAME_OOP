@@ -61,6 +61,7 @@ public class InventoryUITest {
         profileManager.setProperty("currentPlayerCharacterAP", PLAYER_AP);
         profileManager.setProperty("currentPlayerCharacterDP", PLAYER_DP);
         profileManager.setProperty("currentPlayerCharacterSPDP", 10);
+        profileManager.setProperty("bonusSet", null);
     }
 
     @AfterEach

@@ -19,6 +19,10 @@ allprojects {
         }
     }
 
+    tasks.named<Test>("test") {
+        useJUnitPlatform()
+    }
+
     tasks.register<Test>("integrationTest") {
         testClassesDirs = sourceSets["test"].output.classesDirs
         classpath = sourceSets["test"].runtimeClasspath
@@ -42,6 +46,8 @@ allprojects {
 
 project(":desktop") {
 
+    apply(plugin = "application")
+
     repositories {
         mavenCentral()
     }
@@ -50,6 +56,16 @@ project(":desktop") {
         implementation(project(":core"))
         implementation(rootProject.libs.gdx.lwjgl3)
         implementation(variantOf(rootProject.libs.gdx.freetype.platform) { classifier("natives-desktop") })
+    }
+
+    configure<JavaApplication> {
+        mainClass.set("com.gdx.game.desktop.DesktopLauncher")
+    }
+
+    tasks.named<JavaExec>("run") {
+        if (org.gradle.internal.os.OperatingSystem.current().isMacOsX) {
+            jvmArgs("-XstartOnFirstThread")
+        }
     }
 }
 
