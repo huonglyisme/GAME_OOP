@@ -1,0 +1,10 @@
+Bối cảnh
+ Ngày xưa, thế giới Aethermere được nuôi dưỡng bởi Cây Mana — nguồn sống của vạn vật. Một ngày nọ, Cây Mana nổ tung, tạo nên sự kiện được gọi là “Manafall”. Mana tràn khắp nơi, biến nhiều sinh vật thành những quái vật hung dữ. Thế giới rơi vào hỗn loạn, còn con người sống trong sợ hãi.
+Nhân vật chính
+ Nhiều năm sau Manafall, một đứa trẻ được sinh ra với mana trong máu — kết quả của một sự may mắn hiếm có, khi lượng mana tàn dư thấm vào cơ thể từ lúc còn trong bụng mẹ. Lớn lên, đứa trẻ phát hiện mình sở hữu sức mạnh đặc biệt: có thể sử dụng mana để chiến đấu và tiêu diệt quái vật.
+Chế độ Co-op
+ Người chơi thứ hai là một người khác cũng được sinh ra với mana trong người — cùng cảnh ngộ, cùng sức mạnh, và cùng đồng hành trên hành trình.
+Hành trình
+ Nhân vật rời khỏi ngôi làng của mình, bắt đầu cuộc phiêu lưu khắp thế giới: tiêu diệt quái vật, giúp đỡ dân làng, nhận nhiệm vụ từ các NPC, và thu thập vũ khí cùng vật phẩm. Càng đi xa, quái vật càng trở nên mạnh hơn, và nhân vật cũng dần trưởng thành hơn qua từng trận chiến.
+Kết thúc
+ Cuối cùng, nhân vật đối mặt với Boss cuối — sinh vật mạnh nhất được sinh ra từ Manafall, đang đe dọa hủy diệt những gì còn sót lại của loài người. Sau khi đánh bại Boss, nhân vật được tôn làm Vua — vị vua duy nhất mang trong mình sức mạnh mana. Từ đó, nhân vật dùng mana của mình để chữa lành đất đai, tái thiết thế giới, và dẫn dắt loài người bước vào một kỷ nguyên mới.
