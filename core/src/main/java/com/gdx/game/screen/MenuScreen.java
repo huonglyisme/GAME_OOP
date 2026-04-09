@@ -13,8 +13,14 @@ import com.gdx.game.GdxGame;
 import com.gdx.game.audio.AudioObserver;
 import com.gdx.game.manager.AnimationManager;
 import com.gdx.game.manager.ResourceManager;
+import com.gdx.game.screen.transition.effects.FadeInTransitionEffect;
+import com.gdx.game.screen.transition.effects.FadeOutTransitionEffect;
+import com.gdx.game.screen.transition.effects.TransitionEffect;
+
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import static com.gdx.game.audio.AudioObserver.AudioTypeEvent.MENU_THEME;
 
@@ -58,6 +64,7 @@ public class MenuScreen extends BaseScreen {
 
         flowAnimation = animationManager.setAnimation(flowFrames);
     }
+    
 
     private void handleExitButton() {
         createButton("Exit", 0, menuTable.getHeight()/9, menuTable);
@@ -81,7 +88,7 @@ public class MenuScreen extends BaseScreen {
                 setScreenWithTransition(
                         (BaseScreen) gdxGame.getScreen(),
                         new OptionScreen(gdxGame, (BaseScreen) gdxGame.getScreen(), resourceManager),
-                        new ArrayList<>()
+                        defaultFadeTransition()
                 );
             }
         });
@@ -97,7 +104,7 @@ public class MenuScreen extends BaseScreen {
                 setScreenWithTransition(
                         (BaseScreen) gdxGame.getScreen(),
                         new MenuNewGameScreen(gdxGame, (BaseScreen) gdxGame.getScreen(), resourceManager),
-                        new ArrayList<>()
+                        defaultFadeTransition()
                 );
             }
         });
@@ -110,7 +117,11 @@ public class MenuScreen extends BaseScreen {
         loadButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent even, float x, float y) {
-                setScreenWithTransition((BaseScreen) gdxGame.getScreen(), new MenuLoadGameScreen(gdxGame, (BaseScreen) gdxGame.getScreen(), resourceManager), new ArrayList<>());
+                setScreenWithTransition(
+                    (BaseScreen) gdxGame.getScreen(), 
+                    new MenuLoadGameScreen(gdxGame, (BaseScreen) gdxGame.getScreen(), resourceManager), 
+                    defaultFadeTransition()
+                    );
             }
         });
     }
