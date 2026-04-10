@@ -1,0 +1,37 @@
+[
+  {
+    "dropTableID": "RABITE_DROPS",
+    "drops": [
+      {
+        "itemTypeID": "HERB001",
+        "probability": 0.6
+      },
+      {
+        "itemTypeID": "FUR001",
+        "probability": 0.4
+      }
+    ]
+  },
+  {
+    "dropTableID": "RABITE2_DROPS",
+    "drops": [
+      {
+        "itemTypeID": "HERB001",
+        "probability": 0.6
+      },
+      {
+        "itemTypeID": "FUR001",
+        "probability": 0.4
+      }
+    ]
+  },
+  {
+    "dropTableID": "TEST_GUARANTEED_DROP",
+    "drops": [
+      {
+        "itemTypeID": "HERB001",
+        "probability": 1.0
+      }
+    ]
+  }
+]

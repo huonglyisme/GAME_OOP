@@ -220,7 +220,14 @@ public class BattleState extends BattleSubject {
     }
 
     private void calculateDrops() {
-        Array<EntityConfig.Drop> drops = currentOpponent.getEntityConfig().getDrops();
+        Array<EntityConfig.Drop> drops;
+        String dropTableID = currentOpponent.getEntityConfig().getDropTableID();
+        if (dropTableID != null && !dropTableID.isEmpty()) {
+            drops = DropTableManager.getDropsForTable(dropTableID);
+        } else {
+            drops = currentOpponent.getEntityConfig().getDrops();
+        }
+
         for (EntityConfig.Drop drop : drops) {
             boolean isSuccessful = BattleUtils.isSuccessful(drop.getProbability());
             if (isSuccessful) {
