@@ -21,6 +21,9 @@ import com.gdx.game.entities.player.CharacterRecord;
 import com.gdx.game.manager.ResourceManager;
 import com.gdx.game.profile.ProfileManager;
 import com.gdx.game.screen.cutscene.CreatorIntroScreen;
+import com.gdx.game.screen.transition.effects.FadeInTransitionEffect;
+import com.gdx.game.screen.transition.effects.FadeOutTransitionEffect;
+import com.gdx.game.screen.transition.effects.TransitionEffect;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -103,7 +106,16 @@ public class CharacterSelectionScreen extends BaseScreen {
 
                 gdxGame.setGameScreen(new GameScreen(gdxGame, resourceManager));
                 LOGGER.info("Character {} selected", playerImage.getEntity().getEntityConfig().getEntityID());
-                setScreenWithTransition((BaseScreen) gdxGame.getScreen(), new CreatorIntroScreen(gdxGame, resourceManager), new ArrayList<>());
+
+                ArrayList<TransitionEffect> effects = new ArrayList<>();
+                effects.add(new FadeOutTransitionEffect(1f));
+                effects.add(new FadeInTransitionEffect(1f));
+
+                setScreenWithTransition(
+                    (BaseScreen) gdxGame.getScreen(),
+                    new CreatorIntroScreen(gdxGame, resourceManager),
+                    effects
+);
             }
         });
 

@@ -88,7 +88,7 @@ public class MenuScreen extends BaseScreen {
                 setScreenWithTransition(
                         (BaseScreen) gdxGame.getScreen(),
                         new OptionScreen(gdxGame, (BaseScreen) gdxGame.getScreen(), resourceManager),
-                        defaultFadeTransition()
+                        new ArrayList<>()
                 );
             }
         });
@@ -104,7 +104,7 @@ public class MenuScreen extends BaseScreen {
                 setScreenWithTransition(
                         (BaseScreen) gdxGame.getScreen(),
                         new MenuNewGameScreen(gdxGame, (BaseScreen) gdxGame.getScreen(), resourceManager),
-                        defaultFadeTransition()
+                        new ArrayList<>()
                 );
             }
         });
@@ -120,7 +120,7 @@ public class MenuScreen extends BaseScreen {
                 setScreenWithTransition(
                     (BaseScreen) gdxGame.getScreen(), 
                     new MenuLoadGameScreen(gdxGame, (BaseScreen) gdxGame.getScreen(), resourceManager), 
-                    defaultFadeTransition()
+                    new ArrayList<>()
                     );
             }
         });
