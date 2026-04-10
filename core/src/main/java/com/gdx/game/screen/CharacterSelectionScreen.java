@@ -109,7 +109,7 @@ public class CharacterSelectionScreen extends BaseScreen {
 
                 ArrayList<TransitionEffect> effects = new ArrayList<>();
                 effects.add(new FadeOutTransitionEffect(1f));
-                effects.add(new FadeInTransitionEffect(1f));
+                
 
                 setScreenWithTransition(
                     (BaseScreen) gdxGame.getScreen(),

@@ -16,6 +16,8 @@ import com.gdx.game.profile.ProfileManager;
 import com.gdx.game.screen.transition.effects.FadeOutTransitionEffect;
 import com.gdx.game.screen.transition.effects.TransitionEffect;
 import com.gdx.game.screen.transition.effects.FadeInTransitionEffect;
+import java.util.Arrays;
+import java.util.List;
 
 import java.util.ArrayList;
 
