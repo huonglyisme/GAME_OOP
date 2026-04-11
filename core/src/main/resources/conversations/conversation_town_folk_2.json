@@ -1,0 +1,57 @@
+{
+    "conversations": {
+        "1": {
+            "id": 1,
+            "dialog": "The stone bridge to the north leads to a mysterious mountain, said to be home to many powerful monsters."
+        },
+        "2": {
+            "id": 2,
+            "dialog": "Please don't go there if you are not strong enough."
+        },
+        "3": {
+            "id": 3,
+            "dialog": "You seem...confident in your strength. But still, be careful."
+        },
+        "4": {
+            "id": 4,
+            "dialog": "Ok"
+        }
+    },
+    "associatedChoices": {
+        "1": [
+            {
+                "class": "com.gdx.game.dialog.ConversationChoice",
+                "sourceId": 1,
+                "destinationId": 2,
+                "choicePhrase": "...",
+                "conversationCommandEvent": "NONE"
+            }
+        ],
+        "2": [
+            {
+                "class": "com.gdx.game.dialog.ConversationChoice",
+                "sourceId": 2,
+                "destinationId": 4,
+                "choicePhrase": "Thank you for the warning.",
+                "conversationCommandEvent": "EXIT_CONVERSATION"
+            },
+            {
+                "class": "com.gdx.game.dialog.ConversationChoice",
+                "sourceId": 2,
+                "destinationId": 3,
+                "choicePhrase": "Don't worry, I'm strong.",
+                "conversationCommandEvent": "NONE"
+            }
+        ],
+        "3": [
+            {
+                "class": "com.gdx.game.dialog.ConversationChoice",
+                "sourceId": 3,
+                "destinationId": 4,
+                "choicePhrase": "I will.",
+                "conversationCommandEvent": "EXIT_CONVERSATION"
+            }
+        ]
+    },
+    "currentConversationID": 1
+}
