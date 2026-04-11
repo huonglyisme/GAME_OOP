@@ -1,5 +1,5 @@
 {
-    "conversation": {
+    "conversations": {
         "1": {
             "id": 1,
             "dialog": "I heard there's a huge monster in the eastern forest, be careful when you go there."
@@ -66,5 +66,6 @@
                 "conversationCommandEvent": "EXIT_CONVERSATION"
             }
         ]
-    }
+    },
+    "currentConversationID": 1
 }
