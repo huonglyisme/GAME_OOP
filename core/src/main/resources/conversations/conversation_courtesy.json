@@ -31,7 +31,7 @@
         "class": "com.gdx.game.dialog.ConversationChoice",
         "sourceId": 1,
         "destinationId": 7,
-        "choicePhrase": "Bye.",
+        "choicePhrase": "Hello there.",
         "conversationCommandEvent": "EXIT_CONVERSATION"
       }
     ],
@@ -40,7 +40,7 @@
         "class": "com.gdx.game.dialog.ConversationChoice",
         "sourceId": 1,
         "destinationId": 7,
-        "choicePhrase": "Bye.",
+        "choicePhrase": "Sure it is.",
         "conversationCommandEvent": "EXIT_CONVERSATION"
       }
     ],
@@ -49,7 +49,7 @@
         "class": "com.gdx.game.dialog.ConversationChoice",
         "sourceId": 1,
         "destinationId": 7,
-        "choicePhrase": "Bye.",
+        "choicePhrase": "Greetings.",
         "conversationCommandEvent": "EXIT_CONVERSATION"
       }
     ],
@@ -58,7 +58,7 @@
         "class": "com.gdx.game.dialog.ConversationChoice",
         "sourceId": 1,
         "destinationId": 7,
-        "choicePhrase": "Bye.",
+        "choicePhrase": "Well met.",
         "conversationCommandEvent": "EXIT_CONVERSATION"
       }
     ],
@@ -67,7 +67,7 @@
         "class": "com.gdx.game.dialog.ConversationChoice",
         "sourceId": 1,
         "destinationId": 7,
-        "choicePhrase": "Bye.",
+        "choicePhrase": "Thank you.",
         "conversationCommandEvent": "EXIT_CONVERSATION"
       }
     ],
@@ -76,7 +76,7 @@
         "class": "com.gdx.game.dialog.ConversationChoice",
         "sourceId": 1,
         "destinationId": 7,
-        "choicePhrase": "Bye.",
+        "choicePhrase": "See you.",
         "conversationCommandEvent": "EXIT_CONVERSATION"
       }
     ]

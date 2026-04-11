@@ -18,8 +18,14 @@
 					"sprites/characters/Player1.png"
 				],
 				"gridPoints": [
-					{ "x": 3, "y": 0 },
-					{ "x": 3, "y": 0 }
+					{
+						"x": 3,
+						"y": 0
+					},
+					{
+						"x": 3,
+						"y": 0
+					}
 				]
 			},
 			{
@@ -30,8 +36,14 @@
 					"sprites/characters/Player1.png"
 				],
 				"gridPoints": [
-					{ "x": 3, "y": 0 },
-					{ "x": 3, "y": 0 }
+					{
+						"x": 3,
+						"y": 0
+					},
+					{
+						"x": 3,
+						"y": 0
+					}
 				]
 			}
 		]
@@ -54,8 +66,14 @@
 					"sprites/characters/Player1.png"
 				],
 				"gridPoints": [
-					{ "x": 4, "y": 0 },
-					{ "x": 4, "y": 0 }
+					{
+						"x": 4,
+						"y": 0
+					},
+					{
+						"x": 4,
+						"y": 0
+					}
 				]
 			},
 			{
@@ -66,8 +84,14 @@
 					"sprites/characters/Player1.png"
 				],
 				"gridPoints": [
-					{ "x": 4, "y": 0 },
-					{ "x": 4, "y": 0 }
+					{
+						"x": 4,
+						"y": 0
+					},
+					{
+						"x": 4,
+						"y": 0
+					}
 				]
 			}
 		]
@@ -77,7 +101,7 @@
 		"entityStatus": "VILLAGER",
 		"state": "IMMOBILE",
 		"direction": "DOWN",
-		"conversationConfigPath": "",
+		"conversationConfigPath": "conversations/conversation_town_folk_2.json",
 		"questConfigPath": "",
 		"currentQuestID": "",
 		"itemTypeID": "NONE",
@@ -90,8 +114,14 @@
 					"sprites/characters/Player1.png"
 				],
 				"gridPoints": [
-					{ "x": 5, "y": 0 },
-					{ "x": 5, "y": 0 }
+					{
+						"x": 5,
+						"y": 0
+					},
+					{
+						"x": 5,
+						"y": 0
+					}
 				]
 			},
 			{
@@ -102,8 +132,14 @@
 					"sprites/characters/Player1.png"
 				],
 				"gridPoints": [
-					{ "x": 5, "y": 0 },
-					{ "x": 5, "y": 0 }
+					{
+						"x": 5,
+						"y": 0
+					},
+					{
+						"x": 5,
+						"y": 0
+					}
 				]
 			}
 		]
@@ -126,8 +162,14 @@
 					"sprites/characters/Player1.png"
 				],
 				"gridPoints": [
-					{ "x": 5, "y": 1 },
-					{ "x": 5, "y": 1 }
+					{
+						"x": 5,
+						"y": 1
+					},
+					{
+						"x": 5,
+						"y": 1
+					}
 				]
 			},
 			{
@@ -138,8 +180,14 @@
 					"sprites/characters/Player1.png"
 				],
 				"gridPoints": [
-					{ "x": 5, "y": 1 },
-					{ "x": 5, "y": 1 }
+					{
+						"x": 5,
+						"y": 1
+					},
+					{
+						"x": 5,
+						"y": 1
+					}
 				]
 			}
 		]
@@ -162,8 +210,14 @@
 					"sprites/characters/Player1.png"
 				],
 				"gridPoints": [
-					{ "x": 3, "y": 5 },
-					{ "x": 3, "y": 5 }
+					{
+						"x": 3,
+						"y": 5
+					},
+					{
+						"x": 3,
+						"y": 5
+					}
 				]
 			},
 			{
@@ -174,8 +228,14 @@
 					"sprites/characters/Player1.png"
 				],
 				"gridPoints": [
-					{ "x": 3, "y": 5 },
-					{ "x": 3, "y": 5 }
+					{
+						"x": 3,
+						"y": 5
+					},
+					{
+						"x": 3,
+						"y": 5
+					}
 				]
 			}
 		]
@@ -198,8 +258,14 @@
 					"sprites/characters/Player1.png"
 				],
 				"gridPoints": [
-					{ "x": 4, "y": 7 },
-					{ "x": 4, "y": 7 }
+					{
+						"x": 4,
+						"y": 7
+					},
+					{
+						"x": 4,
+						"y": 7
+					}
 				]
 			},
 			{
@@ -210,8 +276,14 @@
 					"sprites/characters/Player1.png"
 				],
 				"gridPoints": [
-					{ "x": 4, "y": 7 },
-					{ "x": 4, "y": 7 }
+					{
+						"x": 4,
+						"y": 7
+					},
+					{
+						"x": 4,
+						"y": 7
+					}
 				]
 			}
 		]
@@ -234,8 +306,14 @@
 					"sprites/characters/Player1.png"
 				],
 				"gridPoints": [
-					{ "x": 8, "y": 7 },
-					{ "x": 8, "y": 7 }
+					{
+						"x": 8,
+						"y": 7
+					},
+					{
+						"x": 8,
+						"y": 7
+					}
 				]
 			},
 			{
@@ -246,8 +324,14 @@
 					"sprites/characters/Player1.png"
 				],
 				"gridPoints": [
-					{ "x": 8, "y": 7 },
-					{ "x": 8, "y": 7 }
+					{
+						"x": 8,
+						"y": 7
+					},
+					{
+						"x": 8,
+						"y": 7
+					}
 				]
 			}
 		]
@@ -270,8 +354,14 @@
 					"sprites/characters/Player1.png"
 				],
 				"gridPoints": [
-					{ "x": 8, "y": 0 },
-					{ "x": 8, "y": 0 }
+					{
+						"x": 8,
+						"y": 0
+					},
+					{
+						"x": 8,
+						"y": 0
+					}
 				]
 			},
 			{
@@ -282,8 +372,14 @@
 					"sprites/characters/Player1.png"
 				],
 				"gridPoints": [
-					{ "x": 8, "y": 0 },
-					{ "x": 8, "y": 0 }
+					{
+						"x": 8,
+						"y": 0
+					},
+					{
+						"x": 8,
+						"y": 0
+					}
 				]
 			}
 		]
@@ -306,8 +402,14 @@
 					"sprites/characters/Player1.png"
 				],
 				"gridPoints": [
-					{ "x": 5, "y": 2 },
-					{ "x": 5, "y": 2 }
+					{
+						"x": 5,
+						"y": 2
+					},
+					{
+						"x": 5,
+						"y": 2
+					}
 				]
 			},
 			{
@@ -318,8 +420,14 @@
 					"sprites/characters/Player1.png"
 				],
 				"gridPoints": [
-					{ "x": 5, "y": 2 },
-					{ "x": 5, "y": 2 }
+					{
+						"x": 5,
+						"y": 2
+					},
+					{
+						"x": 5,
+						"y": 2
+					}
 				]
 			}
 		]
@@ -342,8 +450,14 @@
 					"sprites/characters/Player1.png"
 				],
 				"gridPoints": [
-					{ "x": 11, "y": 0 },
-					{ "x": 11, "y": 0 }
+					{
+						"x": 11,
+						"y": 0
+					},
+					{
+						"x": 11,
+						"y": 0
+					}
 				]
 			},
 			{
@@ -354,8 +468,14 @@
 					"sprites/characters/Player1.png"
 				],
 				"gridPoints": [
-					{ "x": 11, "y": 0 },
-					{ "x": 11, "y": 0 }
+					{
+						"x": 11,
+						"y": 0
+					},
+					{
+						"x": 11,
+						"y": 0
+					}
 				]
 			}
 		]
@@ -378,8 +498,14 @@
 					"sprites/characters/Player1.png"
 				],
 				"gridPoints": [
-					{ "x": 11, "y": 4 },
-					{ "x": 11, "y": 4 }
+					{
+						"x": 11,
+						"y": 4
+					},
+					{
+						"x": 11,
+						"y": 4
+					}
 				]
 			},
 			{
@@ -390,8 +516,14 @@
 					"sprites/characters/Player1.png"
 				],
 				"gridPoints": [
-					{ "x": 11, "y": 4 },
-					{ "x": 11, "y": 4 }
+					{
+						"x": 11,
+						"y": 4
+					},
+					{
+						"x": 11,
+						"y": 4
+					}
 				]
 			}
 		]
@@ -414,8 +546,14 @@
 					"sprites/characters/Player1.png"
 				],
 				"gridPoints": [
-					{ "x": 4, "y": 3 },
-					{ "x": 4, "y": 3 }
+					{
+						"x": 4,
+						"y": 3
+					},
+					{
+						"x": 4,
+						"y": 3
+					}
 				]
 			},
 			{
@@ -426,8 +564,14 @@
 					"sprites/characters/Player1.png"
 				],
 				"gridPoints": [
-					{ "x": 4, "y": 3 },
-					{ "x": 4, "y": 3 }
+					{
+						"x": 4,
+						"y": 3
+					},
+					{
+						"x": 4,
+						"y": 3
+					}
 				]
 			}
 		]
@@ -450,8 +594,14 @@
 					"sprites/characters/Player1.png"
 				],
 				"gridPoints": [
-					{ "x": 1, "y": 4 },
-					{ "x": 1, "y": 4 }
+					{
+						"x": 1,
+						"y": 4
+					},
+					{
+						"x": 1,
+						"y": 4
+					}
 				]
 			},
 			{
@@ -462,8 +612,14 @@
 					"sprites/characters/Player1.png"
 				],
 				"gridPoints": [
-					{ "x": 1, "y": 4 },
-					{ "x": 1, "y": 4 }
+					{
+						"x": 1,
+						"y": 4
+					},
+					{
+						"x": 1,
+						"y": 4
+					}
 				]
 			}
 		]
@@ -486,8 +642,14 @@
 					"sprites/characters/Player1.png"
 				],
 				"gridPoints": [
-					{ "x": 1, "y": 5 },
-					{ "x": 1, "y": 5 }
+					{
+						"x": 1,
+						"y": 5
+					},
+					{
+						"x": 1,
+						"y": 5
+					}
 				]
 			},
 			{
@@ -498,8 +660,14 @@
 					"sprites/characters/Player1.png"
 				],
 				"gridPoints": [
-					{ "x": 1, "y": 5 },
-					{ "x": 1, "y": 5 }
+					{
+						"x": 1,
+						"y": 5
+					},
+					{
+						"x": 1,
+						"y": 5
+					}
 				]
 			}
 		]
@@ -522,8 +690,14 @@
 					"sprites/characters/Player1.png"
 				],
 				"gridPoints": [
-					{ "x": 1, "y": 6 },
-					{ "x": 1, "y": 6 }
+					{
+						"x": 1,
+						"y": 6
+					},
+					{
+						"x": 1,
+						"y": 6
+					}
 				]
 			},
 			{
@@ -534,8 +708,14 @@
 					"sprites/characters/Player1.png"
 				],
 				"gridPoints": [
-					{ "x": 1, "y": 6 },
-					{ "x": 1, "y": 6 }
+					{
+						"x": 1,
+						"y": 6
+					},
+					{
+						"x": 1,
+						"y": 6
+					}
 				]
 			}
 		]
