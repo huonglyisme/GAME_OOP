@@ -25,11 +25,19 @@ public class InventorySlotTarget extends Target {
 
     @Override
     public void drop(Source source, Payload payload, float x, float y, int pointer) {
-        InventoryItem sourceActor = (InventoryItem) payload.getDragActor();
+        InventoryItem sourceActor = (InventoryItem) payload.getObject();
         InventoryItem targetActor = targetSlot.getTopInventoryItem();
         InventorySlot sourceSlot = ((InventorySlotSource)source).getSourceSlot();
 
         if (sourceActor == null) {
+            return;
+        }
+
+        sourceActor.setVisible(true);
+
+        // Dropping onto the source slot should simply place the item back.
+        if (sourceSlot == targetSlot) {
+            sourceSlot.add(sourceActor);
             return;
         }
 
@@ -44,7 +52,7 @@ public class InventorySlotTarget extends Target {
             targetSlot.add(sourceActor);
         } else {
             //If the same item and stackable, add
-            if (sourceActor.isSameItemType(targetActor) && sourceActor.isStackable()) {
+            if (sourceActor.isStackCompatibleWith(targetActor)) {
                 targetSlot.add(sourceActor);
             } else {
                 //If they aren't the same items or the items aren't stackable, then swap
