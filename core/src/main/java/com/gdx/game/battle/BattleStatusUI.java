@@ -26,6 +26,8 @@ public class BattleStatusUI extends Window implements StatusSubject {
     private Array<LevelTable> levelTables;
     private Array<StatusObserver> observers;
     private static final String LEVEL_TABLE_CONFIG = "scripts/level_tables.json";
+    private static final float STAT_VALUE_WIDTH = 40f;
+    private static final float STAT_SEPARATOR_WIDTH = 10f;
 
     //Attributes
     int xpCurrentMax = profileManager.getProperty("currentPlayerXPMax", Integer.class);
@@ -105,16 +107,20 @@ public class BattleStatusUI extends Window implements StatusSubject {
         Label separator = new Label("/", STATUS_UI_SKIN);
         hpValLabelMax = new Label(String.valueOf(hpCurrentMax), STATUS_UI_SKIN);
 
+        hpValLabel.setAlignment(Align.right);
+        hpValLabelMax.setAlignment(Align.right);
+        separator.setAlignment(Align.center);
+
         hpBar.setPosition(3, 6);
 
         group.addActor(bar);
         group.addActor(hpBar);
 
         this.add(group).size(bar.getWidth(), bar.getHeight()).padRight(10);
-        this.add(hpLabel);
-        this.add(hpValLabel);
-        this.add(separator);
-        this.add(hpValLabelMax);
+        this.add(hpLabel).left();
+        this.add(hpValLabel).width(STAT_VALUE_WIDTH).minWidth(STAT_VALUE_WIDTH).right();
+        this.add(separator).width(STAT_SEPARATOR_WIDTH).center();
+        this.add(hpValLabelMax).width(STAT_VALUE_WIDTH).minWidth(STAT_VALUE_WIDTH).right();
         this.row();
     }
 
@@ -129,16 +135,20 @@ public class BattleStatusUI extends Window implements StatusSubject {
         Label separator = new Label("/", STATUS_UI_SKIN);
         mpValLabelMax = new Label(String.valueOf(mpCurrentMax), STATUS_UI_SKIN);
 
+        mpValLabel.setAlignment(Align.right);
+        mpValLabelMax.setAlignment(Align.right);
+        separator.setAlignment(Align.center);
+
         mpBar.setPosition(3, 6);
 
         group2.addActor(bar2);
         group2.addActor(mpBar);
 
         this.add(group2).size(bar2.getWidth(), bar2.getHeight()).padRight(10);
-        this.add(mpLabel);
-        this.add(mpValLabel);
-        this.add(separator);
-        this.add(mpValLabelMax);
+        this.add(mpLabel).left();
+        this.add(mpValLabel).width(STAT_VALUE_WIDTH).minWidth(STAT_VALUE_WIDTH).right();
+        this.add(separator).width(STAT_SEPARATOR_WIDTH).center();
+        this.add(mpValLabelMax).width(STAT_VALUE_WIDTH).minWidth(STAT_VALUE_WIDTH).right();
         this.row();
     }
 
