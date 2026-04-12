@@ -52,8 +52,8 @@ public class MapManager implements ProfileObserver {
                 }
                 Vector2 currentPlayerPosition = profileManager.getProperty("currentPlayerPosition", Vector2.class);
                 if (currentPlayerPosition != null && !currentPlayerPosition.equals(new Vector2(0, 0))) {
-                    Vector2 currentPositionOnMap = new Vector2(currentPlayerPosition.x * 16, currentPlayerPosition.y * 16);
-                    MapFactory.getMap(this.currentMap.currentMapType).setPlayerStart(currentPositionOnMap);
+                    MapFactory.getMap(this.currentMap.currentMapType)
+                    .setClosestStartPositionFromScaledUnits(currentPlayerPosition);
                 }
             }
             case SAVING_PROFILE -> {
@@ -63,9 +63,7 @@ public class MapManager implements ProfileObserver {
                 profileManager.setProperty("currentPlayerPosition", player.getCurrentPosition());
                 profileManager.setProperty("toppleMapStartPosition", MapFactory.getMap(MapFactory.MapType.TOPPLE).getPlayerStart());
                 profileManager.setProperty("toppleRoad1MapStartPosition", MapFactory.getMap(MapFactory.MapType.TOPPLE_ROAD_1).getPlayerStart());
-                if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
-                    profileManager.setProperty("currentPlayerPosition", null);
-                }
+                
             }
             case CLEAR_CURRENT_PROFILE -> {
                 this.currentMap = null;
