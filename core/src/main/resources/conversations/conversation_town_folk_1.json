@@ -1,0 +1,71 @@
+{
+    "conversations": {
+        "1": {
+            "id": 1,
+            "dialog": "I heard there's a huge monster in the eastern forest, be careful when you go there."
+        },
+        "2": {
+            "id": 2,
+            "dialog": "How am I supposed to know? They said it was even bigger than the chief's house!"
+        },
+        "3": {
+            "id": 3,
+            "dialog": "Well then, just go check it for yourself. Don't come crying to me when you get hurt."
+        },
+        "4": {
+            "id": 4,
+            "dialog": "Ok"
+        }
+    },
+    "associatedChoices": {
+        "1": [
+            {
+                "class": "com.gdx.game.dialog.ConversationChoice",
+                "sourceId": 1,
+                "destinationId": 2,
+                "choicePhrase": "How big is it really though?",
+                "conversationCommandEvent": "NONE"
+            },
+            {
+                "class": "com.gdx.game.dialog.ConversationChoice",
+                "sourceId": 1,
+                "destinationId": 4,
+                "choicePhrase": "I will, thanks for the heads up.",
+                "conversationCommandEvent": "EXIT_CONVERSATION"
+            },
+            {
+                "class": "com.gdx.game.dialog.ConversationChoice",
+                "sourceId": 1,
+                "destinationId": 3,
+                "choicePhrase": "I don't believe you.",
+                "conversationCommandEvent": "NONE"
+            }
+        ],
+        "2": [
+            {
+                "class": "com.gdx.game.dialog.ConversationChoice",
+                "sourceId": 2,
+                "destinationId": 3,
+                "choicePhrase": "Nice try, but I'm not falling for that.",
+                "conversationCommandEvent": "NONE"
+            },
+            {
+                "class": "com.gdx.game.dialog.ConversationChoice",
+                "sourceId": 2,
+                "destinationId": 4,
+                "choicePhrase": "The chief's house is big indeed. I'll be careful then.",
+                "conversationCommandEvent": "EXIT_CONVERSATION"
+            }
+        ],
+        "3": [
+            {
+                "class": "com.gdx.game.dialog.ConversationChoice",
+                "sourceId": 3,
+                "destinationId": 4,
+                "choicePhrase": "...",
+                "conversationCommandEvent": "EXIT_CONVERSATION"
+            }
+        ]
+    },
+    "currentConversationID": 1
+}

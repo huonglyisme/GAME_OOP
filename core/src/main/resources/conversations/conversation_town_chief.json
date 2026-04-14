@@ -1,0 +1,37 @@
+{
+    "conversation": {
+        "1": {
+            "id": 1,
+            "dialog": "My child, the monsters are becoming more and more numerous on the eastern road. You have mana within you, please help the villagers defeat them."
+        },
+        "2": {
+            "id": 2,
+            "dialog": "Thank you child, with you on our side, I believe we can drive them away."
+        },
+        "3": {
+            "id": 3,
+            "dialog": "Ok"
+        }
+    },
+    "associatedChoices": {
+        "1": [
+            {
+                "class": "com.gdx.game.dialog.ConversationChoice",
+                "sourceId": 1,
+                "destinationId": 2,
+                "choicePhrase": "I will do my best",
+                "conversationCommandEvent": "NONE"
+            }
+        ],
+        "2": [
+            {
+                "class": "com.gdx.game.dialog.ConversationChoice",
+                "sourceId": 2,
+                "destinationId": 3,
+                "choicePhrase": "...",
+                "conversationCommandEvent": "EXIT_CONVERSATION"
+            }
+        ]
+    },
+    "currentConversationID": 1
+}

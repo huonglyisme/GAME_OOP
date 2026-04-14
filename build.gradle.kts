@@ -71,6 +71,12 @@ project(":desktop") {
 
 project(":core") {
 
+    tasks.register("printClasspath") {
+        doLast {
+            println(sourceSets["main"].runtimeClasspath.asPath)
+        }
+    }
+
     tasks.named<Copy>("processResources") {
         duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     }
@@ -88,6 +94,7 @@ project(":core") {
         implementation(variantOf(rootProject.libs.gdx.platform) { classifier("natives-desktop") })
         implementation(rootProject.libs.bundles.gdx.vfx)
         implementation(rootProject.libs.logback)
+        implementation(rootProject.libs.kryonet)
         testImplementation(rootProject.libs.gdx.backend.headless)
     }
 }

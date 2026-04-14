@@ -3,6 +3,8 @@ build/
 core/build/
 desktop/build/
 core/core/
+core/bin/
+desktop/bin/
 *.class
 
 # Gradle

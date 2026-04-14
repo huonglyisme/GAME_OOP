@@ -1,0 +1,111 @@
+{
+    "conversations": {
+        "1": {
+            "id": 1,
+            "dialog": "Weary wanderer, thou lookest spent from thy long journey. Rest thy bones, for we have a hearth and a vacant bed for thee."
+        },
+        "2": {
+            "id": 2,
+            "dialog": "Ho! It seems we have a scholar of the old tongue here. You've been reading some ancient scrolls, haven't you?"
+        },
+        "3": {
+            "id": 3,
+            "dialog": "For a traveler of such fine speech,I shall let you have the room for 10 gold coins. A fair trade for a 'Full Rest', wouldn't you say?"
+        },
+        "4": {
+            "id": 4,
+            "dialog": "..."
+        },
+        "5": {
+            "id": 5,
+            "dialog": "[The Innkeeper notices your confusion. He is offering you a room for 10 Gold coins to recover your stamina. Through body language, of course.]"
+        },
+        "6": {
+            "id": 6,
+            "dialog": "Ok"
+        }
+    },
+    "associatedChoices": {
+        "1": [
+            {
+                "class": "com.gdx.game.dialog.ConversationChoice",
+                "sourceId": 1,
+                "destinationId": 2,
+                "choicePhrase": "My thanks to thee, kind soul. The road hath been long and full of peril. I shall gladly take my rest within thy walls.",
+                "conversationCommandEvent": "NONE"
+            },
+            {
+                "class": "com.gdx.game.dialog.ConversationChoice",
+                "sourceId": 1,
+                "destinationId": 4,
+                "choicePhrase": "... (I have no idea what he's saying)",
+                "conversationCommandEvent": "NONE"
+            },
+            {
+                "class": "com.gdx.game.dialog.ConversationChoice",
+                "sourceId": 1,
+                "destinationId": 6,
+                "choicePhrase": "Wait... is this an inn or a Shakespearean play? I think I'm in the wrong place.",
+                "conversationCommandEvent": "EXIT_CONVERSATION"
+            }
+        ],
+        "2": [
+            {
+                "class": "com.gdx.game.dialog.ConversationChoice",
+                "sourceId": 2,
+                "destinationId": 3,
+                "choicePhrase": "...",
+                "conversationCommandEvent": "NONE"
+            }
+        ],
+        "3": [
+            {
+                "class": "com.gdx.game.dialog.ConversationChoice",
+                "sourceId": 3,
+                "destinationId": 6,
+                "choicePhrase": "A fair price indeed.",
+                "conversationCommandEvent": "EXIT_CONVERSATION"
+            },
+            {
+                "class": "com.gdx.game.dialog.ConversationChoice",
+                "sourceId": 3,
+                "destinationId": 6,
+                "choicePhrase": "... Hmm, perhaps a bit steep.",
+                "conversationCommandEvent": "EXIT_CONVERSATION"
+            }
+        ],
+        "4": [
+            {
+                "class": "com.gdx.game.dialog.ConversationChoice",
+                "sourceId": 4,
+                "destinationId": 5,
+                "choicePhrase": "...(Yup, no idea)",
+                "conversationCommandEvent": "NONE"
+            },
+            {
+                "class": "com.gdx.game.dialog.ConversationChoice",
+                "sourceId": 4,
+                "destinationId": 6,
+                "choicePhrase": "Well, I shall take my leave.",
+                "conversationCommandEvent": "EXIT_CONVERSATION"
+            }
+        ],
+        "5": [
+            {
+                "class": "com.gdx.game.dialog.ConversationChoice",
+                "sourceId": 5,
+                "destinationId": 6,
+                "choicePhrase": "A fair price indeed.",
+                "conversationCommandEvent": "EXIT_CONVERSATION"
+            },
+            {
+                "class": "com.gdx.game.dialog.ConversationChoice",
+                "sourceId": 5,
+                "destinationId": 6,
+                "choicePhrase": "... Hmm, perhaps a bit steep.",
+                "conversationCommandEvent": "EXIT_CONVERSATION"
+            }
+        ]
+    },
+    "currentConversationID": 1
+}

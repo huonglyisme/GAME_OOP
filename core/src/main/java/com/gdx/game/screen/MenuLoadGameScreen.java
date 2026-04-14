@@ -15,6 +15,7 @@ import com.gdx.game.manager.ResourceManager;
 import com.gdx.game.profile.ProfileManager;
 import com.gdx.game.screen.transition.effects.FadeOutTransitionEffect;
 import com.gdx.game.screen.transition.effects.TransitionEffect;
+import com.gdx.game.screen.transition.effects.FadeInTransitionEffect;
 
 import java.util.ArrayList;
 
@@ -92,7 +93,7 @@ public class MenuLoadGameScreen extends BaseScreen {
 
                         ArrayList<TransitionEffect> effects = new ArrayList<>();
                         effects.add(new FadeOutTransitionEffect(1f));
-                        //effects.add(new FadeInTransitionEffect(1f)); TODO: Issue with fadein effect
+                        
                         setScreenWithTransition((BaseScreen) gdxGame.getScreen(), gdxGame.getGameScreen(), effects);
                     }
                 }
@@ -109,7 +110,10 @@ public class MenuLoadGameScreen extends BaseScreen {
         backButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent even, float x, float y) {
-                setScreenWithTransition((BaseScreen) gdxGame.getScreen(), previousScreen, new ArrayList<>());
+                ArrayList<TransitionEffect> effects = new ArrayList<>();
+effects.add(new FadeOutTransitionEffect(1f));
+effects.add(new FadeInTransitionEffect(1f));
+setScreenWithTransition((BaseScreen) gdxGame.getScreen(), previousScreen, effects);
             }
         });
     }

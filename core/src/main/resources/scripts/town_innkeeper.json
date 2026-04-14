@@ -3,7 +3,7 @@
   "entityStatus": "VILLAGER",
   "state": "IMMOBILE",
   "direction": "DOWN",
-  "conversationConfigPath": "",
+  "conversationConfigPath": "conversations/conversation_town_innkeeper.json",
   "resumeConfigPath": "",
   "questConfigPath": "",
   "currentQuestID": "",
@@ -17,8 +17,14 @@
         "sprites/characters/Player1.png"
       ],
       "gridPoints": [
-        { "x": 0, "y": 5 },
-        { "x": 0, "y": 5 }
+        {
+          "x": 0,
+          "y": 5
+        },
+        {
+          "x": 0,
+          "y": 5
+        }
       ]
     },
     {
@@ -29,8 +35,14 @@
         "sprites/characters/Player1.png"
       ],
       "gridPoints": [
-        { "x": 0, "y": 5 },
-        { "x": 0, "y": 5 }
+        {
+          "x": 0,
+          "y": 5
+        },
+        {
+          "x": 0,
+          "y": 5
+        }
       ]
     }
   ]

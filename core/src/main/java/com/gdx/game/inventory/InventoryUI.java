@@ -305,6 +305,7 @@ public class InventoryUI extends Window implements InventorySubject, InventorySl
             InventoryItemLocation itemLocation = inventoryItems.get(i);
             InventoryItem.ItemTypeID itemTypeID = InventoryItem.ItemTypeID.valueOf(itemLocation.getItemTypeAtLocation());
             InventorySlot inventorySlot = ((InventorySlot)cells.get(itemLocation.getLocationIndex()).getActor());
+            boolean shouldEnableDrag = false;
 
             for(int index = 0; index < itemLocation.getNumberItemsAtLocation(); index++) {
                 InventoryItem item = InventoryItemFactory.getInstance().getInventoryItem(itemTypeID);
@@ -316,11 +317,13 @@ public class InventoryUI extends Window implements InventorySubject, InventorySl
                 }
 
                 inventorySlot.add(item);
-                if (item.getName().equalsIgnoreCase(defaultName)) {
-                    draganddrop.addSource(new InventorySlotSource(inventorySlot, draganddrop));
-                } else if (!disableNonDefaultItems) {
-                    draganddrop.addSource(new InventorySlotSource(inventorySlot, draganddrop));
-                }
+                shouldEnableDrag = shouldEnableDrag
+                        || item.getName().equalsIgnoreCase(defaultName)
+                        || !disableNonDefaultItems;
+            }
+
+            if (shouldEnableDrag && inventorySlot.hasItem()) {
+                draganddrop.addSource(new InventorySlotSource(inventorySlot, draganddrop));
             }
         }
     }

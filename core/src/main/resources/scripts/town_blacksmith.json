@@ -3,7 +3,7 @@
 	"entityStatus": "VILLAGER",
 	"state": "IMMOBILE",
 	"direction": "DOWN",
-	"conversationConfigPath": "conversations/conversation003.json",
+	"conversationConfigPath": "conversations/conversation_town_blacksmith.json",
 	"resumeConfigPath": "",
 	"questConfigPath": "",
 	"currentQuestID": "",
