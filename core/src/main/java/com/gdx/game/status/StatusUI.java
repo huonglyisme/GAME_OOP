@@ -17,9 +17,6 @@ public class StatusUI extends Window implements StatusSubject {
     private Image mpBar;
     private Image xpBar;
 
-    private static final float STAT_VALUE_WIDTH = 40f;
-    private static final float STAT_SEPARATOR_WIDTH = 10f;
-
     private ImageButton inventoryButton;
     private ImageButton questButton;
     private Array<StatusObserver> observers;
@@ -94,21 +91,16 @@ public class StatusUI extends Window implements StatusSubject {
         Label separator = new Label("/", STATUS_UI_SKIN);
         hpValLabelMax = new Label(String.valueOf(hpCurrentMax), STATUS_UI_SKIN);
 
-        hpValLabel.setAlignment(Align.right);
-        hpValLabelMax.setAlignment(Align.right);
-        separator.setAlignment(Align.center);
-
-
         hpBar.setPosition(3, 6);
 
         group.addActor(bar);
         group.addActor(hpBar);
 
         this.add(group).size(bar.getWidth(), bar.getHeight()).padRight(10);
-        this.add(hpLabel).left();
-        this.add(hpValLabel).width(STAT_VALUE_WIDTH).minWidth(STAT_VALUE_WIDTH).right();
-        this.add(separator).width(STAT_SEPARATOR_WIDTH).center();
-        this.add(hpValLabelMax).width(STAT_VALUE_WIDTH).minWidth(STAT_VALUE_WIDTH).right();
+        this.add(hpLabel);
+        this.add(hpValLabel);
+        this.add(separator);
+        this.add(hpValLabelMax);
         this.row();
     }
 
@@ -123,20 +115,16 @@ public class StatusUI extends Window implements StatusSubject {
         Label separator = new Label("/", STATUS_UI_SKIN);
         mpValLabelMax = new Label(String.valueOf(mpCurrentMax), STATUS_UI_SKIN);
 
-        mpValLabel.setAlignment(Align.right);
-        mpValLabelMax.setAlignment(Align.right);
-        separator.setAlignment(Align.center);
-
         mpBar.setPosition(3, 6);
 
         group2.addActor(bar2);
         group2.addActor(mpBar);
 
         this.add(group2).size(bar2.getWidth(), bar2.getHeight()).padRight(10);
-        this.add(mpLabel).left();
-        this.add(mpValLabel).width(STAT_VALUE_WIDTH).minWidth(STAT_VALUE_WIDTH).right();
-        this.add(separator).width(STAT_SEPARATOR_WIDTH).center();
-        this.add(mpValLabelMax).width(STAT_VALUE_WIDTH).minWidth(STAT_VALUE_WIDTH).right();
+        this.add(mpLabel);
+        this.add(mpValLabel);
+        this.add(separator);
+        this.add(mpValLabelMax);
         this.row();
     }
 
@@ -401,16 +389,11 @@ public class StatusUI extends Window implements StatusSubject {
     }
 
     public void updateBar(Image bar, int currentVal, int maxVal) {
-    if (maxVal <= 0) {
-        bar.setSize(0, barHeight);
-        return;
+        int val = MathUtils.clamp(currentVal, 0, maxVal);
+        float tempPercent = (float) val / (float) maxVal;
+        float percentage = MathUtils.clamp(tempPercent, 0, 100);
+        bar.setSize(barWidth *percentage, barHeight);
     }
-
-    int val = MathUtils.clamp(currentVal, 0, maxVal);
-    float tempPercent = (float) val / (float) maxVal;
-    float percentage = MathUtils.clamp(tempPercent, 0f, 1f);
-    bar.setSize(barWidth * percentage, barHeight);
-}
 
     @Override
     public void addObserver(StatusObserver statusObserver) {

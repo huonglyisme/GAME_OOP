@@ -5,8 +5,6 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 
-import java.util.Objects;
-
 public class InventoryItem extends Image {
 
     public enum ItemAttribute {
@@ -202,18 +200,6 @@ public class InventoryItem extends Image {
 
     public boolean isSameItemType(InventoryItem candidateInventoryItem) {
         return itemTypeID == candidateInventoryItem.getItemTypeID();
-    }
-
-    public boolean isStackCompatibleWith(InventoryItem candidateInventoryItem) {
-        if (candidateInventoryItem == null) {
-            return false;
-        }
-
-        // Keep stacks homogeneous by item type and owner/source name.
-        return isStackable()
-                && candidateInventoryItem.isStackable()
-                && isSameItemType(candidateInventoryItem)
-                && Objects.equals(getName(), candidateInventoryItem.getName());
     }
 
     public static boolean doesRestoreHP(int itemUseType) {

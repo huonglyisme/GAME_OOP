@@ -226,9 +226,7 @@ public class InventorySlot extends Stack implements InventorySlotSubject {
 
         //swap
         Array<Actor> tempArray = inventorySlotSource.getAllInventoryItems();
-        if (!tempArray.contains(dragActor, true)) {
-            tempArray.add(dragActor);
-        }
+        tempArray.add(dragActor);
         inventorySlotSource.add(inventorySlotTarget.getAllInventoryItems());
         inventorySlotTarget.add(tempArray);
     }

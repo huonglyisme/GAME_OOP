@@ -103,24 +103,6 @@ public class BattleStateTest {
     }
 
     @Test
-    void playerAttack_killOpponent_UsesDropTableWhenConfigured() {
-        String dropId = "HERB001";
-        BattleState battleState = spy(new BattleState());
-        Entity player = EntityFactory.getInstance().getEntity(EntityFactory.EntityType.WARRIOR);
-        Entity enemy = EntityFactory.getInstance().getEntity(EntityFactory.EntityType.ENEMY);
-        enemy.getEntityConfig().setPropertyValue(EntityConfig.EntityProperties.ENTITY_HEALTH_POINTS.toString(), "1");
-        enemy.getEntityConfig().setPropertyValue(EntityConfig.EntityProperties.ENTITY_PHYSICAL_DEFENSE_POINTS.toString(), "4");
-        enemy.getEntityConfig().setDropTableID("TEST_GUARANTEED_DROP");
-        battleState.setPlayer(player);
-        battleState.setCurrentOpponent(enemy);
-
-        battleState.getPlayerAttackCalculationTimer().run();
-
-        assertThat(enemy.getEntityConfig().getPropertyValue(EntityConfig.EntityProperties.ENTITY_HEALTH_POINTS.toString())).isEqualTo("0");
-        verify(battleState).notify(dropId, InventoryObserver.InventoryEvent.DROP_ITEM_ADDED);
-    }
-
-    @Test
     void opponentAttack() {
         BattleState battleState = spy(new BattleState());
         Entity player = EntityFactory.getInstance().getEntity(EntityFactory.EntityType.WARRIOR);

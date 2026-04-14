@@ -83,30 +83,6 @@ public class InventoryItemTest {
     }
 
     @Test
-    public void testIsStackCompatibleWith_ShouldSucceed_WhenSameTypeAndSameName() {
-        InventoryItem inventoryItem = new InventoryItem(InventoryItemFactory.getInstance().getInventoryItem(InventoryItem.ItemTypeID.POTIONS01));
-        InventoryItem inventoryItem1 = new InventoryItem(InventoryItemFactory.getInstance().getInventoryItem(InventoryItem.ItemTypeID.POTIONS01));
-        inventoryItem.setName("Player_Inventory");
-        inventoryItem1.setName("Player_Inventory");
-
-        boolean stackCompatible = inventoryItem.isStackCompatibleWith(inventoryItem1);
-
-        assertThat(stackCompatible).isTrue();
-    }
-
-    @Test
-    public void testIsStackCompatibleWith_ShouldFail_WhenSameTypeDifferentName() {
-        InventoryItem inventoryItem = new InventoryItem(InventoryItemFactory.getInstance().getInventoryItem(InventoryItem.ItemTypeID.POTIONS01));
-        InventoryItem inventoryItem1 = new InventoryItem(InventoryItemFactory.getInstance().getInventoryItem(InventoryItem.ItemTypeID.POTIONS01));
-        inventoryItem.setName("Player_Inventory");
-        inventoryItem1.setName("Store_Inventory");
-
-        boolean stackCompatible = inventoryItem.isStackCompatibleWith(inventoryItem1);
-
-        assertThat(stackCompatible).isFalse();
-    }
-
-    @Test
     public void testIsSameItemType_ShouldFailed() {
         InventoryItem inventoryItem = new InventoryItem(InventoryItemFactory.getInstance().getInventoryItem(InventoryItem.ItemTypeID.ARMOR03));
         InventoryItem inventoryItem1 = new InventoryItem(InventoryItemFactory.getInstance().getInventoryItem(InventoryItem.ItemTypeID.POTIONS02));
