@@ -3,7 +3,7 @@
 	"entityStatus": "VILLAGER",
 	"state": "IMMOBILE",
 	"direction": "DOWN",
-	"conversationConfigPath": "conversations/conversation_town_mage.json",
+	"conversationConfigPath": "conversations/conversation003.json",
 	"resumeConfigPath": "",
 	"questConfigPath": "",
 	"currentQuestID": "",

@@ -17,7 +17,6 @@ public class EntityConfig {
     private String resumeConfigPath;
     private String questConfigPath;
     private String currentQuestID;
-    private String dropTableID;
     private String itemTypeID;
     private ObjectMap<String, String> entityProperties;
     private Array<Drop> drops;
@@ -53,7 +52,6 @@ public class EntityConfig {
         resumeConfigPath = config.getResumeConfigPath();
         questConfigPath = config.getQuestConfigPath();
         currentQuestID = config.getCurrentQuestID();
-        dropTableID = config.getDropTableID();
         itemTypeID = config.getItemTypeID();
 
         animationConfig = new Array<>();
@@ -99,14 +97,6 @@ public class EntityConfig {
 
     public String getItemTypeID() {
         return itemTypeID;
-    }
-
-    public String getDropTableID() {
-        return dropTableID;
-    }
-
-    public void setDropTableID(String dropTableID) {
-        this.dropTableID = dropTableID;
     }
 
     public void setItemTypeID(String itemTypeID) {

@@ -8,7 +8,6 @@
 		"resumeConfigPath": "You gained <xp> XP and <gold> Gold",
 		"questConfigPath": "",
 		"currentQuestID": "",
-		"dropTableID": "RABITE_DROPS",
 		"itemTypeID": "NONE",
 		"entityProperties": {
 			"ENTITY_HEALTH_POINTS": {
@@ -102,7 +101,6 @@
 		"resumeConfigPath": "You gained <xp> XP and <gold> Gold",
 		"questConfigPath": "",
 		"currentQuestID": "",
-		"dropTableID": "RABITE2_DROPS",
 		"itemTypeID": "NONE",
 		"entityProperties": {
 			"ENTITY_HEALTH_POINTS": {
