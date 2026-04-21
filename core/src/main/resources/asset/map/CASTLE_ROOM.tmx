@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.12.1" orientation="orthogonal" renderorder="right-down" width="10" height="9" tilewidth="32" tileheight="32" infinite="0" nextlayerid="14" nextobjectid="146">
+ <tileset firstgid="1" source="swordofmana_map1.tsx"/>
+ <tileset firstgid="34399" source="mana1.tsx"/>
+ <tileset firstgid="34519" source="mana2.tsx"/>
+ <tileset firstgid="34639" source="mana3.tsx"/>
+ <tileset firstgid="34759" source=":/automap-tiles.tsx"/>
+ <layer id="13" name="Map_Layer" width="10" height="9">
+  <data encoding="csv">
+1597,1598,1599,1600,1601,1602,1603,1604,1605,1606,
+1786,1787,1788,1789,1790,1791,1792,1793,1794,1795,
+1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,
+2164,2165,2166,2167,2168,2169,2170,2171,2172,2173,
+2353,2354,2355,2356,2357,2358,2359,2360,2361,2362,
+2542,2543,2544,2545,2546,2547,2548,2549,2550,2551,
+2731,2732,2733,2734,2735,2736,2737,2738,2739,2740,
+2920,2921,2922,2923,2924,2925,2926,2927,2928,2929,
+3109,3110,3111,3112,3113,3114,3115,3116,3117,3118
+</data>
+ </layer>
+ <objectgroup id="3" name="MAP_COLLISION_LAYER" visible="0">
+  <object id="25" x="20.5724" y="24.5489" width="81.3333" height="33.3333"/>
+  <object id="26" x="22.6667" y="61.3333" width="78" height="9.33333"/>
+  <object id="27" x="22" y="71.3333" width="66" height="8"/>
+  <object id="28" x="88" y="71.3333" width="8" height="5.33333"/>
+  <object id="29" x="26.1178" y="79.3333" width="67.3333" height="14.6667"/>
+  <object id="30" x="38.589" y="94" width="62" height="16"/>
+  <object id="31" x="82.6667" y="111.333" width="8" height="16"/>
+  <object id="32" x="3.31673" y="131.451" width="81.185" height="41.8045"/>
+  <object id="33" x="49.6091" y="108.667" width="60.6667" height="20.7374"/>
+  <object id="34" x="90" y="139.333" width="7.33333" height="18"/>
+  <object id="35" x="98.6667" y="145.333" width="6.66667" height="14.6667"/>
+  <object id="36" x="165.359" y="93.9271" width="46" height="54.6667"/>
+  <object id="37" x="158.855" y="168.007" width="10" height="14.6667"/>
+  <object id="39" x="150.174" y="151.378" width="41.3333" height="11.3333"/>
+  <object id="40" x="5.9404" y="172.351" width="50.582" height="36.966"/>
+  <object id="41" x="1.26968" y="220.98" width="70" height="23.9223"/>
+  <object id="42" x="16.4782" y="271.844" width="61.3333" height="10"/>
+  <object id="43" x="22.6667" y="247.333" width="50.6667" height="8.66667"/>
+  <object id="44" x="232.205" y="113.88" width="51.3333" height="18" rotation="37.4852"/>
+  <object id="45" x="22.6667" y="273.333" width="41.3333" height="10"/>
+  <object id="46" x="22" y="283.333" width="34" height="7.33333"/>
+  <object id="47" x="4.74434" y="285.811" width="38.6667" height="58.8412"/>
+  <object id="54" x="143.977" y="281.661" width="29.3333" height="22.6667"/>
+  <object id="63" x="227.058" y="288.011" width="54" height="82.6667"/>
+  <object id="75" x="190" y="70" width="58" height="34"/>
+  <object id="76" x="178" y="56" width="12" height="38"/>
+  <object id="77" x="163.333" y="49.3333" width="15.3333" height="25.3333"/>
+  <object id="78" x="148.871" y="33.4415" width="45.3333" height="41.5149"/>
+  <object id="81" x="243.882" y="42.596" width="29.3263" height="82.5348"/>
+  <object id="82" x="252" y="30.6667" width="12.6667" height="38"/>
+  <object id="83" x="260" y="21.1449" width="40.2993" height="78.8882"/>
+  <object id="86" x="272.667" y="28.6667" width="84.6667" height="24.6667"/>
+  <object id="87" x="301.528" y="38.219" width="47.3333" height="44.1815"/>
+  <object id="88" x="307.333" y="51.3333" width="9.33333" height="11.3333"/>
+  <object id="109" x="217.765" y="280.365" width="19.5" height="28.5"/>
+  <object id="111" x="312.5" y="229.5" width="17.5" height="9.5"/>
+  <object id="117" x="221.841" y="285.105" width="33.5" height="14.5"/>
+  <object id="118" x="315" y="192.5" width="17.5" height="9"/>
+  <object id="129" x="32.0375" y="256.31" width="12" height="20.5455"/>
+  <object id="133" x="203.265" y="238.387" width="75.9389" height="38.1344"/>
+  <object id="134" x="262.624" y="217.68" width="28.3133" height="46.4171"/>
+  <object id="135" x="295.065" y="196.283" width="53.1615" height="27.781"/>
+ </objectgroup>
+ <objectgroup id="4" name="MAP_SPAWNS_LAYER">
+  <object id="146" name="PLAYER1_START" x="100" y="150" width="32" height="32"/>
+  <object id="147" name="PLAYER2_START" x="135" y="150" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup id="5" name="MAP_ENEMY_SPAWN_LAYER"/>
+ <objectgroup id="6" name="MAP_PORTAL_LAYER">
+  <object id="130" name="CASTLE_HALL" x="155.928" y="271.107" width="35.8326" height="12.1345"/>
+  <object id="145" name="CASTLE_FINAL" x="271.948" y="18.752" width="26.6403" height="32.3576"/>
+ </objectgroup>
+</map>
