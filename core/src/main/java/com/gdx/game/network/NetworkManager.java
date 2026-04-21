@@ -5,6 +5,7 @@ import com.esotericsoftware.kryonet.Client;
 import com.esotericsoftware.kryonet.Connection;
 import com.esotericsoftware.kryonet.Listener;
 import com.esotericsoftware.kryonet.Server;
+import com.gdx.game.network.packets.GameStateSyncPacket;
 import com.gdx.game.network.packets.PlayerDisconnectPacket;
 import com.gdx.game.network.packets.PlayerJoinPacket;
 import com.gdx.game.network.packets.PlayerMovePacket;
@@ -159,6 +160,9 @@ public class NetworkManager {
         kryo.register(PlayerMovePacket.class);
         kryo.register(PlayerJoinPacket.class);
         kryo.register(PlayerDisconnectPacket.class);
+        kryo.register(RemotePlayer.class);
+        kryo.register(RemotePlayer[].class);
+        kryo.register(GameStateSyncPacket.class);
         // Them packet moi vao day khi can
     }
 
