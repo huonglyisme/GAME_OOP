@@ -1,0 +1,25 @@
+{
+    "conversations": {
+        "1": {
+            "id": 1,
+            "dialog": "Ugh... stay back, traveler. I was ambushed by a Rabite deeper in this cave. Those creatures are no joke — watch yourself."
+        },
+        "2": {
+            "id": 2,
+            "dialog": "Thanks for the concern. I'll rest here a while longer. Safe travels."
+        }
+    },
+    "associatedChoices": {
+        "1": [
+            {
+                "class": "com.gdx.game.dialog.ConversationChoice",
+                "sourceId": 1,
+                "destinationId": 2,
+                "choicePhrase": "Hang in there.",
+                "conversationCommandEvent": "EXIT_CONVERSATION"
+            }
+        ],
+        "2": []
+    },
+    "currentConversationID": "1"
+}

@@ -1,37 +1,85 @@
 [
   {
-    "dropTableID": "RABITE_DROPS",
+    "dropTableID": "RABITE1_DROPS",
     "drops": [
-      {
-        "itemTypeID": "HERB001",
-        "probability": 0.6
-      },
-      {
-        "itemTypeID": "FUR001",
-        "probability": 0.4
-      }
+      { "itemTypeID": "HERB001", "probability": 0.6 },
+      { "itemTypeID": "FUR001", "probability": 0.4 }
     ]
   },
   {
     "dropTableID": "RABITE2_DROPS",
     "drops": [
-      {
-        "itemTypeID": "HERB001",
-        "probability": 0.6
-      },
-      {
-        "itemTypeID": "FUR001",
-        "probability": 0.4
-      }
+      { "itemTypeID": "HERB001", "probability": 0.6 },
+      { "itemTypeID": "FUR001", "probability": 0.4 }
+    ]
+  },
+  {
+    "dropTableID": "RABITE4_DROPS",
+    "drops": [
+      { "itemTypeID": "HERB001", "probability": 0.6 },
+      { "itemTypeID": "FUR001", "probability": 0.5 }
+    ]
+  },
+  {
+    "dropTableID": "RABITE5_DROPS",
+    "drops": [
+      { "itemTypeID": "HERB001", "probability": 0.7 },
+      { "itemTypeID": "FUR001", "probability": 0.5 }
+    ]
+  },
+  {
+    "dropTableID": "RABITE6_DROPS",
+    "drops": [
+      { "itemTypeID": "HERB001", "probability": 0.7 },
+      { "itemTypeID": "FUR001", "probability": 0.6 }
+    ]
+  },
+  {
+    "dropTableID": "RABITE7_DROPS",
+    "drops": [
+      { "itemTypeID": "HERB001", "probability": 0.7 },
+      { "itemTypeID": "FUR001", "probability": 0.6 }
+    ]
+  },
+  {
+    "dropTableID": "RABITE9_DROPS",
+    "drops": [
+      { "itemTypeID": "HERB001", "probability": 0.8 },
+      { "itemTypeID": "FUR001", "probability": 0.7 }
+    ]
+  },
+  {
+    "dropTableID": "RABITE10_DROPS",
+    "drops": [
+      { "itemTypeID": "HERB001", "probability": 0.9 },
+      { "itemTypeID": "FUR001", "probability": 0.8 }
+    ]
+  },
+  {
+    "dropTableID": "RABITE11_DROPS",
+    "drops": [
+      { "itemTypeID": "HERB001", "probability": 0.9 },
+      { "itemTypeID": "FUR001", "probability": 0.8 }
+    ]
+  },
+  {
+    "dropTableID": "RABITE12_DROPS",
+    "drops": [
+      { "itemTypeID": "HERB001", "probability": 0.9 },
+      { "itemTypeID": "FUR001", "probability": 0.8 }
+    ]
+  },
+  {
+    "dropTableID": "RABITE20_DROPS",
+    "drops": [
+      { "itemTypeID": "HERB001", "probability": 1.0 },
+      { "itemTypeID": "FUR001", "probability": 1.0 }
     ]
   },
   {
     "dropTableID": "TEST_GUARANTEED_DROP",
     "drops": [
-      {
-        "itemTypeID": "HERB001",
-        "probability": 1.0
-      }
+      { "itemTypeID": "HERB001", "probability": 1.0 }
     ]
   }
 ]

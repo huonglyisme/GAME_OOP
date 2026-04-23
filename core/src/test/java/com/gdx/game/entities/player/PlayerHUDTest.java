@@ -301,7 +301,7 @@ public class PlayerHUDTest {
     @Test
     void opponent_defeated() {
         Entity player = EntityFactory.getInstance().getEntity(EntityFactory.EntityType.WARRIOR);
-        Entity enemy = EntityFactory.getInstance().getEntityByName(EntityFactory.EntityName.RABITE);
+        Entity enemy = EntityFactory.getInstance().getEntityByName(EntityFactory.EntityName.RABITE1);
         MapManager mapManager = new MapManager();
         mapManager.setPlayer(player);
         Camera camera = new OrthographicCamera();
@@ -320,7 +320,7 @@ public class PlayerHUDTest {
     @Test
     void player_hit_damage() {
         Entity player = EntityFactory.getInstance().getEntity(EntityFactory.EntityType.WARRIOR);
-        Entity enemy = EntityFactory.getInstance().getEntityByName(EntityFactory.EntityName.RABITE);
+        Entity enemy = EntityFactory.getInstance().getEntityByName(EntityFactory.EntityName.RABITE1);
         MapManager mapManager = new MapManager();
         mapManager.setPlayer(player);
         Camera camera = new OrthographicCamera();

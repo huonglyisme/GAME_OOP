@@ -21,7 +21,7 @@
         },
         "TARGET_LOCATION": {
           "class": "java.lang.String",
-          "value": "TOPPLE"
+          "value": "VILLAGE"
         }
       },
       "id": 2,
@@ -40,7 +40,7 @@
         },
         "TARGET_LOCATION": {
           "class": "java.lang.String",
-          "value": "TOPPLE"
+          "value": "VILLAGE"
         }
       },
       "id": 1,

@@ -1,6 +1,6 @@
 [
 	{
-		"entityID": "RABITE",
+		"entityID": "RABITE1",
 		"entityStatus": "FOE",
 		"state": "IMMOBILE",
 		"direction": "DOWN",
@@ -8,88 +8,34 @@
 		"resumeConfigPath": "You gained <xp> XP and <gold> Gold",
 		"questConfigPath": "",
 		"currentQuestID": "",
-		"dropTableID": "RABITE_DROPS",
+		"dropTableID": "RABITE1_DROPS",
 		"itemTypeID": "NONE",
 		"entityProperties": {
-			"ENTITY_HEALTH_POINTS": {
-				"class": "java.lang.String",
-				"value": 15
-			},
-			"ENTITY_PHYSICAL_ATTACK_POINTS": {
-				"class": "java.lang.String",
-				"value": 6
-			},
-			"ENTITY_PHYSICAL_DEFENSE_POINTS": {
-				"class": "java.lang.String",
-				"value": 5
-			},
-			"ENTITY_MAGIC_ATTACK_POINTS": {
-				"class": "java.lang.String",
-				"value": 10
-			},
-			"ENTITY_MAGIC_DEFENSE_POINTS": {
-				"class": "java.lang.String",
-				"value": 10
-			},
-			"ENTITY_SPEED_POINTS": {
-				"class": "java.lang.String",
-				"value": 5
-			},
-			"ENTITY_XP_REWARD": {
-				"class": "java.lang.String",
-				"value": 10
-			},
-			"ENTITY_GP_REWARD": {
-				"class": "java.lang.String",
-				"value": 5
-			}
+			"ENTITY_HEALTH_POINTS": { "class": "java.lang.String", "value": 15 },
+			"ENTITY_PHYSICAL_ATTACK_POINTS": { "class": "java.lang.String", "value": 6 },
+			"ENTITY_PHYSICAL_DEFENSE_POINTS": { "class": "java.lang.String", "value": 5 },
+			"ENTITY_MAGIC_ATTACK_POINTS": { "class": "java.lang.String", "value": 10 },
+			"ENTITY_MAGIC_DEFENSE_POINTS": { "class": "java.lang.String", "value": 10 },
+			"ENTITY_SPEED_POINTS": { "class": "java.lang.String", "value": 5 },
+			"ENTITY_XP_REWARD": { "class": "java.lang.String", "value": 10 },
+			"ENTITY_GP_REWARD": { "class": "java.lang.String", "value": 5 }
 		},
 		"drops": [
-			{
-				"itemTypeID": "HERB001",
-				"probability": 0.6
-			},
-			{
-				"itemTypeID": "FUR001",
-				"probability": 0.4
-			}
+			{ "itemTypeID": "HERB001", "probability": 0.6 },
+			{ "itemTypeID": "FUR001", "probability": 0.4 }
 		],
 		"animationConfig": [
 			{
 				"frameDuration": 0.5,
 				"animationType": "IDLE",
-				"texturePaths": [
-					"sprites/characters/Demon0.png",
-					"sprites/characters/Demon1.png"
-				],
-				"gridPoints": [
-					{
-						"x": 0,
-						"y": 0
-					},
-					{
-						"x": 0,
-						"y": 0
-					}
-				]
+				"texturePaths": [ "sprites/characters/Demon0.png", "sprites/characters/Demon1.png" ],
+				"gridPoints": [ { "x": 0, "y": 0 }, { "x": 0, "y": 0 } ]
 			},
 			{
 				"frameDuration": 0.5,
 				"animationType": "IMMOBILE",
-				"texturePaths": [
-					"sprites/characters/Demon0.png",
-					"sprites/characters/Demon1.png"
-				],
-				"gridPoints": [
-					{
-						"x": 0,
-						"y": 0
-					},
-					{
-						"x": 0,
-						"y": 0
-					}
-				]
+				"texturePaths": [ "sprites/characters/Demon0.png", "sprites/characters/Demon1.png" ],
+				"gridPoints": [ { "x": 0, "y": 0 }, { "x": 0, "y": 0 } ]
 			}
 		]
 	},
@@ -105,85 +51,391 @@
 		"dropTableID": "RABITE2_DROPS",
 		"itemTypeID": "NONE",
 		"entityProperties": {
-			"ENTITY_HEALTH_POINTS": {
-				"class": "java.lang.String",
-				"value": 15
-			},
-			"ENTITY_PHYSICAL_ATTACK_POINTS": {
-				"class": "java.lang.String",
-				"value": 15
-			},
-			"ENTITY_PHYSICAL_DEFENSE_POINTS": {
-				"class": "java.lang.String",
-				"value": 10
-			},
-			"ENTITY_MAGIC_ATTACK_POINTS": {
-				"class": "java.lang.String",
-				"value": 10
-			},
-			"ENTITY_MAGIC_DEFENSE_POINTS": {
-				"class": "java.lang.String",
-				"value": 10
-			},
-			"ENTITY_SPEED_POINTS": {
-				"class": "java.lang.String",
-				"value": 10
-			},
-			"ENTITY_XP_REWARD": {
-				"class": "java.lang.String",
-				"value": 805
-			},
-			"ENTITY_GP_REWARD": {
-				"class": "java.lang.String",
-				"value": 5
-			}
+			"ENTITY_HEALTH_POINTS": { "class": "java.lang.String", "value": 15 },
+			"ENTITY_PHYSICAL_ATTACK_POINTS": { "class": "java.lang.String", "value": 6 },
+			"ENTITY_PHYSICAL_DEFENSE_POINTS": { "class": "java.lang.String", "value": 5 },
+			"ENTITY_MAGIC_ATTACK_POINTS": { "class": "java.lang.String", "value": 10 },
+			"ENTITY_MAGIC_DEFENSE_POINTS": { "class": "java.lang.String", "value": 10 },
+			"ENTITY_SPEED_POINTS": { "class": "java.lang.String", "value": 5 },
+			"ENTITY_XP_REWARD": { "class": "java.lang.String", "value": 10 },
+			"ENTITY_GP_REWARD": { "class": "java.lang.String", "value": 5 }
 		},
 		"drops": [
-			{
-				"itemTypeID": "HERB001",
-				"probability": 0.6
-			},
-			{
-				"itemTypeID": "FUR001",
-				"probability": 0.4
-			}
+			{ "itemTypeID": "HERB001", "probability": 0.6 },
+			{ "itemTypeID": "FUR001", "probability": 0.4 }
 		],
 		"animationConfig": [
 			{
 				"frameDuration": 0.5,
 				"animationType": "IDLE",
-				"texturePaths": [
-					"sprites/characters/Demon0.png",
-					"sprites/characters/Demon1.png"
-				],
-				"gridPoints": [
-					{
-						"x": 0,
-						"y": 6
-					},
-					{
-						"x": 0,
-						"y": 6
-					}
-				]
+				"texturePaths": [ "sprites/characters/Demon0.png", "sprites/characters/Demon1.png" ],
+				"gridPoints": [ { "x": 0, "y": 6 }, { "x": 0, "y": 6 } ]
 			},
 			{
 				"frameDuration": 0.5,
 				"animationType": "IMMOBILE",
-				"texturePaths": [
-					"sprites/characters/Demon0.png",
-					"sprites/characters/Demon1.png"
-				],
-				"gridPoints": [
-					{
-						"x": 0,
-						"y": 6
-					},
-					{
-						"x": 0,
-						"y": 6
-					}
-				]
+				"texturePaths": [ "sprites/characters/Demon0.png", "sprites/characters/Demon1.png" ],
+				"gridPoints": [ { "x": 0, "y": 6 }, { "x": 0, "y": 6 } ]
+			}
+		]
+	},
+	{
+		"entityID": "RABITE4",
+		"entityStatus": "FOE",
+		"state": "IMMOBILE",
+		"direction": "DOWN",
+		"conversationConfigPath": "",
+		"resumeConfigPath": "You gained <xp> XP and <gold> Gold",
+		"questConfigPath": "",
+		"currentQuestID": "",
+		"dropTableID": "RABITE4_DROPS",
+		"itemTypeID": "NONE",
+		"entityProperties": {
+			"ENTITY_HEALTH_POINTS": { "class": "java.lang.String", "value": 40 },
+			"ENTITY_PHYSICAL_ATTACK_POINTS": { "class": "java.lang.String", "value": 15 },
+			"ENTITY_PHYSICAL_DEFENSE_POINTS": { "class": "java.lang.String", "value": 12 },
+			"ENTITY_MAGIC_ATTACK_POINTS": { "class": "java.lang.String", "value": 14 },
+			"ENTITY_MAGIC_DEFENSE_POINTS": { "class": "java.lang.String", "value": 14 },
+			"ENTITY_SPEED_POINTS": { "class": "java.lang.String", "value": 7 },
+			"ENTITY_XP_REWARD": { "class": "java.lang.String", "value": 50 },
+			"ENTITY_GP_REWARD": { "class": "java.lang.String", "value": 20 }
+		},
+		"drops": [
+			{ "itemTypeID": "HERB001", "probability": 0.6 },
+			{ "itemTypeID": "FUR001", "probability": 0.4 }
+		],
+		"animationConfig": [
+			{
+				"frameDuration": 0.5,
+				"animationType": "IDLE",
+				"texturePaths": [ "sprites/characters/Demon0.png", "sprites/characters/Demon1.png" ],
+				"gridPoints": [ { "x": 0, "y": 6 }, { "x": 0, "y": 6 } ]
+			},
+			{
+				"frameDuration": 0.5,
+				"animationType": "IMMOBILE",
+				"texturePaths": [ "sprites/characters/Demon0.png", "sprites/characters/Demon1.png" ],
+				"gridPoints": [ { "x": 0, "y": 6 }, { "x": 0, "y": 6 } ]
+			}
+		]
+	},
+	{
+		"entityID": "RABITE5",
+		"entityStatus": "FOE",
+		"state": "IMMOBILE",
+		"direction": "DOWN",
+		"conversationConfigPath": "",
+		"resumeConfigPath": "You gained <xp> XP and <gold> Gold",
+		"questConfigPath": "",
+		"currentQuestID": "",
+		"dropTableID": "RABITE5_DROPS",
+		"itemTypeID": "NONE",
+		"entityProperties": {
+			"ENTITY_HEALTH_POINTS": { "class": "java.lang.String", "value": 60 },
+			"ENTITY_PHYSICAL_ATTACK_POINTS": { "class": "java.lang.String", "value": 22 },
+			"ENTITY_PHYSICAL_DEFENSE_POINTS": { "class": "java.lang.String", "value": 16 },
+			"ENTITY_MAGIC_ATTACK_POINTS": { "class": "java.lang.String", "value": 16 },
+			"ENTITY_MAGIC_DEFENSE_POINTS": { "class": "java.lang.String", "value": 16 },
+			"ENTITY_SPEED_POINTS": { "class": "java.lang.String", "value": 8 },
+			"ENTITY_XP_REWARD": { "class": "java.lang.String", "value": 100 },
+			"ENTITY_GP_REWARD": { "class": "java.lang.String", "value": 40 }
+		},
+		"drops": [
+			{ "itemTypeID": "HERB001", "probability": 0.6 },
+			{ "itemTypeID": "FUR001", "probability": 0.4 }
+		],
+		"animationConfig": [
+			{
+				"frameDuration": 0.5,
+				"animationType": "IDLE",
+				"texturePaths": [ "sprites/characters/Demon0.png", "sprites/characters/Demon1.png" ],
+				"gridPoints": [ { "x": 0, "y": 0 }, { "x": 0, "y": 0 } ]
+			},
+			{
+				"frameDuration": 0.5,
+				"animationType": "IMMOBILE",
+				"texturePaths": [ "sprites/characters/Demon0.png", "sprites/characters/Demon1.png" ],
+				"gridPoints": [ { "x": 0, "y": 0 }, { "x": 0, "y": 0 } ]
+			}
+		]
+	},
+	{
+		"entityID": "RABITE6",
+		"entityStatus": "FOE",
+		"state": "IMMOBILE",
+		"direction": "DOWN",
+		"conversationConfigPath": "",
+		"resumeConfigPath": "You gained <xp> XP and <gold> Gold",
+		"questConfigPath": "",
+		"currentQuestID": "",
+		"dropTableID": "RABITE6_DROPS",
+		"itemTypeID": "NONE",
+		"entityProperties": {
+			"ENTITY_HEALTH_POINTS": { "class": "java.lang.String", "value": 90 },
+			"ENTITY_PHYSICAL_ATTACK_POINTS": { "class": "java.lang.String", "value": 30 },
+			"ENTITY_PHYSICAL_DEFENSE_POINTS": { "class": "java.lang.String", "value": 22 },
+			"ENTITY_MAGIC_ATTACK_POINTS": { "class": "java.lang.String", "value": 20 },
+			"ENTITY_MAGIC_DEFENSE_POINTS": { "class": "java.lang.String", "value": 20 },
+			"ENTITY_SPEED_POINTS": { "class": "java.lang.String", "value": 9 },
+			"ENTITY_XP_REWARD": { "class": "java.lang.String", "value": 180 },
+			"ENTITY_GP_REWARD": { "class": "java.lang.String", "value": 70 }
+		},
+		"drops": [
+			{ "itemTypeID": "HERB001", "probability": 0.6 },
+			{ "itemTypeID": "FUR001", "probability": 0.4 }
+		],
+		"animationConfig": [
+			{
+				"frameDuration": 0.5,
+				"animationType": "IDLE",
+				"texturePaths": [ "sprites/characters/Demon0.png", "sprites/characters/Demon1.png" ],
+				"gridPoints": [ { "x": 0, "y": 6 }, { "x": 0, "y": 6 } ]
+			},
+			{
+				"frameDuration": 0.5,
+				"animationType": "IMMOBILE",
+				"texturePaths": [ "sprites/characters/Demon0.png", "sprites/characters/Demon1.png" ],
+				"gridPoints": [ { "x": 0, "y": 6 }, { "x": 0, "y": 6 } ]
+			}
+		]
+	},
+	{
+		"entityID": "RABITE7",
+		"entityStatus": "FOE",
+		"state": "IMMOBILE",
+		"direction": "DOWN",
+		"conversationConfigPath": "",
+		"resumeConfigPath": "You gained <xp> XP and <gold> Gold",
+		"questConfigPath": "",
+		"currentQuestID": "",
+		"dropTableID": "RABITE7_DROPS",
+		"itemTypeID": "NONE",
+		"entityProperties": {
+			"ENTITY_HEALTH_POINTS": { "class": "java.lang.String", "value": 90 },
+			"ENTITY_PHYSICAL_ATTACK_POINTS": { "class": "java.lang.String", "value": 30 },
+			"ENTITY_PHYSICAL_DEFENSE_POINTS": { "class": "java.lang.String", "value": 22 },
+			"ENTITY_MAGIC_ATTACK_POINTS": { "class": "java.lang.String", "value": 20 },
+			"ENTITY_MAGIC_DEFENSE_POINTS": { "class": "java.lang.String", "value": 20 },
+			"ENTITY_SPEED_POINTS": { "class": "java.lang.String", "value": 9 },
+			"ENTITY_XP_REWARD": { "class": "java.lang.String", "value": 180 },
+			"ENTITY_GP_REWARD": { "class": "java.lang.String", "value": 70 }
+		},
+		"drops": [
+			{ "itemTypeID": "HERB001", "probability": 0.6 },
+			{ "itemTypeID": "FUR001", "probability": 0.4 }
+		],
+		"animationConfig": [
+			{
+				"frameDuration": 0.5,
+				"animationType": "IDLE",
+				"texturePaths": [ "sprites/characters/Demon0.png", "sprites/characters/Demon1.png" ],
+				"gridPoints": [ { "x": 0, "y": 0 }, { "x": 0, "y": 0 } ]
+			},
+			{
+				"frameDuration": 0.5,
+				"animationType": "IMMOBILE",
+				"texturePaths": [ "sprites/characters/Demon0.png", "sprites/characters/Demon1.png" ],
+				"gridPoints": [ { "x": 0, "y": 0 }, { "x": 0, "y": 0 } ]
+			}
+		]
+	},
+	{
+		"entityID": "RABITE9",
+		"entityStatus": "FOE",
+		"state": "IMMOBILE",
+		"direction": "DOWN",
+		"conversationConfigPath": "",
+		"resumeConfigPath": "You gained <xp> XP and <gold> Gold",
+		"questConfigPath": "",
+		"currentQuestID": "",
+		"dropTableID": "RABITE9_DROPS",
+		"itemTypeID": "NONE",
+		"entityProperties": {
+			"ENTITY_HEALTH_POINTS": { "class": "java.lang.String", "value": 140 },
+			"ENTITY_PHYSICAL_ATTACK_POINTS": { "class": "java.lang.String", "value": 42 },
+			"ENTITY_PHYSICAL_DEFENSE_POINTS": { "class": "java.lang.String", "value": 30 },
+			"ENTITY_MAGIC_ATTACK_POINTS": { "class": "java.lang.String", "value": 25 },
+			"ENTITY_MAGIC_DEFENSE_POINTS": { "class": "java.lang.String", "value": 25 },
+			"ENTITY_SPEED_POINTS": { "class": "java.lang.String", "value": 10 },
+			"ENTITY_XP_REWARD": { "class": "java.lang.String", "value": 300 },
+			"ENTITY_GP_REWARD": { "class": "java.lang.String", "value": 120 }
+		},
+		"drops": [
+			{ "itemTypeID": "HERB001", "probability": 0.6 },
+			{ "itemTypeID": "FUR001", "probability": 0.4 }
+		],
+		"animationConfig": [
+			{
+				"frameDuration": 0.5,
+				"animationType": "IDLE",
+				"texturePaths": [ "sprites/characters/Demon0.png", "sprites/characters/Demon1.png" ],
+				"gridPoints": [ { "x": 0, "y": 6 }, { "x": 0, "y": 6 } ]
+			},
+			{
+				"frameDuration": 0.5,
+				"animationType": "IMMOBILE",
+				"texturePaths": [ "sprites/characters/Demon0.png", "sprites/characters/Demon1.png" ],
+				"gridPoints": [ { "x": 0, "y": 6 }, { "x": 0, "y": 6 } ]
+			}
+		]
+	},
+	{
+		"entityID": "RABITE10",
+		"entityStatus": "FOE",
+		"state": "IMMOBILE",
+		"direction": "DOWN",
+		"conversationConfigPath": "",
+		"resumeConfigPath": "You gained <xp> XP and <gold> Gold",
+		"questConfigPath": "",
+		"currentQuestID": "",
+		"dropTableID": "RABITE10_DROPS",
+		"itemTypeID": "NONE",
+		"entityProperties": {
+			"ENTITY_HEALTH_POINTS": { "class": "java.lang.String", "value": 220 },
+			"ENTITY_PHYSICAL_ATTACK_POINTS": { "class": "java.lang.String", "value": 60 },
+			"ENTITY_PHYSICAL_DEFENSE_POINTS": { "class": "java.lang.String", "value": 42 },
+			"ENTITY_MAGIC_ATTACK_POINTS": { "class": "java.lang.String", "value": 32 },
+			"ENTITY_MAGIC_DEFENSE_POINTS": { "class": "java.lang.String", "value": 32 },
+			"ENTITY_SPEED_POINTS": { "class": "java.lang.String", "value": 11 },
+			"ENTITY_XP_REWARD": { "class": "java.lang.String", "value": 500 },
+			"ENTITY_GP_REWARD": { "class": "java.lang.String", "value": 200 }
+		},
+		"drops": [
+			{ "itemTypeID": "HERB001", "probability": 0.6 },
+			{ "itemTypeID": "FUR001", "probability": 0.4 }
+		],
+		"animationConfig": [
+			{
+				"frameDuration": 0.5,
+				"animationType": "IDLE",
+				"texturePaths": [ "sprites/characters/Demon0.png", "sprites/characters/Demon1.png" ],
+				"gridPoints": [ { "x": 0, "y": 0 }, { "x": 0, "y": 0 } ]
+			},
+			{
+				"frameDuration": 0.5,
+				"animationType": "IMMOBILE",
+				"texturePaths": [ "sprites/characters/Demon0.png", "sprites/characters/Demon1.png" ],
+				"gridPoints": [ { "x": 0, "y": 0 }, { "x": 0, "y": 0 } ]
+			}
+		]
+	},
+	{
+		"entityID": "RABITE11",
+		"entityStatus": "FOE",
+		"state": "IMMOBILE",
+		"direction": "DOWN",
+		"conversationConfigPath": "",
+		"resumeConfigPath": "You gained <xp> XP and <gold> Gold",
+		"questConfigPath": "",
+		"currentQuestID": "",
+		"dropTableID": "RABITE11_DROPS",
+		"itemTypeID": "NONE",
+		"entityProperties": {
+			"ENTITY_HEALTH_POINTS": { "class": "java.lang.String", "value": 220 },
+			"ENTITY_PHYSICAL_ATTACK_POINTS": { "class": "java.lang.String", "value": 60 },
+			"ENTITY_PHYSICAL_DEFENSE_POINTS": { "class": "java.lang.String", "value": 42 },
+			"ENTITY_MAGIC_ATTACK_POINTS": { "class": "java.lang.String", "value": 32 },
+			"ENTITY_MAGIC_DEFENSE_POINTS": { "class": "java.lang.String", "value": 32 },
+			"ENTITY_SPEED_POINTS": { "class": "java.lang.String", "value": 11 },
+			"ENTITY_XP_REWARD": { "class": "java.lang.String", "value": 500 },
+			"ENTITY_GP_REWARD": { "class": "java.lang.String", "value": 200 }
+		},
+		"drops": [
+			{ "itemTypeID": "HERB001", "probability": 0.6 },
+			{ "itemTypeID": "FUR001", "probability": 0.4 }
+		],
+		"animationConfig": [
+			{
+				"frameDuration": 0.5,
+				"animationType": "IDLE",
+				"texturePaths": [ "sprites/characters/Demon0.png", "sprites/characters/Demon1.png" ],
+				"gridPoints": [ { "x": 0, "y": 6 }, { "x": 0, "y": 6 } ]
+			},
+			{
+				"frameDuration": 0.5,
+				"animationType": "IMMOBILE",
+				"texturePaths": [ "sprites/characters/Demon0.png", "sprites/characters/Demon1.png" ],
+				"gridPoints": [ { "x": 0, "y": 6 }, { "x": 0, "y": 6 } ]
+			}
+		]
+	},
+	{
+		"entityID": "RABITE12",
+		"entityStatus": "FOE",
+		"state": "IMMOBILE",
+		"direction": "DOWN",
+		"conversationConfigPath": "",
+		"resumeConfigPath": "You gained <xp> XP and <gold> Gold",
+		"questConfigPath": "",
+		"currentQuestID": "",
+		"dropTableID": "RABITE12_DROPS",
+		"itemTypeID": "NONE",
+		"entityProperties": {
+			"ENTITY_HEALTH_POINTS": { "class": "java.lang.String", "value": 220 },
+			"ENTITY_PHYSICAL_ATTACK_POINTS": { "class": "java.lang.String", "value": 60 },
+			"ENTITY_PHYSICAL_DEFENSE_POINTS": { "class": "java.lang.String", "value": 42 },
+			"ENTITY_MAGIC_ATTACK_POINTS": { "class": "java.lang.String", "value": 32 },
+			"ENTITY_MAGIC_DEFENSE_POINTS": { "class": "java.lang.String", "value": 32 },
+			"ENTITY_SPEED_POINTS": { "class": "java.lang.String", "value": 11 },
+			"ENTITY_XP_REWARD": { "class": "java.lang.String", "value": 500 },
+			"ENTITY_GP_REWARD": { "class": "java.lang.String", "value": 200 }
+		},
+		"drops": [
+			{ "itemTypeID": "HERB001", "probability": 0.6 },
+			{ "itemTypeID": "FUR001", "probability": 0.4 }
+		],
+		"animationConfig": [
+			{
+				"frameDuration": 0.5,
+				"animationType": "IDLE",
+				"texturePaths": [ "sprites/characters/Demon0.png", "sprites/characters/Demon1.png" ],
+				"gridPoints": [ { "x": 0, "y": 0 }, { "x": 0, "y": 0 } ]
+			},
+			{
+				"frameDuration": 0.5,
+				"animationType": "IMMOBILE",
+				"texturePaths": [ "sprites/characters/Demon0.png", "sprites/characters/Demon1.png" ],
+				"gridPoints": [ { "x": 0, "y": 0 }, { "x": 0, "y": 0 } ]
+			}
+		]
+	},
+	{
+		"entityID": "RABITE20",
+		"entityStatus": "FOE",
+		"state": "IMMOBILE",
+		"direction": "DOWN",
+		"conversationConfigPath": "",
+		"resumeConfigPath": "You gained <xp> XP and <gold> Gold",
+		"questConfigPath": "",
+		"currentQuestID": "",
+		"dropTableID": "RABITE20_DROPS",
+		"itemTypeID": "NONE",
+		"entityProperties": {
+			"ENTITY_HEALTH_POINTS": { "class": "java.lang.String", "value": 1500 },
+			"ENTITY_PHYSICAL_ATTACK_POINTS": { "class": "java.lang.String", "value": 180 },
+			"ENTITY_PHYSICAL_DEFENSE_POINTS": { "class": "java.lang.String", "value": 100 },
+			"ENTITY_MAGIC_ATTACK_POINTS": { "class": "java.lang.String", "value": 100 },
+			"ENTITY_MAGIC_DEFENSE_POINTS": { "class": "java.lang.String", "value": 100 },
+			"ENTITY_SPEED_POINTS": { "class": "java.lang.String", "value": 14 },
+			"ENTITY_XP_REWARD": { "class": "java.lang.String", "value": 8000 },
+			"ENTITY_GP_REWARD": { "class": "java.lang.String", "value": 3000 }
+		},
+		"drops": [
+			{ "itemTypeID": "HERB001", "probability": 1.0 },
+			{ "itemTypeID": "FUR001", "probability": 1.0 }
+		],
+		"animationConfig": [
+			{
+				"frameDuration": 0.5,
+				"animationType": "IDLE",
+				"texturePaths": [ "sprites/characters/Demon0.png", "sprites/characters/Demon1.png" ],
+				"gridPoints": [ { "x": 0, "y": 6 }, { "x": 0, "y": 6 } ]
+			},
+			{
+				"frameDuration": 0.5,
+				"animationType": "IMMOBILE",
+				"texturePaths": [ "sprites/characters/Demon0.png", "sprites/characters/Demon1.png" ],
+				"gridPoints": [ { "x": 0, "y": 6 }, { "x": 0, "y": 6 } ]
 			}
 		]
 	}

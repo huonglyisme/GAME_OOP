@@ -64,7 +64,7 @@ public class DemoClient {
                 float x = Float.parseFloat(parts[0]);
                 float y = Float.parseFloat(parts[1]);
 
-                PlayerMovePacket move = new PlayerMovePacket(2, x, y, "Topple");
+                PlayerMovePacket move = new PlayerMovePacket(2, x, y, "VILLAGE");
                 net.send(move);
                 System.out.println(">>> Da gui: " + move);
             } catch (Exception e) {

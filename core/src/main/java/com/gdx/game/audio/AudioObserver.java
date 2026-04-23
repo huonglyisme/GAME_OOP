@@ -4,7 +4,7 @@ public interface AudioObserver {
 
     enum AudioTypeEvent {
         MENU_THEME("music/Rising_Sun.mp3"),
-        TOPPLE_THEME("music/Village.mp3"),
+        VILLAGE_THEME("music/Village.mp3"),
         TEST_THEME("music/Dwarves'_Theme.mp3"),
         BATTLE_THEME("music/Challenge.mp3"),
         GAME_OVER_THEME("music/Requiem.mp3"),

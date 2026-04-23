@@ -59,8 +59,8 @@ public class PhysicsComponentTest {
 
     private static Stream<Arguments> collisionMapData() {
         return Stream.of(
-                Arguments.of(MapFactory.MapType.TOPPLE_ROAD_1, Component.MESSAGE.COLLISION_WITH_ENTITY, "RABITE"),
-                Arguments.of(MapFactory.MapType.TOPPLE, Component.MESSAGE.COLLISION_WITH_ENTITY, "TOWN_INNKEEPER")
+                Arguments.of(MapFactory.MapType.FOREST, Component.MESSAGE.COLLISION_WITH_ENTITY, "RABITE1"),
+                Arguments.of(MapFactory.MapType.VILLAGE, Component.MESSAGE.COLLISION_WITH_ENTITY, "TOWN_INNKEEPER")
         );
     }
 }

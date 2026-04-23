@@ -4,8 +4,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.gdx.game.GdxRunner;
 import com.gdx.game.entities.npc.NPCGraphicsComponent;
-import com.gdx.game.map.worldMap.Topple;
-import com.gdx.game.map.worldMap.ToppleRoad1;
+import com.gdx.game.map.worldMap.Forest;
+import com.gdx.game.map.worldMap.Village;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -50,15 +50,15 @@ public class MapFactoryTest {
 
     private static Stream<Arguments> getMap() {
         return Stream.of(
-                Arguments.of(MapFactory.MapType.TOPPLE, Topple.class),
-                Arguments.of(MapFactory.MapType.TOPPLE_ROAD_1, ToppleRoad1.class)
+                Arguments.of(MapFactory.MapType.VILLAGE, Village.class),
+                Arguments.of(MapFactory.MapType.FOREST, Forest.class)
         );
     }
 
     @Test
     public void testClearCache_ShouldSucceed() {
-        MapFactory.getMap(MapFactory.MapType.TOPPLE);
-        assertThat(MapFactory.getMapTable()).containsKey(MapFactory.MapType.TOPPLE);
+        MapFactory.getMap(MapFactory.MapType.VILLAGE);
+        assertThat(MapFactory.getMapTable()).containsKey(MapFactory.MapType.VILLAGE);
 
         MapFactory.clearCache();
 

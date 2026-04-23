@@ -37,23 +37,21 @@ public class MapManager implements ProfileObserver {
                 String currentMap = profileManager.getProperty("currentMapType", String.class);
                 MapFactory.MapType mapType;
                 if (currentMap == null || currentMap.isEmpty()) {
-                    mapType = MapFactory.MapType.TOPPLE;
+                    mapType = MapFactory.MapType.VILLAGE;
                 } else {
                     mapType = MapFactory.MapType.valueOf(currentMap);
                 }
                 loadMap(mapType);
-                Vector2 toppleRoad1MapStartPosition = profileManager.getProperty("toppleRoad1MapStartPosition", Vector2.class);
-                if (toppleRoad1MapStartPosition != null) {
-                    MapFactory.getMap(MapFactory.MapType.TOPPLE_ROAD_1).setPlayerStart(toppleRoad1MapStartPosition);
-                }
-                Vector2 toppleMapStartPosition = profileManager.getProperty("toppleMapStartPosition", Vector2.class);
-                if (toppleMapStartPosition != null) {
-                    MapFactory.getMap(MapFactory.MapType.TOPPLE).setPlayerStart(toppleMapStartPosition);
+                for (MapFactory.MapType mt : MapFactory.MapType.values()) {
+                    Vector2 startPosition = profileManager.getProperty(mt.name() + "_startPosition", Vector2.class);
+                    if (startPosition != null) {
+                        MapFactory.getMap(mt).setPlayerStart(startPosition);
+                    }
                 }
                 Vector2 currentPlayerPosition = profileManager.getProperty("currentPlayerPosition", Vector2.class);
                 if (currentPlayerPosition != null && !currentPlayerPosition.equals(new Vector2(0, 0))) {
-                    MapFactory.getMap(this.currentMap.currentMapType)
-                    .setClosestStartPositionFromScaledUnits(currentPlayerPosition);
+                    Vector2 currentPositionOnMap = new Vector2(currentPlayerPosition.x * 16, currentPlayerPosition.y * 16);
+                    MapFactory.getMap(this.currentMap.currentMapType).setPlayerStart(currentPositionOnMap);
                 }
             }
             case SAVING_PROFILE -> {
@@ -61,17 +59,21 @@ public class MapManager implements ProfileObserver {
                     profileManager.setProperty("currentMapType", this.currentMap.currentMapType.toString());
                 }
                 profileManager.setProperty("currentPlayerPosition", player.getCurrentPosition());
-                profileManager.setProperty("toppleMapStartPosition", MapFactory.getMap(MapFactory.MapType.TOPPLE).getPlayerStart());
-                profileManager.setProperty("toppleRoad1MapStartPosition", MapFactory.getMap(MapFactory.MapType.TOPPLE_ROAD_1).getPlayerStart());
-                
+                for (MapFactory.MapType mt : MapFactory.MapType.values()) {
+                    Map cachedMap = MapFactory.getMapTable().get(mt);
+                    if (cachedMap != null) {
+                        profileManager.setProperty(mt.name() + "_startPosition", cachedMap.getPlayerStart());
+                    }
+                }
             }
             case CLEAR_CURRENT_PROFILE -> {
                 this.currentMap = null;
                 profileManager.setProperty("currentPlayerPosition", null);
-                profileManager.setProperty("currentMapType", MapFactory.MapType.TOPPLE.toString());
+                profileManager.setProperty("currentMapType", MapFactory.MapType.VILLAGE.toString());
                 MapFactory.clearCache();
-                profileManager.setProperty("toppleMapStartPosition", MapFactory.getMap(MapFactory.MapType.TOPPLE).getPlayerStart());
-                profileManager.setProperty("toppleRoad1MapStartPosition", MapFactory.getMap(MapFactory.MapType.TOPPLE_ROAD_1).getPlayerStart());
+                for (MapFactory.MapType mt : MapFactory.MapType.values()) {
+                    profileManager.setProperty(mt.name() + "_startPosition", MapFactory.getMap(mt).getPlayerStart());
+                }
             }
             default -> {
             }
@@ -160,7 +162,7 @@ public class MapManager implements ProfileObserver {
 
     public TiledMap getCurrentTiledMap() {
         if (currentMap == null) {
-            loadMap(MapFactory.MapType.TOPPLE);
+            loadMap(MapFactory.MapType.VILLAGE);
         }
         return currentMap.getCurrentTiledMap();
     }

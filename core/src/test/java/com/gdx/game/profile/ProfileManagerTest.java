@@ -43,7 +43,7 @@ public class ProfileManagerTest {
     @Test
     public void testWriteProfileToStorage_ShouldSucceed() {
         ProfileManager profileManager = new ProfileManager();
-        profileManager.setProperty("toppleMapStartPosition", new Vector2(10,10));
+        profileManager.setProperty("VILLAGE_startPosition", new Vector2(10,10));
 
         profileManager.saveProfile();
 

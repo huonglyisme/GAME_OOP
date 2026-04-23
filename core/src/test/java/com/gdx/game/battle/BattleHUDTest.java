@@ -85,7 +85,7 @@ public class BattleHUDTest {
     @MethodSource("playerStartSteps")
     void player_start_battle_step(BattleObserver.BattleEvent event, boolean isVisible, boolean isTouchable) {
         Entity player = EntityFactory.getInstance().getEntity(EntityFactory.EntityType.WARRIOR);
-        player.setEntityEncounteredType(EntityFactory.EntityName.RABITE);
+        player.setEntityEncounteredType(EntityFactory.EntityName.RABITE1);
         MapManager mapManager = new MapManager();
         mapManager.setPlayer(player);
         BattleState battleState  =new BattleState();
@@ -108,7 +108,7 @@ public class BattleHUDTest {
     @ParameterizedTest
     @MethodSource("addEntitySteps")
     void add_entity_battle_step(BattleObserver.BattleEvent event, int actorNumber, Entity.AnimationType animationType) {
-        EntityFactory.EntityName entityEncountered = EntityFactory.EntityName.RABITE;
+        EntityFactory.EntityName entityEncountered = EntityFactory.EntityName.RABITE1;
         Entity player = EntityFactory.getInstance().getEntity(EntityFactory.EntityType.WARRIOR);
         player.setEntityEncounteredType(entityEncountered);
         MapManager mapManager = new MapManager();
@@ -140,7 +140,7 @@ public class BattleHUDTest {
     void add_player_hit_damage_battle_step() {
         Entity player = EntityFactory.getInstance().getEntity(EntityFactory.EntityType.WARRIOR);
         player.getEntityConfig().setPropertyValue(EntityConfig.EntityProperties.ENTITY_HIT_DAMAGE_TOTAL.toString(), "6");
-        player.setEntityEncounteredType(EntityFactory.EntityName.RABITE);
+        player.setEntityEncounteredType(EntityFactory.EntityName.RABITE1);
         MapManager mapManager = new MapManager();
         mapManager.setPlayer(player);
         BattleState battleState = new BattleState();
@@ -158,7 +158,7 @@ public class BattleHUDTest {
     @Test
     void add_opponent_hit_damage_battle_step() {
         Entity player = EntityFactory.getInstance().getEntity(EntityFactory.EntityType.WARRIOR);
-        player.setEntityEncounteredType(EntityFactory.EntityName.RABITE);
+        player.setEntityEncounteredType(EntityFactory.EntityName.RABITE1);
         Entity enemy = EntityFactory.getInstance().getEntity(EntityFactory.EntityType.ENEMY);
         enemy.getEntityConfig().setPropertyValue(EntityConfig.EntityProperties.ENTITY_HIT_DAMAGE_TOTAL.toString(), "6");
         MapManager mapManager = new MapManager();
@@ -179,7 +179,7 @@ public class BattleHUDTest {
     void opponent_defeated_battle_step() {
         String xpReward = "10";
         Entity player = EntityFactory.getInstance().getEntity(EntityFactory.EntityType.WARRIOR);
-        player.setEntityEncounteredType(EntityFactory.EntityName.RABITE);
+        player.setEntityEncounteredType(EntityFactory.EntityName.RABITE1);
         Entity enemy = EntityFactory.getInstance().getEntity(EntityFactory.EntityType.ENEMY);
         enemy.getEntityConfig().setPropertyValue(EntityConfig.EntityProperties.ENTITY_XP_REWARD.toString(), xpReward);
         MapManager mapManager = new MapManager();
@@ -203,7 +203,7 @@ public class BattleHUDTest {
     @MethodSource("entityTurnDoneSteps")
     void entity_turn_done_battle_step(BattleObserver.BattleEvent event) {
         Entity player = EntityFactory.getInstance().getEntity(EntityFactory.EntityType.WARRIOR);
-        player.setEntityEncounteredType(EntityFactory.EntityName.RABITE);
+        player.setEntityEncounteredType(EntityFactory.EntityName.RABITE1);
         MapManager mapManager = new MapManager();
         mapManager.setPlayer(player);
         BattleState battleState = spy(new BattleState());
@@ -226,7 +226,7 @@ public class BattleHUDTest {
     @MethodSource("consumeItems")
     void consume_items(InventoryItem.ItemTypeID itemTypeId, int value, String property) {
         Entity player = EntityFactory.getInstance().getEntity(EntityFactory.EntityType.WARRIOR);
-        player.setEntityEncounteredType(EntityFactory.EntityName.RABITE);
+        player.setEntityEncounteredType(EntityFactory.EntityName.RABITE1);
         MapManager mapManager = new MapManager();
         mapManager.setPlayer(player);
         BattleState battleState = new BattleState();

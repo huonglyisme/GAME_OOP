@@ -25,7 +25,7 @@ public class CreatorIntroScreen extends CutSceneBaseScreen {
             @Override
             public void run() {
                 hideMessage();
-                mapManager.loadMap(MapFactory.MapType.TOPPLE);
+                mapManager.loadMap(MapFactory.MapType.VILLAGE);
                 mapManager.disableCurrentMapMusic();
                 setCameraPosition(17, 10);
 

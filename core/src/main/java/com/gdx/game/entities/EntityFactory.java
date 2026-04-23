@@ -31,15 +31,14 @@ public class EntityFactory {
     }
 
     public enum EntityName {
-        TOWN_GUARD_WALKING,
         TOWN_BLACKSMITH,
         TOWN_MAGE,
         TOWN_INNKEEPER,
-        TOWN_FOLK1, TOWN_FOLK2, TOWN_FOLK3, TOWN_FOLK4, TOWN_FOLK5,
-        TOWN_FOLK6, TOWN_FOLK7, TOWN_FOLK8, TOWN_FOLK9, TOWN_FOLK10,
-        TOWN_FOLK11, TOWN_FOLK12, TOWN_FOLK13, TOWN_FOLK14, TOWN_FOLK15,
-        RABITE, RABITE2,
-        QUEST003_TASK002,
+        HUNTER_WOUNDED,
+        RABITE1, RABITE2, RABITE4, RABITE5,
+        RABITE6, RABITE7, RABITE9,
+        RABITE10, RABITE11, RABITE12,
+        RABITE20,
         FIRE
     }
 
@@ -49,21 +48,15 @@ public class EntityFactory {
     public static final String PLAYER_GRAPPLER_CONFIG = "scripts/player_grappler.json";
     public static final String PLAYER_CLERIC_CONFIG = "scripts/player_cleric.json";
 
-    public static final String TOWN_GUARD_WALKING_CONFIG = "scripts/town_guard_walking.json";
     public static final String TOWN_BLACKSMITH_CONFIG = "scripts/town_blacksmith.json";
     public static final String TOWN_MAGE_CONFIG = "scripts/town_mage.json";
     public static final String TOWN_INNKEEPER_CONFIG = "scripts/town_innkeeper.json";
-    public static final String TOWN_FOLK_CONFIGS = "scripts/town_folk.json";
+    public static final String HUNTER_WOUNDED_CONFIG = "scripts/hunter_wounded.json";
     public static final String ENEMY_CONFIG = "scripts/enemies.json";
     public static final String ENVIRONMENTAL_ENTITY_CONFIGS = "scripts/environmental_entities.json";
 
     private EntityFactory() {
         entities = new Hashtable<>();
-
-        Array<EntityConfig> townFolkConfigs = Entity.getEntityConfigs(TOWN_FOLK_CONFIGS);
-        for(EntityConfig config: townFolkConfigs) {
-            entities.put(config.getEntityID(), config);
-        }
 
         Array<EntityConfig> enemyConfigs = Entity.getEntityConfigs(ENEMY_CONFIG);
         for(EntityConfig config: enemyConfigs) {
@@ -75,10 +68,10 @@ public class EntityFactory {
             entities.put(config.getEntityID(), config);
         }
 
-        entities.put(EntityName.TOWN_GUARD_WALKING.toString(), Entity.loadEntityConfigByPath(TOWN_GUARD_WALKING_CONFIG));
         entities.put(EntityName.TOWN_BLACKSMITH.toString(), Entity.loadEntityConfigByPath(TOWN_BLACKSMITH_CONFIG));
         entities.put(EntityName.TOWN_MAGE.toString(), Entity.loadEntityConfigByPath(TOWN_MAGE_CONFIG));
         entities.put(EntityName.TOWN_INNKEEPER.toString(), Entity.loadEntityConfigByPath(TOWN_INNKEEPER_CONFIG));
+        entities.put(EntityName.HUNTER_WOUNDED.toString(), Entity.loadEntityConfigByPath(HUNTER_WOUNDED_CONFIG));
     }
 
     public static EntityFactory getInstance() {

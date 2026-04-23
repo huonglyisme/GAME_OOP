@@ -140,6 +140,10 @@ public abstract class Map implements AudioSubject {
     public Array<Vector2> getQuestItemSpawnPositions(String objectName, String objectTaskID) {
         Array<Vector2> positions = new Array<>();
 
+        if (questItemSpawnLayer == null) {
+            return positions;
+        }
+
         for(MapObject object: questItemSpawnLayer.getObjects()) {
             String name = object.getName();
             String taskID = (String)object.getProperties().get("taskID");

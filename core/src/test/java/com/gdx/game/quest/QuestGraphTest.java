@@ -196,13 +196,13 @@ public class QuestGraphTest {
     @MethodSource("updateQuest")
     public void testUpdateQuest(QuestTask.QuestType questType, String isTaskComplete) {
         MapManager mapManager = new MapManager();
-        mapManager.loadMap(MapFactory.MapType.TOPPLE);
+        mapManager.loadMap(MapFactory.MapType.VILLAGE);
         ProfileManager.getInstance().setProperty("TOWN_INNKEEPER", new Array<Vector2>());
 
         QuestGraph questGraph = new QuestGraph();
         QuestTask questTask = new QuestTask();
         questTask.setId("1");
-        questTask.setPropertyValue(QuestTask.QuestTaskPropertyType.TARGET_LOCATION.toString(), "TOPPLE");
+        questTask.setPropertyValue(QuestTask.QuestTaskPropertyType.TARGET_LOCATION.toString(), "VILLAGE");
         questTask.setPropertyValue(QuestTask.QuestTaskPropertyType.TARGET_TYPE.toString(), EntityFactory.TOWN_INNKEEPER_CONFIG);
         questTask.setQuestType(questType);
         Hashtable<String, QuestTask> questTasks = new Hashtable<>();
@@ -224,11 +224,11 @@ public class QuestGraphTest {
     @Test
     public void testInit_ShouldSucceedForQuestTypeFETCH() {
         MapManager mapManager = new MapManager();
-        mapManager.loadMap(MapFactory.MapType.TOPPLE);
+        mapManager.loadMap(MapFactory.MapType.VILLAGE);
         ProfileManager.getInstance().setProperty("TOWN_INNKEEPER", new Array<Vector2>());
 
         questTask.setId("1");
-        questTask.setPropertyValue(QuestTask.QuestTaskPropertyType.TARGET_LOCATION.toString(), "TOPPLE");
+        questTask.setPropertyValue(QuestTask.QuestTaskPropertyType.TARGET_LOCATION.toString(), "VILLAGE");
         questTask.setPropertyValue(QuestTask.QuestTaskPropertyType.TARGET_TYPE.toString(), EntityFactory.TOWN_INNKEEPER_CONFIG);
         questTask.setQuestType(QuestTask.QuestType.FETCH);
         Hashtable<String, QuestTask> questTasks = new Hashtable<>();
@@ -247,11 +247,11 @@ public class QuestGraphTest {
     @Test
     public void testInit_ShouldSucceedForQuestTypeKILL() {
         MapManager mapManager = new MapManager();
-        mapManager.loadMap(MapFactory.MapType.TOPPLE);
+        mapManager.loadMap(MapFactory.MapType.VILLAGE);
         ProfileManager.getInstance().setProperty("TOWN_INNKEEPER", new Array<Vector2>());
 
         questTask.setId("1");
-        questTask.setPropertyValue(QuestTask.QuestTaskPropertyType.TARGET_LOCATION.toString(), "TOPPLE");
+        questTask.setPropertyValue(QuestTask.QuestTaskPropertyType.TARGET_LOCATION.toString(), "VILLAGE");
         questTask.setPropertyValue(QuestTask.QuestTaskPropertyType.TARGET_TYPE.toString(), EntityFactory.TOWN_INNKEEPER_CONFIG);
         questTask.setQuestType(QuestTask.QuestType.KILL);
         Hashtable<String, QuestTask> questTasks = new Hashtable<>();

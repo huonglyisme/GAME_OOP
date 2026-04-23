@@ -14,7 +14,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 import static com.gdx.game.audio.AudioObserver.AudioTypeEvent.MENU_THEME;
-import static com.gdx.game.audio.AudioObserver.AudioTypeEvent.TOPPLE_THEME;
+import static com.gdx.game.audio.AudioObserver.AudioTypeEvent.VILLAGE_THEME;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 
@@ -49,7 +49,7 @@ class AudioManagerTest {
     private static Stream<Arguments> loadMusic() {
         return Stream.of(
                 Arguments.of(AudioObserver.AudioCommand.MUSIC_PLAY_ONCE, MENU_THEME),
-                Arguments.of(AudioObserver.AudioCommand.MUSIC_PLAY_LOOP, TOPPLE_THEME)
+                Arguments.of(AudioObserver.AudioCommand.MUSIC_PLAY_LOOP, VILLAGE_THEME)
         );
     }
 

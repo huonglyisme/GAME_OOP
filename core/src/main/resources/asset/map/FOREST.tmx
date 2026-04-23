@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.12.1" orientation="orthogonal" renderorder="right-down" width="15" height="15" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="142">
+<map version="1.10" tiledversion="1.12.1" orientation="orthogonal" renderorder="right-down" width="15" height="15" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="146">
  <tileset firstgid="1" source="swordofmana_map1.tsx"/>
  <tileset firstgid="34399" source="mana1.tsx"/>
  <tileset firstgid="34519" source="mana2.tsx"/>
  <tileset firstgid="34639" source="mana3.tsx"/>
- <tileset firstgid="34759" source=":/automap-tiles.tsx"/>
  <layer id="8" name="Map_Layer" width="15" height="15">
   <data encoding="csv">
 20336,20337,20338,20339,20340,20341,20342,20343,20344,20345,20346,20347,20348,20349,20350,
@@ -51,7 +50,7 @@
   <object id="52" x="134.511" y="299.96" width="4.66667" height="19.3333"/>
   <object id="53" x="143.225" y="306.509" width="26" height="14"/>
   <object id="54" x="143.977" y="281.661" width="29.3333" height="22.6667"/>
-  <object id="55" x="138.832" y="319.553" width="10.6667" height="16.6667"/>
+  <object id="55" x="152.648" y="314.948" width="10.6667" height="16.6667"/>
   <object id="59" x="177.435" y="291.354" width="6" height="55.3333"/>
   <object id="62" x="222.219" y="303.308" width="18.6667" height="57.3333"/>
   <object id="63" x="227.058" y="288.011" width="54" height="82.6667"/>
@@ -76,8 +75,7 @@
   <object id="87" x="301.528" y="38.219" width="47.3333" height="44.1815"/>
   <object id="88" x="307.333" y="51.3333" width="9.33333" height="11.3333"/>
   <object id="90" x="399.852" y="85.404" width="14.6667" height="5.33333"/>
-  <object id="93" x="392" y="70.0096" width="54" height="46.0401"/>
-  <object id="94" x="405.859" y="52.6431" width="26.6361" height="15.5689"/>
+  <object id="93" x="389.587" y="72.4223" width="54" height="46.0401"/>
   <object id="96" x="262.177" y="294.509" width="30" height="24"/>
   <object id="97" x="203.552" y="320.556" width="33.3333" height="14.6667"/>
   <object id="100" x="439.333" y="54" width="8" height="48"/>
@@ -105,16 +103,15 @@
   <object id="140" x="448.428" y="234.02" width="17.6938" height="71.0271"/>
  </objectgroup>
  <objectgroup id="4" name="MAP_SPAWNS_LAYER">
-  <object id="12" name="PLAYER1_START" x="116.294" y="73.1522" width="31.3333" height="27.8351"/>
-  <object id="200" name="PLAYER2_START" x="151.294" y="73.1522" width="31.3333" height="27.8351"/>
+  <object id="144" name="PLAYER_START" x="325.342" y="83.1971" width="35.0582" height="34.5873"/>
+  <object id="145" name="PLAYER_START" x="351.228" y="90.0491" width="36.6667" height="37"/>
  </objectgroup>
  <objectgroup id="5" name="MAP_ENEMY_SPAWN_LAYER">
-  <object id="15" name="RABITE chúa" x="180.434" y="390.571" width="31.3333" height="31.3333"/>
-  <object id="131" name="RABITE 2" x="378.84" y="184.59" width="31.3333" height="31.3333"/>
-  <object id="141" name="RABITE 1" x="130.661" y="221.771" width="31.3333" height="27.8822"/>
+  <object id="131" name="RABITE2" x="368.478" y="188.044" width="31.3333" height="31.3333"/>
+  <object id="141" name="RABITE1" x="106.483" y="184.928" width="31.3333" height="27.8822"/>
  </objectgroup>
  <objectgroup id="6" name="MAP_PORTAL_LAYER">
   <object id="130" name="CAVE_1" x="108.809" y="37.6913" width="32.0872" height="39.0306"/>
-  <object id="136" name="VILLAGE" x="389.119" y="10.8547" width="56.9354" height="39.0306"/>
+  <object id="136" name="VILLAGE" x="395.553" y="19.7014" width="56.9354" height="39.0306"/>
  </objectgroup>
 </map>

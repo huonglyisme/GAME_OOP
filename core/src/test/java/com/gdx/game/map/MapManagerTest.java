@@ -71,21 +71,21 @@ public class MapManagerTest {
     @Test
     public void testOnNotify_ShouldSucceedWithProfileLoadedAndPositionProperties() {
         ProfileManager profileManager = new ProfileManager();
-        Vector2 toppleRoad1MapStartPosition = new Vector2(0, 0);
-        Vector2 toppleMapStartPosition = new Vector2(1, 1);
+        Vector2 forestMapStartPosition = new Vector2(0, 0);
+        Vector2 villageMapStartPosition = new Vector2(1, 1);
         Vector2 currentPlayerPosition = new Vector2(2, 2);
-        profileManager.setProperty("toppleRoad1MapStartPosition", toppleRoad1MapStartPosition);
-        profileManager.setProperty("toppleMapStartPosition", toppleMapStartPosition);
+        profileManager.setProperty("FOREST_startPosition", forestMapStartPosition);
+        profileManager.setProperty("VILLAGE_startPosition", villageMapStartPosition);
         profileManager.setProperty("currentPlayerPosition", currentPlayerPosition);
         MapManager mapManager = new MapManager();
 
         mapManager.onNotify(profileManager, ProfileObserver.ProfileEvent.PROFILE_LOADED);
 
-        assertThat(mapManager.getCurrentMapType()).isEqualTo(MapFactory.MapType.TOPPLE);
+        assertThat(mapManager.getCurrentMapType()).isEqualTo(MapFactory.MapType.VILLAGE);
         assertThat(mapManager.hasMapChanged()).isTrue();
         assertThat(mapManager.getCurrentSelectedMapEntity()).isNull();
-        assertThat(MapFactory.getMap(MapFactory.MapType.TOPPLE).getPlayerStart()).isEqualTo(new Vector2(currentPlayerPosition.x * 16, currentPlayerPosition.y * 16));
-        assertThat(MapFactory.getMap(MapFactory.MapType.TOPPLE_ROAD_1).getPlayerStart()).isEqualTo(toppleRoad1MapStartPosition);
+        assertThat(MapFactory.getMap(MapFactory.MapType.VILLAGE).getPlayerStart()).isEqualTo(new Vector2(currentPlayerPosition.x * 16, currentPlayerPosition.y * 16));
+        assertThat(MapFactory.getMap(MapFactory.MapType.FOREST).getPlayerStart()).isEqualTo(forestMapStartPosition);
     }
 
     @Test
@@ -94,20 +94,21 @@ public class MapManagerTest {
         Entity player = EntityFactory.getInstance().getEntity(EntityFactory.EntityType.WARRIOR);
         MapManager mapManager = new MapManager();
         mapManager.setPlayer(player);
+        mapManager.loadMap(MapFactory.MapType.VILLAGE);
+        mapManager.loadMap(MapFactory.MapType.FOREST);
 
         mapManager.onNotify(profileManager, ProfileObserver.ProfileEvent.SAVING_PROFILE);
 
         HashMap<String, Vector2> profileProperties = new HashMap<>();
         profileProperties.put("currentPlayerPosition", player.getCurrentPosition());
-        profileProperties.put("toppleMapStartPosition", MapFactory.getMap(MapFactory.MapType.TOPPLE).getPlayerStart());
-        profileProperties.put("toppleRoad1MapStartPosition", MapFactory.getMap(MapFactory.MapType.TOPPLE_ROAD_1).getPlayerStart());
+        profileProperties.put("VILLAGE_startPosition", MapFactory.getMap(MapFactory.MapType.VILLAGE).getPlayerStart());
+        profileProperties.put("FOREST_startPosition", MapFactory.getMap(MapFactory.MapType.FOREST).getPlayerStart());
 
 
-        assertThat(profileManager).hasNoNullFieldsOrPropertiesExcept("currentMapType");
         assertThat(profileManager).hasFieldOrProperty("profileProperties");
         assertThat(profileManager.getProperty("currentPlayerPosition", Vector2.class)).isEqualTo(profileProperties.get("currentPlayerPosition"));
-        assertThat(profileManager.getProperty("toppleMapStartPosition", Vector2.class)).isEqualTo(profileProperties.get("toppleMapStartPosition"));
-        assertThat(profileManager.getProperty("toppleRoad1MapStartPosition", Vector2.class)).isEqualTo(profileProperties.get("toppleRoad1MapStartPosition"));
+        assertThat(profileManager.getProperty("VILLAGE_startPosition", Vector2.class)).isEqualTo(profileProperties.get("VILLAGE_startPosition"));
+        assertThat(profileManager.getProperty("FOREST_startPosition", Vector2.class)).isEqualTo(profileProperties.get("FOREST_startPosition"));
     }
 
     @Test
@@ -117,21 +118,19 @@ public class MapManagerTest {
         MapManager mapManager = new MapManager();
         mapManager.setPlayer(player);
 
-        mapManager.loadMap(MapFactory.MapType.TOPPLE);
+        mapManager.loadMap(MapFactory.MapType.VILLAGE);
         mapManager.onNotify(profileManager, ProfileObserver.ProfileEvent.SAVING_PROFILE);
 
         HashMap<String, Object> profileProperties = new HashMap<>();
-        profileProperties.put("currentMapType", MapFactory.MapType.TOPPLE.toString());
+        profileProperties.put("currentMapType", MapFactory.MapType.VILLAGE.toString());
         profileProperties.put("currentPlayerPosition", player.getCurrentPosition());
-        profileProperties.put("toppleMapStartPosition", MapFactory.getMap(MapFactory.MapType.TOPPLE).getPlayerStart());
-        profileProperties.put("toppleRoad1MapStartPosition", MapFactory.getMap(MapFactory.MapType.TOPPLE_ROAD_1).getPlayerStart());
+        profileProperties.put("VILLAGE_startPosition", MapFactory.getMap(MapFactory.MapType.VILLAGE).getPlayerStart());
 
 
         assertThat(profileManager).hasFieldOrProperty("profileProperties");
         assertThat(profileManager.getProperty("currentMapType", String.class)).isEqualTo(profileProperties.get("currentMapType"));
         assertThat(profileManager.getProperty("currentPlayerPosition", Vector2.class)).isEqualTo(profileProperties.get("currentPlayerPosition"));
-        assertThat(profileManager.getProperty("toppleMapStartPosition", Vector2.class)).isEqualTo(profileProperties.get("toppleMapStartPosition"));
-        assertThat(profileManager.getProperty("toppleRoad1MapStartPosition", Vector2.class)).isEqualTo(profileProperties.get("toppleRoad1MapStartPosition"));
+        assertThat(profileManager.getProperty("VILLAGE_startPosition", Vector2.class)).isEqualTo(profileProperties.get("VILLAGE_startPosition"));
     }
 
     @Test
@@ -139,20 +138,22 @@ public class MapManagerTest {
         ProfileManager profileManager = new ProfileManager();
         MapManager mapManager = new MapManager();
 
-        mapManager.loadMap(MapFactory.MapType.TOPPLE);
+        mapManager.loadMap(MapFactory.MapType.VILLAGE);
         mapManager.onNotify(profileManager, ProfileObserver.ProfileEvent.CLEAR_CURRENT_PROFILE);
 
         HashMap<String, Object> profileProperties = new HashMap<>();
         profileProperties.put("currentPlayerPosition", null);
-        profileProperties.put("toppleMapStartPosition", MapFactory.getMap(MapFactory.MapType.TOPPLE).getPlayerStart());
-        profileProperties.put("toppleRoad1MapStartPosition", MapFactory.getMap(MapFactory.MapType.TOPPLE_ROAD_1).getPlayerStart());
+        for (MapFactory.MapType mt : MapFactory.MapType.values()) {
+            profileProperties.put(mt.name() + "_startPosition", MapFactory.getMap(mt).getPlayerStart());
+        }
 
 
         assertThat(profileManager).hasNoNullFieldsOrPropertiesExcept("currentMapType");
         assertThat(profileManager).hasFieldOrProperty("profileProperties");
         assertThat(profileManager.getProperty("currentPlayerPosition", Vector2.class)).isEqualTo(profileProperties.get("currentPlayerPosition"));
-        assertThat(profileManager.getProperty("toppleMapStartPosition", Vector2.class)).isEqualTo(profileProperties.get("toppleMapStartPosition"));
-        assertThat(profileManager.getProperty("toppleRoad1MapStartPosition", Vector2.class)).isEqualTo(profileProperties.get("toppleRoad1MapStartPosition"));
+        for (MapFactory.MapType mt : MapFactory.MapType.values()) {
+            assertThat(profileManager.getProperty(mt.name() + "_startPosition", Vector2.class)).isEqualTo(profileProperties.get(mt.name() + "_startPosition"));
+        }
     }
 
     @ParameterizedTest
@@ -170,8 +171,8 @@ public class MapManagerTest {
 
     private static Stream<Arguments> currentMap() {
         return Stream.of(
-                Arguments.of(false, MapFactory.MapType.TOPPLE),
-                Arguments.of(true, MapFactory.MapType.TOPPLE_ROAD_1)
+                Arguments.of(false, MapFactory.MapType.VILLAGE),
+                Arguments.of(true, MapFactory.MapType.FOREST)
         );
     }
 
@@ -179,7 +180,7 @@ public class MapManagerTest {
     void remove_map_quest_entities() {
         Json json = new Json();
         MapManager mapManager = new MapManager();
-        mapManager.loadMap(MapFactory.MapType.TOPPLE);
+        mapManager.loadMap(MapFactory.MapType.VILLAGE);
         Vector2 questEntityPosition = new Vector2(10, 10);
         Entity questEntity = EntityFactory.getInstance().getEntityByName(EntityFactory.EntityName.TOWN_BLACKSMITH);
         questEntity.sendMessage(Component.MESSAGE.INIT_START_POSITION, json.toJson(questEntityPosition));
@@ -200,7 +201,7 @@ public class MapManagerTest {
     @Test
     void remove_map_entity() {
         MapManager mapManager = new MapManager();
-        mapManager.loadMap(MapFactory.MapType.TOPPLE);
+        mapManager.loadMap(MapFactory.MapType.VILLAGE);
         int mapEntitiesSize = mapManager.getCurrentMapEntities().size;
 
         mapManager.removeMapEntity(mapManager.getCurrentMapEntities().get(0));

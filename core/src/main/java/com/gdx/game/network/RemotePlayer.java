@@ -18,7 +18,7 @@ public class RemotePlayer {
     public int hp;
 
     public RemotePlayer() {
-        this.mapName = "Topple";
+        this.mapName = "VILLAGE";
         this.hp = 100;
     }
 

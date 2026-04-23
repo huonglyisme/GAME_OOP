@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.12.1" orientation="orthogonal" renderorder="right-down" width="15" height="13" tilewidth="32" tileheight="32" infinite="0" nextlayerid="8" nextobjectid="265">
+<map version="1.10" tiledversion="1.12.1" orientation="orthogonal" renderorder="right-down" width="15" height="13" tilewidth="32" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="266">
  <tileset firstgid="1" source="swordofmana_map1.tsx"/>
  <tileset firstgid="34399" source="mana1.tsx"/>
  <tileset firstgid="34519" source="mana2.tsx"/>
@@ -21,7 +21,7 @@
 2147518222,34574,34540,28955,28956,28957,28958,28959,28960,28961,28962,28963,28964,28965,28966
 </data>
  </layer>
- <objectgroup id="2" name="MAP_COLLISION_LAYER" visible="0">
+ <objectgroup id="2" name="MAP_COLLISION_LAYER">
   <object id="1" x="116" y="68" width="77" height="42"/>
   <object id="2" x="155.667" y="109" width="37.6667" height="5.66667"/>
   <object id="3" x="160.333" y="114.667" width="25.6667" height="4.33333"/>
@@ -266,12 +266,12 @@
   <object id="247" x="194.333" y="91.3333" width="15" height="7.66667"/>
   <object id="248" x="275" y="73.6667" width="14.3333" height="9.66667"/>
  </objectgroup>
- <objectgroup id="3" name="MAP_SPAWNS_LAYER" visible="0">
+ <objectgroup id="3" name="MAP_SPAWNS_LAYER">
   <object id="251" name="TOWN_BLACKSMITH" x="204.741" y="284.889" width="26.6667" height="33.0621"/>
   <object id="252" name="TOWN_MAGE" x="318.518" y="329.456" width="27.7781" height="31.0621"/>
-  <object id="254" name="TOWN_INNKEEPER" x="270.321" y="167.901" width="25.3333" height="32"/>
-  <object id="263" name="PLAYER1_START" x="194.787" y="149.525" width="31.3744" height="33.2778"/>
-  <object id="264" name="PLAYER2_START" x="232.144" y="70.1208" width="36.6667" height="37"/>
+  <object id="254" name="TOWN_INNKEEPER" x="303.052" y="215.634" width="25.3333" height="32"/>
+  <object id="263" name="PLAYER_START" x="194.105" y="106.566" width="33.4201" height="35.3235"/>
+  <object id="264" name="PLAYER_START" x="233.508" y="106.943" width="36.6667" height="37"/>
  </objectgroup>
  <objectgroup id="4" name="MAP_PORTAL_LAYER">
   <object id="256" name="FOREST" x="237.54" y="386.105" width="60.0029" height="25.8141"/>

@@ -92,13 +92,13 @@ public class BattleScreenTest {
         GdxGame gdxGame = mock(GdxGame.class);
         ResourceManager resourceManager = new ResourceManager();
         Entity player = EntityFactory.getInstance().getEntity(EntityFactory.EntityType.WARRIOR);
-        player.setEntityEncounteredType(EntityFactory.EntityName.RABITE);
+        player.setEntityEncounteredType(EntityFactory.EntityName.RABITE1);
         Vector2 entityPosition = new Vector2(10, 10);
-        Entity entity = EntityFactory.getInstance().getEntityByName(EntityFactory.EntityName.RABITE);
+        Entity entity = EntityFactory.getInstance().getEntityByName(EntityFactory.EntityName.RABITE1);
         entity.sendMessage(Component.MESSAGE.INIT_START_POSITION, json.toJson(entityPosition));
         MapManager mapManager = new MapManager();
         mapManager.setPlayer(player);
-        mapManager.loadMap(MapFactory.MapType.TOPPLE_ROAD_1);
+        mapManager.loadMap(MapFactory.MapType.FOREST);
         Camera camera = new OrthographicCamera();
         PlayerHUD hud = new PlayerHUD(camera, player, mapManager);
         BattleScreen battleScreen = new BattleScreen(gdxGame, hud, mapManager, resourceManager);
@@ -109,7 +109,7 @@ public class BattleScreenTest {
 
         assertEquals(hpValue, hud.getStatusUI().getHPValue());
         assertNull(player.getEntityEncounteredType());
-        assertEquals(1, mapManager.getCurrentMapEntities().size);
+        assertEquals(2, mapManager.getCurrentMapEntities().size);
     }
 
     private static Stream<Arguments> fightOver() {
@@ -124,10 +124,10 @@ public class BattleScreenTest {
         GdxGame gdxGame = mock(GdxGame.class);
         ResourceManager resourceManager = new ResourceManager();
         Entity player = EntityFactory.getInstance().getEntity(EntityFactory.EntityType.WARRIOR);
-        player.setEntityEncounteredType(EntityFactory.EntityName.RABITE);
+        player.setEntityEncounteredType(EntityFactory.EntityName.RABITE1);
         MapManager mapManager = new MapManager();
         mapManager.setPlayer(player);
-        mapManager.loadMap(MapFactory.MapType.TOPPLE_ROAD_1);
+        mapManager.loadMap(MapFactory.MapType.FOREST);
         Camera camera = new OrthographicCamera();
         PlayerHUD hud = new PlayerHUD(camera, player, mapManager);
         BattleScreen battleScreen = new BattleScreen(gdxGame, hud, mapManager, resourceManager);

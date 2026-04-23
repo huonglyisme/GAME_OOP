@@ -1,7 +1,11 @@
 package com.gdx.game.map;
 
-import com.gdx.game.map.worldMap.ToppleRoad1;
-import com.gdx.game.map.worldMap.Topple;
+import com.gdx.game.map.worldMap.CastleFinal;
+import com.gdx.game.map.worldMap.CastleRoom;
+import com.gdx.game.map.worldMap.Cave1;
+import com.gdx.game.map.worldMap.Cave3;
+import com.gdx.game.map.worldMap.Forest;
+import com.gdx.game.map.worldMap.Village;
 
 import java.util.Hashtable;
 
@@ -10,8 +14,12 @@ public class MapFactory {
     private static Hashtable<MapType, Map> mapTable = new Hashtable<>();
 
     public enum MapType {
-        TOPPLE_ROAD_1,
-        TOPPLE
+        VILLAGE,
+        FOREST,
+        CAVE_1,
+        CAVE_3,
+        CASTLE_ROOM,
+        CASTLE_FINAL
     }
 
     public static Hashtable<MapType, Map> getMapTable() {
@@ -19,24 +27,20 @@ public class MapFactory {
     }
 
     public static Map getMap(MapType mapType) {
-        Map map = null;
-        switch(mapType) {
-            case TOPPLE_ROAD_1:
-                map = mapTable.get(MapType.TOPPLE_ROAD_1);
-                if (map == null) {
-                    map = new ToppleRoad1();
-                    mapTable.put(MapType.TOPPLE_ROAD_1, map);
-                }
-                break;
-            case TOPPLE:
-                map = mapTable.get(MapType.TOPPLE);
-                if (map == null) {
-                    map = new Topple();
-                    mapTable.put(MapType.TOPPLE, map);
-                }
-                break;
-            default:
-                break;
+        Map map = mapTable.get(mapType);
+        if (map != null) {
+            return map;
+        }
+        switch (mapType) {
+            case VILLAGE -> map = new Village();
+            case FOREST -> map = new Forest();
+            case CAVE_1 -> map = new Cave1();
+            case CAVE_3 -> map = new Cave3();
+            case CASTLE_ROOM -> map = new CastleRoom();
+            case CASTLE_FINAL -> map = new CastleFinal();
+        }
+        if (map != null) {
+            mapTable.put(mapType, map);
         }
         return map;
     }

@@ -52,11 +52,11 @@ public class EnemyPhysicsComponentTest {
         MapManager mapManager = new MapManager();
         mapManager.setCamera(new OrthographicCamera());
         mapManager.setPlayer(player);
-        mapManager.loadMap(MapFactory.MapType.TOPPLE_ROAD_1);
+        mapManager.loadMap(MapFactory.MapType.FOREST);
         OrthogonalTiledMapRenderer mapRenderer = new OrthogonalTiledMapRenderer(mapManager.getCurrentTiledMap(), Map.UNIT_SCALE);
         Entity enemy = mapManager.getCurrentMapEntities().get(1);
 
-        Vector2 currentEntityPosition = new Vector2(13,14);
+        Vector2 currentEntityPosition = new Vector2(22,14);
         player.sendMessage(Component.MESSAGE.INIT_START_POSITION, json.toJson(currentEntityPosition));
         player.update(mapManager, mapRenderer.getBatch(), 1.0f);
 

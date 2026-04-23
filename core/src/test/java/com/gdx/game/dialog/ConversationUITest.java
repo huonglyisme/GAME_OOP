@@ -39,13 +39,13 @@ public class ConversationUITest {
     @Test
     public void testLoadConversation_ShouldSucceed() {
         Json json = new Json();
-        String value = "{animationConfig:[{texturePaths:[sprites/characters/Player0.png,sprites/characters/Player1.png],gridPoints:[{x:3},{x:3}]},{animationType:IMMOBILE,texturePaths:[sprites/characters/Player0.png,sprites/characters/Player1.png],gridPoints:[{x:3},{x:3}]}],state:IMMOBILE,entityID:TOWN_FOLK1,conversationConfigPath:conversations/conversation004.json,questConfigPath:quests/quest002.json,currentQuestID:\"\",itemTypeID:NONE}";
+        String value = "{animationConfig:[{texturePaths:[sprites/characters/Player0.png,sprites/characters/Player1.png],gridPoints:[{x:3},{x:3}]},{animationType:IMMOBILE,texturePaths:[sprites/characters/Player0.png,sprites/characters/Player1.png],gridPoints:[{x:3},{x:3}]}],state:IMMOBILE,entityID:TOWN_BLACKSMITH,conversationConfigPath:conversations/conversation004.json,questConfigPath:\"\",currentQuestID:\"\",itemTypeID:NONE}";
         EntityConfig config = json.fromJson(EntityConfig.class, value);
         ConversationUI conversationUI = new ConversationUI();
 
         conversationUI.loadConversation(config);
 
-        assertThat("TOWN_FOLK1").isEqualTo(conversationUI.getCurrentEntityID());
+        assertThat("TOWN_BLACKSMITH").isEqualTo(conversationUI.getCurrentEntityID());
         assertThat("1").isEqualTo(conversationUI.getCurrentConversationGraph().getCurrentConversationID());
     }
 
