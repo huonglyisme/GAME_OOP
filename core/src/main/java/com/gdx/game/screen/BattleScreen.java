@@ -175,7 +175,19 @@ public class BattleScreen extends BaseScreen implements BattleObserver {
         gdxGame.getBatch().setProjectionMatrix(camera.combined);
 
         gdxGame.getBatch().begin();
-        gdxGame.getBatch().draw(resourceManager.battleBackgroundMeadow, 0,0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+
+        // Làm tối battle background, không dùng ShapeRenderer để tránh lỗi overlay đỏ/đen.
+        gdxGame.getBatch().setColor(0.45f, 0.45f, 0.45f, 1f);
+        gdxGame.getBatch().draw(
+        resourceManager.battleBackgroundMeadow,
+        0,
+        0,
+        Gdx.graphics.getWidth(),
+        Gdx.graphics.getHeight()
+);
+
+        // Reset màu để HUD, player, enemy không bị tối theo.
+        gdxGame.getBatch().setColor(1f, 1f, 1f, 1f);
         gdxGame.getBatch().end();
 
         battleStage.act(Gdx.graphics.getDeltaTime());
