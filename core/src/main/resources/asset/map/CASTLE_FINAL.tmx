@@ -21,7 +21,7 @@
 16916,16917,16918,16919,16920,16921,16922,16923,16924,16925,16926,16927,16928,16929,16930,16931
 </data>
  </layer>
- <objectgroup id="3" name="MAP_COLLISION_LAYER" visible="0">
+ <objectgroup id="3" name="MAP_COLLISION_LAYER">
   <object id="28" x="88" y="71.3333" width="8" height="5.33333"/>
   <object id="30" x="-6.08155" y="27.6146" width="62" height="145.669"/>
   <object id="31" x="60.3314" y="175.237" width="8" height="16"/>
@@ -64,7 +64,6 @@
   <object id="127" x="321.305" y="158.765" width="120.611" height="29.5472"/>
   <object id="129" x="99.6638" y="230.252" width="12" height="20.5455"/>
   <object id="132" x="112.414" y="270.665" width="28.3133" height="29.0452"/>
-  <object id="134" x="262.624" y="217.68" width="28.3133" height="46.4171"/>
   <object id="135" x="221.235" y="165.262" width="13.4543" height="130.771"/>
   <object id="137" x="305.505" y="382.996" width="198.106" height="44.7208"/>
   <object id="140" x="434.779" y="180.664" width="13.9713" height="71.0271"/>

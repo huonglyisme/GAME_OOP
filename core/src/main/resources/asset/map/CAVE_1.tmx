@@ -23,7 +23,7 @@
 21959,21960,21961,21962,21963,21964,21965,21966,21967,21968,21969,21970,21971,21972,21973,21974,21975,21976,21977,21978,21979,21980,21981
 </data>
  </layer>
- <objectgroup id="3" name="MAP_COLLISION_LAYER">
+ <objectgroup id="3" name="MAP_COLLISION_LAYER" visible="0">
   <object id="26" x="-36.4372" y="47.034" width="78" height="36.0254"/>
   <object id="30" x="-30.0478" y="81.6072" width="62" height="38.8789"/>
   <object id="31" x="151.304" y="28.3968" width="88.0763" height="20.7664"/>

@@ -17,7 +17,7 @@
 3109,3110,3111,3112,3113,3114,3115,3116,3117,3118
 </data>
  </layer>
- <objectgroup id="3" name="MAP_COLLISION_LAYER">
+ <objectgroup id="3" name="MAP_COLLISION_LAYER" visible="0">
   <object id="25" x="11.1049" y="14.324" width="258.944" height="33.3333"/>
   <object id="26" x="61.673" y="214.708" width="31.7984" height="9.33333"/>
   <object id="27" x="32.9824" y="72.4694" width="25.8576" height="40.5684"/>
@@ -68,7 +68,7 @@
   <object id="146" name="PLAYER_START" x="123.946" y="238.635" width="30.213" height="26.9964"/>
   <object id="147" name="PLAYER_START" x="186.465" y="237.184" width="27.7751" height="28.2603"/>
  </objectgroup>
- <objectgroup id="5" name="MAP_ENEMY_SPAWN_LAYER" visible="0">
+ <objectgroup id="5" name="MAP_ENEMY_SPAWN_LAYER">
   <object id="150" name="RABITE9" x="162.169" y="77.2483" width="24.9943" height="20.0712"/>
   <object id="151" name="RABITE7" x="227.02" y="150.323" width="26.5091" height="19.6925"/>
   <object id="152" name="RABITE6" x="95.4329" y="149.209" width="26.1304" height="20.8286"/>

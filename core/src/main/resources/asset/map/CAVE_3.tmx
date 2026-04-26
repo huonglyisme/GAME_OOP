@@ -48,7 +48,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup id="3" name="MAP_COLLISION_LAYER">
+ <objectgroup id="3" name="MAP_COLLISION_LAYER" visible="0">
   <object id="25" x="72.6205" y="35.9995" width="119.849" height="59.8778"/>
   <object id="26" x="22.6667" y="61.3333" width="78" height="9.33333"/>
   <object id="27" x="22" y="71.3333" width="66" height="8"/>
@@ -132,11 +132,11 @@
   <object id="151" x="433.181" y="229.877" width="17.9357" height="19.608"/>
   <object id="152" x="145.244" y="153.52" width="10.31" height="20.392"/>
  </objectgroup>
- <objectgroup id="4" name="MAP_SPAWNS_LAYER" visible="0">
+ <objectgroup id="4" name="MAP_SPAWNS_LAYER">
   <object id="144" name="PLAYER_START" x="106.09" y="366.539" width="42.7728" height="35.4614"/>
-  <object id="12" name="PLAYER_START" x="115.737" y="363.292" width="42.7728" height="35.4614"/>
+  <object id="12" name="PLAYER_START" x="126.704" y="367.209" width="42.7728" height="35.4614"/>
  </objectgroup>
- <objectgroup id="5" name="MAP_ENEMY_SPAWN_LAYER" visible="0">
+ <objectgroup id="5" name="MAP_ENEMY_SPAWN_LAYER">
   <object id="146" name="RABITE4" x="373.25" y="182.305" width="38.0162" height="33.6962"/>
   <object id="148" name="RABITE5" x="131.329" y="107.137" width="35.4242" height="31.1042"/>
  </objectgroup>

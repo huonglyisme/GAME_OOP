@@ -21,7 +21,7 @@
 2147518222,34574,34540,28955,28956,28957,28958,28959,28960,28961,28962,28963,28964,28965,28966
 </data>
  </layer>
- <objectgroup id="2" name="MAP_COLLISION_LAYER">
+ <objectgroup id="2" name="MAP_COLLISION_LAYER" visible="0">
   <object id="1" x="116" y="68" width="77" height="42"/>
   <object id="2" x="155.667" y="109" width="37.6667" height="5.66667"/>
   <object id="3" x="160.333" y="114.667" width="25.6667" height="4.33333"/>
