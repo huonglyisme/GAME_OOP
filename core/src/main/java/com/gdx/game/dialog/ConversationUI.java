@@ -155,6 +155,11 @@ public class ConversationUI extends Window {
         LOGGER.info("Class upgraded to {}", playerClass);
     }
 
+    public void loadNotification(String message) {
+        clearDialog();
+        dialogText.setText(message);
+    }
+
     public void setConversationGraph(ConversationGraph graph) {
         if (this.graph != null) {
             this.graph.removeAllObservers();

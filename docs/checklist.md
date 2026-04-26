@@ -50,9 +50,9 @@ Co-op "2 player chung battle screen" mất 5-8 ngày → **không vừa**. Thay 
       currentOpponent.getEntityConfig());
   ```
   → Forest.java/Cave3.java/CastleRoom.java/CastleFinal.java đã có code đọc back (đã verify ở [Forest.java:57-60](../core/src/main/java/com/gdx/game/map/worldMap/Forest.java#L57-L60))
-- [ ] **T1.4** Quái không biến mất sau escape
+- [x] **T1.4** Quái không biến mất sau escape
   → verify trong `MapManager`/`Map`: tìm chỗ remove `mapEntities` khi battle kết thúc, chỉ remove khi `OPPONENT_DEFEATED`, KHÔNG remove khi escape
-- [ ] **T1.5** Portal mở khi diệt hết quái trong map
+- [x] **T1.5** Portal mở khi diệt hết quái trong map
   → thêm method `Map.allEnemiesDefeated()`: duyệt `mapEntities`, check HP=0 với mỗi enemy
   → trong [GameScreen.java:212-215](../core/src/main/java/com/gdx/game/screen/GameScreen.java#L212-L215) hook check trước khi `START_BATTLE` portal trigger
   → nếu chưa diệt hết, hiện toast "Hãy diệt hết quái trước!"

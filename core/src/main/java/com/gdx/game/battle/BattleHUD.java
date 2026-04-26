@@ -97,6 +97,19 @@ public class BattleHUD implements Screen, BattleObserver, ClassObserver, Compone
         playerImage = new AnimatedImage();
         playerImage.setTouchable(Touchable.disabled);
         enemy = EntityFactory.getInstance().getEntityByName(mapManager.getPlayer().getEntityEncounteredType());
+
+        // T1.3: Apply saved enemy state (reduced HP from previous escape)
+        Object savedState = ProfileManager.getInstance().getProperty(
+                enemy.getEntityConfig().getEntityID(), Object.class);
+        if (savedState instanceof EntityConfig savedConfig) {
+            // Copy HP from saved config so battle starts with correct HP
+            String savedHP = savedConfig.getPropertyValue(
+                    EntityConfig.EntityProperties.ENTITY_HEALTH_POINTS.toString());
+            if (savedHP != null && !savedHP.isEmpty()) {
+                enemy.getEntityConfig().setPropertyValue(
+                        EntityConfig.EntityProperties.ENTITY_HEALTH_POINTS.toString(), savedHP);
+            }
+        }
         opponentImage = new AnimatedImage();
         opponentImage.setTouchable(Touchable.disabled);
         battleState.setPlayer(player);

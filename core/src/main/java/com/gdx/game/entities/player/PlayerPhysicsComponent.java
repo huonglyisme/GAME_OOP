@@ -11,6 +11,7 @@ import com.gdx.game.component.Component;
 import com.gdx.game.component.ComponentObserver;
 import com.gdx.game.component.PhysicsComponent;
 import com.gdx.game.entities.Entity;
+import com.gdx.game.entities.EntityConfig;
 import com.gdx.game.entities.EntityFactory;
 import com.gdx.game.map.Map;
 import com.gdx.game.map.MapFactory;
@@ -118,6 +119,13 @@ public class PlayerPhysicsComponent extends PhysicsComponent {
             Rectangle targetRect = mapEntity.getCurrentBoundingBox();
             if (boundingBox.overlaps(targetRect)){
                 if ("FOE".equals(mapEntity.getEntityConfig().getEntityStatus())) {
+                    // Skip dead enemies (HP <= 0) — already defeated
+                    String hpStr = mapEntity.getEntityConfig().getPropertyValue(
+                            EntityConfig.EntityProperties.ENTITY_HEALTH_POINTS.toString());
+                    if (hpStr != null && !hpStr.isEmpty() && Integer.parseInt(hpStr) <= 0) {
+                        continue;
+                    }
+
                     String foeId = mapEntity.getEntityConfig().getEntityID();
                     currentFoeId = foeId;
                     if (!foeId.equals(lastCollidedFoeId)) {
@@ -252,6 +260,8 @@ public class PlayerPhysicsComponent extends PhysicsComponent {
         return false;
     }
 
+    private boolean portalBlockedNotified = false;
+
     private boolean updatePortalLayerActivation(MapManager mapMgr) {
         MapLayer mapPortalLayer =  mapMgr.getPortalLayer();
 
@@ -271,6 +281,16 @@ public class PlayerPhysicsComponent extends PhysicsComponent {
                         return false;
                     }
 
+                    // T1.5: Block portal if enemies are still alive
+                    if (!mapMgr.allEnemiesDefeated()) {
+                        if (!portalBlockedNotified) {
+                            notify("Hãy diệt hết quái trước!", ComponentObserver.ComponentEvent.PORTAL_BLOCKED);
+                            portalBlockedNotified = true;
+                        }
+                        return false;
+                    }
+                    portalBlockedNotified = false;
+
                     mapMgr.setClosestStartPositionFromScaledUnits(currentEntityPosition);
                     mapMgr.loadMap(MapFactory.MapType.valueOf(mapName));
 
@@ -284,6 +304,7 @@ public class PlayerPhysicsComponent extends PhysicsComponent {
                 }
             }
         }
+        portalBlockedNotified = false;
         return false;
     }
 

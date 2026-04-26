@@ -9,6 +9,7 @@ public interface ComponentObserver {
         SHOW_RESUME,
         QUEST_LOCATION_DISCOVERED,
         ENEMY_SPAWN_LOCATION_CHANGED,
+        PORTAL_BLOCKED,
         START_BATTLE,
         OPTION_INPUT
     }

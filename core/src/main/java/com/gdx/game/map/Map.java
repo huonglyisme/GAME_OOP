@@ -12,6 +12,7 @@ import com.gdx.game.audio.AudioManager;
 import com.gdx.game.audio.AudioObserver;
 import com.gdx.game.audio.AudioSubject;
 import com.gdx.game.entities.Entity;
+import com.gdx.game.entities.EntityConfig;
 import com.gdx.game.manager.ResourceManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -349,6 +350,27 @@ public abstract class Map implements AudioSubject {
     public void setClosestStartPositionFromScaledUnits(Vector2 position) {
         convertedUnits.set(position.x/UNIT_SCALE, position.y/UNIT_SCALE);
         setClosestStartPosition(convertedUnits);
+    }
+
+    /**
+     * Check if all enemies (entities with status "FOE") on this map have been defeated (HP <= 0).
+     * Returns true if there are no enemies at all.
+     */
+    public boolean allEnemiesDefeated() {
+        for (int i = 0; i < mapEntities.size; i++) {
+            Entity entity = mapEntities.get(i);
+            if ("FOE".equals(entity.getEntityConfig().getEntityStatus())) {
+                String hpStr = entity.getEntityConfig().getPropertyValue(
+                        EntityConfig.EntityProperties.ENTITY_HEALTH_POINTS.toString());
+                if (hpStr != null && !hpStr.isEmpty()) {
+                    int hp = Integer.parseInt(hpStr);
+                    if (hp > 0) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true; // no enemies or all defeated
     }
 
     public abstract void unloadMusic();

@@ -24,10 +24,15 @@ public class MapManager implements ProfileObserver {
     private boolean mapChanged = false;
     private Map currentMap;
     private Entity player;
+    private Vector2 overridePlayerPosition;
     private Entity currentSelectedEntity = null;
 
     public MapManager() {
         // Nothing
+    }
+
+    public void setOverridePlayerPosition(Vector2 position) {
+        this.overridePlayerPosition = position;
     }
 
     @Override
@@ -58,7 +63,13 @@ public class MapManager implements ProfileObserver {
                 if (this.currentMap != null) {
                     profileManager.setProperty("currentMapType", this.currentMap.currentMapType.toString());
                 }
-                profileManager.setProperty("currentPlayerPosition", player.getCurrentPosition());
+                // Use override position if set (for post-escape push), else use player's position
+                if (overridePlayerPosition != null) {
+                    profileManager.setProperty("currentPlayerPosition", overridePlayerPosition);
+                    overridePlayerPosition = null;
+                } else {
+                    profileManager.setProperty("currentPlayerPosition", player.getCurrentPosition());
+                }
                 for (MapFactory.MapType mt : MapFactory.MapType.values()) {
                     Map cachedMap = MapFactory.getMapTable().get(mt);
                     if (cachedMap != null) {
@@ -154,6 +165,13 @@ public class MapManager implements ProfileObserver {
 
     public MapFactory.MapType getCurrentMapType() {
         return currentMap.getCurrentMapType();
+    }
+
+    public boolean allEnemiesDefeated() {
+        if (currentMap == null) {
+            return true;
+        }
+        return currentMap.allEnemiesDefeated();
     }
 
     public Vector2 getPlayerStartUnitScaled() {

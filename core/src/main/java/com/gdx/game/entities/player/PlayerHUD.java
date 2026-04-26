@@ -419,6 +419,11 @@ public class PlayerHUD implements Screen, AudioSubject, ProfileObserver, ClassOb
                 questUI.questTaskComplete(questID, questTaskID);
                 updateEntityObservers();
             }
+            case PORTAL_BLOCKED -> {
+                statusUI.setVisible(false);
+                notificationUI.setVisible(true);
+                notificationUI.loadNotification(value);
+            }
             default -> {
             }
         }

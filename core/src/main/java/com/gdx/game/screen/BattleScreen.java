@@ -9,6 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.badlogic.gdx.math.Vector2;
+import com.gdx.game.entities.EntityConfig;
 import com.gdx.game.GdxGame;
 import com.gdx.game.audio.AudioObserver;
 import static com.gdx.game.audio.AudioObserver.AudioTypeEvent.BATTLE_THEME;
@@ -79,14 +80,14 @@ public class BattleScreen extends BaseScreen implements BattleObserver {
     }*/
 
     /**
-     * Sau khi escape, đẩy player ra xa foe đang đụng để tránh re-collision
-     * (foe sẽ tự follow lại nếu trong radius 75, nhưng chậm — player có thời gian thoát).
+     * Compute a position that pushes the player away from the opponent they just fought.
+     * Returns null if the foe can't be found or positions are invalid.
      */
-    private void pushPlayerAwayFromOpponent() {
+    private Vector2 computePushedPosition() {
         Entity player = mapManager.getPlayer();
         EntityFactory.EntityName encounteredType = player.getEntityEncounteredType();
         if (encounteredType == null) {
-            return;
+            return null;
         }
         Entity foe = null;
         for (Entity e : mapManager.getCurrentMapEntities()) {
@@ -96,13 +97,15 @@ public class BattleScreen extends BaseScreen implements BattleObserver {
             }
         }
         if (foe == null) {
-            return;
+            return null;
         }
 
+        // Use physics position (currentEntityPosition) not graphics position
+        // because graphics position lags behind by 1 frame
         Vector2 playerPos = player.getCurrentPosition();
         Vector2 foePos = foe.getCurrentPosition();
         if (playerPos == null || foePos == null) {
-            return;
+            return null;
         }
         float dx = playerPos.x - foePos.x;
         float dy = playerPos.y - foePos.y;
@@ -111,12 +114,10 @@ public class BattleScreen extends BaseScreen implements BattleObserver {
             dx = 1f; dy = 0f; len = 1f;
         }
         float pushDistance = 2.0f;
-        Vector2 newPlayerPos = new Vector2(
+        return new Vector2(
                 playerPos.x + dx / len * pushDistance,
                 playerPos.y + dy / len * pushDistance
         );
-        player.sendMessage(Component.MESSAGE.INIT_START_POSITION,
-                new com.badlogic.gdx.utils.Json().toJson(newPlayerPos));
     }
 
     private void setupGameOver() {
@@ -162,9 +163,13 @@ public class BattleScreen extends BaseScreen implements BattleObserver {
                 refreshStatus();
                 refreshInventory();
                 refreshStats();
-                ProfileManager.getInstance().saveProfile();
+
+                // Remove defeated enemy from map
+                syncMapEntityAfterBattle(entity, true);
 
                 mapManager.getPlayer().setEntityEncounteredType(null);
+                ProfileManager.getInstance().saveProfile();
+
                 if (finalBossDefeated) {
                     setupWinScreen();
                 } else {
@@ -183,12 +188,57 @@ public class BattleScreen extends BaseScreen implements BattleObserver {
             case PLAYER_RUNNING -> {
                 refreshStatus();
                 refreshInventory();
-                pushPlayerAwayFromOpponent();
+
+                // Sync map entity HP with battle result (enemy still alive)
+                syncMapEntityAfterBattle(entity, false);
+
+                // Compute pushed position BEFORE clearing entityEncounteredType
+                Vector2 pushedPos = computePushedPosition();
+
                 mapManager.getPlayer().setEntityEncounteredType(null);
+
+                // Set override position so SaveProfile writes pushed pos, not old graphics pos
+                if (pushedPos != null) {
+                    mapManager.setOverridePlayerPosition(pushedPos);
+                    mapManager.getPlayer().sendMessage(Component.MESSAGE.INIT_START_POSITION,
+                            new com.badlogic.gdx.utils.Json().toJson(pushedPos));
+                }
+                ProfileManager.getInstance().saveProfile();
+
                 setScreenWithTransition((BaseScreen) gdxGame.getScreen(), gdxGame.getGameScreen(), new ArrayList<>());
             }
             default -> {
             }
+        }
+    }
+
+    /**
+     * Sync the map entity's HP with the battle result.
+     * If defeated, remove the entity from the map.
+     */
+    private void syncMapEntityAfterBattle(Entity battleEntity, boolean defeated) {
+        if (battleEntity == null) return;
+        String entityID = battleEntity.getEntityConfig().getEntityID();
+        if (entityID == null) return;
+
+        Entity mapEntity = null;
+        for (Entity e : mapManager.getCurrentMapEntities()) {
+            if (entityID.equals(e.getEntityConfig().getEntityID())) {
+                mapEntity = e;
+                break;
+            }
+        }
+        if (mapEntity == null) return;
+
+        if (defeated) {
+            // Remove defeated enemy from map
+            mapManager.removeMapEntity(mapEntity);
+        } else {
+            // Sync HP from battle entity to map entity
+            String hp = battleEntity.getEntityConfig().getPropertyValue(
+                    EntityConfig.EntityProperties.ENTITY_HEALTH_POINTS.toString());
+            mapEntity.getEntityConfig().setPropertyValue(
+                    EntityConfig.EntityProperties.ENTITY_HEALTH_POINTS.toString(), hp);
         }
     }
 
