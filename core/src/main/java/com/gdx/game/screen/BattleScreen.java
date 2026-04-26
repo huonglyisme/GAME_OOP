@@ -1,5 +1,7 @@
 package com.gdx.game.screen;
 
+import java.util.ArrayList;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -8,26 +10,23 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 import com.gdx.game.GdxGame;
 import com.gdx.game.audio.AudioObserver;
+import static com.gdx.game.audio.AudioObserver.AudioTypeEvent.BATTLE_THEME;
 import com.gdx.game.battle.BattleHUD;
 import com.gdx.game.battle.BattleInventoryUI;
 import com.gdx.game.battle.BattleObserver;
 import com.gdx.game.battle.BattleState;
+import static com.gdx.game.common.UtilityClass.registerBonusClass;
 import com.gdx.game.entities.Entity;
 import com.gdx.game.entities.EntityBonus;
 import com.gdx.game.entities.player.PlayerHUD;
-import com.gdx.game.inventory.item.InventoryItemLocation;
 import com.gdx.game.inventory.InventoryObserver;
 import com.gdx.game.inventory.InventoryUI;
+import com.gdx.game.inventory.item.InventoryItemLocation;
 import com.gdx.game.manager.ResourceManager;
 import com.gdx.game.map.MapManager;
 import com.gdx.game.profile.ProfileManager;
 import com.gdx.game.screen.transition.effects.FadeOutTransitionEffect;
 import com.gdx.game.screen.transition.effects.TransitionEffect;
-
-import java.util.ArrayList;
-
-import static com.gdx.game.audio.AudioObserver.AudioTypeEvent.BATTLE_THEME;
-import static com.gdx.game.common.UtilityClass.registerBonusClass;
 
 public class BattleScreen extends BaseScreen implements BattleObserver {
 
@@ -37,6 +36,19 @@ public class BattleScreen extends BaseScreen implements BattleObserver {
     private MapManager mapManager;
     private PlayerHUD playerHUD;
     protected BattleHUD battleHUD;
+
+    
+    private void setupWinScreen() {
+    ArrayList<TransitionEffect> effects = new ArrayList<>();
+    effects.add(new FadeOutTransitionEffect(1f));
+
+    setScreenWithTransition(
+            (BaseScreen) gdxGame.getScreen(),
+            new WinScreen(gdxGame, mapManager, resourceManager),
+            effects
+        );
+    }
+
 
     private BattleState battleState;
 
@@ -111,12 +123,23 @@ public class BattleScreen extends BaseScreen implements BattleObserver {
     public void onNotify(Entity entity, BattleEvent event) {
         switch (event) {
             case RESUME_OVER -> {
+                boolean finalBossDefeated = isFinalBoss(entity);
+
                 refreshStatus();
                 refreshInventory();
                 refreshStats();
                 ProfileManager.getInstance().saveProfile();
-                setScreenWithTransition((BaseScreen) gdxGame.getScreen(), gdxGame.getGameScreen(), new ArrayList<>());
+                
                 removeEntities();
+                 if (finalBossDefeated) {
+                    setupWinScreen();
+                } else {
+                    setScreenWithTransition(
+                            (BaseScreen) gdxGame.getScreen(),
+                            gdxGame.getGameScreen(),
+                            new ArrayList<>()
+                    );
+                }
             }
             case OPPONENT_TURN_DONE -> {
                 if (GameScreen.getGameState() == GameScreen.GameState.GAME_OVER) {
@@ -152,7 +175,19 @@ public class BattleScreen extends BaseScreen implements BattleObserver {
         gdxGame.getBatch().setProjectionMatrix(camera.combined);
 
         gdxGame.getBatch().begin();
-        gdxGame.getBatch().draw(resourceManager.battleBackgroundMeadow, 0,0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+
+        // Làm tối battle background, không dùng ShapeRenderer để tránh lỗi overlay đỏ/đen.
+        gdxGame.getBatch().setColor(0.45f, 0.45f, 0.45f, 1f);
+        gdxGame.getBatch().draw(
+        resourceManager.battleBackgroundMeadow,
+        0,
+        0,
+        Gdx.graphics.getWidth(),
+        Gdx.graphics.getHeight()
+);
+
+        // Reset màu để HUD, player, enemy không bị tối theo.
+        gdxGame.getBatch().setColor(1f, 1f, 1f, 1f);
         gdxGame.getBatch().end();
 
         battleStage.act(Gdx.graphics.getDeltaTime());
@@ -160,6 +195,14 @@ public class BattleScreen extends BaseScreen implements BattleObserver {
 
         battleHUD.render(delta);
     }
+
+    private static final String FINAL_BOSS_ENTITY_ID = "RABITE20";
+
+    private boolean isFinalBoss(Entity entity) {
+    return entity != null
+            && entity.getEntityConfig() != null
+            && FINAL_BOSS_ENTITY_ID.equals(entity.getEntityConfig().getEntityID());
+}
 
     @Override
     public void dispose() {

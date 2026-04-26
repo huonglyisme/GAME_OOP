@@ -1,5 +1,8 @@
 package com.gdx.game.battle;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Vector2;
@@ -24,6 +27,7 @@ import com.gdx.game.entities.EntityFactory;
 import com.gdx.game.entities.player.characterclass.ClassObserver;
 import com.gdx.game.entities.player.characterclass.tree.Node;
 import com.gdx.game.entities.player.characterclass.tree.Tree;
+import static com.gdx.game.entities.player.characterclass.tree.Tree.saveNewClass;
 import com.gdx.game.inventory.InventoryObserver;
 import com.gdx.game.inventory.item.InventoryItem;
 import com.gdx.game.inventory.item.InventoryItemLocation;
@@ -33,10 +37,6 @@ import com.gdx.game.profile.ProfileManager;
 import com.gdx.game.screen.GameScreen;
 import com.gdx.game.status.StatsUpUI;
 import com.gdx.game.status.StatusObserver;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import static com.gdx.game.entities.player.characterclass.tree.Tree.saveNewClass;
 
 public class BattleHUD implements Screen, BattleObserver, ClassObserver, ComponentObserver, InventoryObserver, StatusObserver {
 
@@ -60,8 +60,13 @@ public class BattleHUD implements Screen, BattleObserver, ClassObserver, Compone
     private BattleConversation battleConversation;
     private Array<String> drops;
 
+    private static final String FINAL_BOSS_ENTITY_ID = "RABITE20";
+
     private final int enemyWidth = 50;
     private final int enemyHeight = 50;
+    private final int bossWidth = 110;
+    private final int bossHeight = 110;
+
     private final int playerWidth = 50;
     private final int playerHeight = 50;
 
@@ -198,13 +203,26 @@ public class BattleHUD implements Screen, BattleObserver, ClassObserver, Compone
                 LOGGER.debug("Player added on battle map");
             }
             case OPPONENT_ADDED -> {
-                opponentImage.setEntity(entity);
-                opponentImage.setCurrentAnimation(Entity.AnimationType.IMMOBILE);
-                opponentImage.setSize(enemyWidth, enemyHeight);
-                opponentImage.setPosition(600, 200);
-                currentOpponentImagePosition.set(opponentImage.getX(), opponentImage.getY());
-                LOGGER.debug("Opponent added on battle map");
-            }
+    opponentImage.setEntity(entity);
+    opponentImage.setCurrentAnimation(Entity.AnimationType.IMMOBILE);
+
+    int opponentWidth = isFinalBoss(entity) ? bossWidth : enemyWidth;
+    int opponentHeight = isFinalBoss(entity) ? bossHeight : enemyHeight;
+
+    float baseX = 600;
+    float baseY = 200;
+
+    float drawX = baseX - (opponentWidth - enemyWidth) / 2f;
+    float drawY = baseY - (opponentHeight - enemyHeight) / 2f;
+
+    opponentImage.setSize(opponentWidth, opponentHeight);
+    opponentImage.setPosition(drawX, drawY);
+
+    currentOpponentImagePosition.set(opponentImage.getX(), opponentImage.getY());
+    dmgOpponentLabelTable.setPosition(currentOpponentImagePosition.x, currentOpponentImagePosition.y);
+
+    LOGGER.debug("Opponent added on battle map");
+}
                 /*if ( battleShakeCam == null ){
                     battleShakeCam = new ShakeCamera(currentImagePosition.x, currentImagePosition.y, 30.0f);
                 }*/
@@ -406,6 +424,12 @@ public class BattleHUD implements Screen, BattleObserver, ClassObserver, Compone
 
     public Label getDmgOpponentValLabel() {
         return dmgOpponentValLabel;
+    }
+
+    private boolean isFinalBoss(Entity entity) {
+    return entity != null
+            && entity.getEntityConfig() != null
+            && FINAL_BOSS_ENTITY_ID.equals(entity.getEntityConfig().getEntityID());
     }
 
     private void setOpponentDefeated() {

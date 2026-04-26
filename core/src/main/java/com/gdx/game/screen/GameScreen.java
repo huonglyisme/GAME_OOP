@@ -1,11 +1,26 @@
 package com.gdx.game.screen;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Pixmap;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.maps.MapLayer;
+import com.badlogic.gdx.maps.MapObject;
+import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.ScreenUtils;
@@ -14,8 +29,13 @@ import com.gdx.game.GdxGame;
 import com.gdx.game.audio.AudioManager;
 import com.gdx.game.audio.AudioObserver;
 import com.gdx.game.camera.CameraStyles;
+import static com.gdx.game.common.Constants.FULL_CONTROLS_SETTINGS_PATH;
+import static com.gdx.game.common.Constants.PARTIAL_CONTROLS_SETTINGS_PATH;
+import static com.gdx.game.common.DefaultControlsMap.DEFAULT_CONTROLS;
 import com.gdx.game.component.Component;
 import com.gdx.game.component.ComponentObserver;
+import static com.gdx.game.component.InputComponent.playerControls;
+import static com.gdx.game.component.InputComponent.setPlayerControlMapFromJsonControlsMap;
 import com.gdx.game.entities.Entity;
 import com.gdx.game.entities.EntityFactory;
 import com.gdx.game.entities.player.PlayerHUD;
@@ -25,17 +45,6 @@ import com.gdx.game.map.Map;
 import com.gdx.game.map.MapFactory;
 import com.gdx.game.map.MapManager;
 import com.gdx.game.profile.ProfileManager;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-
-import static com.gdx.game.common.Constants.FULL_CONTROLS_SETTINGS_PATH;
-import static com.gdx.game.common.Constants.PARTIAL_CONTROLS_SETTINGS_PATH;
-import static com.gdx.game.common.DefaultControlsMap.DEFAULT_CONTROLS;
-import static com.gdx.game.component.InputComponent.playerControls;
-import static com.gdx.game.component.InputComponent.setPlayerControlMapFromJsonControlsMap;
 
 public class GameScreen extends BaseScreen implements ComponentObserver {
 
@@ -80,6 +89,9 @@ public class GameScreen extends BaseScreen implements ComponentObserver {
     private float endY;
 
     private AudioObserver.AudioTypeEvent musicTheme;
+
+    private Texture portalMarkerTexture;
+    private float portalPulseTime = 0f;
 
     public GameScreen(GdxGame gdxGame, ResourceManager resourceManager) {
         super(gdxGame, resourceManager);
@@ -127,6 +139,8 @@ public class GameScreen extends BaseScreen implements ComponentObserver {
         hudCamera.setToOrtho(false, VIEWPORT.physicalWidth, VIEWPORT.physicalHeight);
 
         playerHUD = new PlayerHUD(hudCamera, player, mapManager);
+
+        portalMarkerTexture = createPortalMarkerTexture(64);
 
         multiplexer = new InputMultiplexer();
         multiplexer.addProcessor(playerHUD.getStage());
@@ -189,8 +203,12 @@ public class GameScreen extends BaseScreen implements ComponentObserver {
         }
 
         mapRenderer.render();
-        mapManager.updateCurrentMapEntities(mapManager, mapRenderer.getBatch(), delta);
-        player.update(mapManager, mapRenderer.getBatch(), delta);
+
+// Vẽ marker portal sau tile map, trước entity/player để marker nằm dưới nhân vật.
+renderPortalMarkers(delta);
+
+mapManager.updateCurrentMapEntities(mapManager, mapRenderer.getBatch(), delta);
+player.update(mapManager, mapRenderer.getBatch(), delta);
 
         startX = camera.viewportWidth / 2;
         startY = camera.viewportHeight / 2;
@@ -250,6 +268,11 @@ public class GameScreen extends BaseScreen implements ComponentObserver {
             player.dispose();
         }
 
+        if (portalMarkerTexture != null) {
+        portalMarkerTexture.dispose();
+        portalMarkerTexture = null;
+        }
+
         if (mapRenderer != null) {
             mapRenderer.dispose();
         }
@@ -284,6 +307,84 @@ public class GameScreen extends BaseScreen implements ComponentObserver {
         }
 
     }
+
+    private Texture createPortalMarkerTexture(int size) {
+    Pixmap pixmap = new Pixmap(size, size, Pixmap.Format.RGBA8888);
+
+    int center = size / 2;
+
+    // Vòng sáng ngoài
+    pixmap.setColor(0.1f, 0.7f, 1f, 0.25f);
+    pixmap.fillCircle(center, center, size / 2 - 2);
+
+    // Vòng chính
+    pixmap.setColor(0.2f, 0.9f, 1f, 0.85f);
+    pixmap.drawCircle(center, center, size / 2 - 5);
+    pixmap.drawCircle(center, center, size / 2 - 6);
+
+    // Lõi sáng bên trong
+    pixmap.setColor(0.8f, 1f, 1f, 0.9f);
+    pixmap.fillCircle(center, center, size / 6);
+
+    Texture texture = new Texture(pixmap);
+    pixmap.dispose();
+    return texture;
+}
+
+private void renderPortalMarkers(float delta) {
+    if (mapManager == null || mapRenderer == null || portalMarkerTexture == null) {
+        return;
+    }
+
+    MapLayer portalLayer = mapManager.getPortalLayer();
+    if (portalLayer == null) {
+        return;
+    }
+
+    portalPulseTime += delta;
+
+    Batch batch = mapRenderer.getBatch();
+    batch.begin();
+
+    float pulse = 1f + 0.12f * MathUtils.sin(portalPulseTime * 4f);
+    float alpha = 0.65f + 0.25f * MathUtils.sin(portalPulseTime * 4f);
+
+    batch.setColor(0.7f, 1f, 1f, alpha);
+
+    for (MapObject object : portalLayer.getObjects()) {
+        Rectangle rect;
+
+        if (object instanceof RectangleMapObject) {
+            rect = ((RectangleMapObject) object).getRectangle();
+        } else {
+            continue;
+        }
+
+        float x = rect.x * Map.UNIT_SCALE;
+        float y = rect.y * Map.UNIT_SCALE;
+        float width = rect.width * Map.UNIT_SCALE;
+        float height = rect.height * Map.UNIT_SCALE;
+
+        float centerX = x + width / 2f;
+        float centerY = y + height / 2f;
+
+        float markerSize = Math.max(width, height) * 0.75f * pulse;
+        if (markerSize < 1.2f) {
+            markerSize = 1.2f * pulse;
+        }
+
+        batch.draw(
+                portalMarkerTexture,
+                centerX - markerSize / 2f,
+                centerY - markerSize / 2f,
+                markerSize,
+                markerSize
+        );
+    }
+
+    batch.setColor(Color.WHITE);
+    batch.end();
+}
 
     private static void setupViewport(int width, int height) {
         //Make the viewport a percentage of the total display area

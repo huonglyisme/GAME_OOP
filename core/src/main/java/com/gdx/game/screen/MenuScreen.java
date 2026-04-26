@@ -1,5 +1,7 @@
 package com.gdx.game.screen;
 
+import java.util.ArrayList;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
@@ -11,18 +13,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.gdx.game.GdxGame;
 import com.gdx.game.audio.AudioObserver;
+import static com.gdx.game.audio.AudioObserver.AudioTypeEvent.MENU_THEME;
 import com.gdx.game.manager.AnimationManager;
 import com.gdx.game.manager.ResourceManager;
-import com.gdx.game.screen.transition.effects.FadeInTransitionEffect;
-import com.gdx.game.screen.transition.effects.FadeOutTransitionEffect;
-import com.gdx.game.screen.transition.effects.TransitionEffect;
-
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import static com.gdx.game.audio.AudioObserver.AudioTypeEvent.MENU_THEME;
 
 public class MenuScreen extends BaseScreen {
 
@@ -142,7 +135,19 @@ public class MenuScreen extends BaseScreen {
         TextureRegion currentFrame = flowAnimation.getKeyFrame(stateTime, true);
 
         gdxGame.getBatch().begin();
-        gdxGame.getBatch().draw(currentFrame, 0,0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+
+        // Làm tối background menu/login.
+        gdxGame.getBatch().setColor(0.45f, 0.45f, 0.45f, 1f);
+        gdxGame.getBatch().draw(
+        currentFrame,
+        0,
+        0,
+        Gdx.graphics.getWidth(),
+        Gdx.graphics.getHeight()
+);
+
+        // Reset màu để button/text không bị tối theo.
+        gdxGame.getBatch().setColor(1f, 1f, 1f, 1f);
         gdxGame.getBatch().end();
 
         if (!resourceManager.isOptionScreen() && !resourceManager.isMenuNewGameScreen() && !resourceManager.isMenuLoadGameScreen()) {
