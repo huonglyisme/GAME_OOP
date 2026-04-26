@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
+import com.badlogic.gdx.math.Vector2;
 import com.gdx.game.GdxGame;
 import com.gdx.game.audio.AudioObserver;
 import static com.gdx.game.audio.AudioObserver.AudioTypeEvent.BATTLE_THEME;
@@ -16,8 +17,10 @@ import com.gdx.game.battle.BattleInventoryUI;
 import com.gdx.game.battle.BattleObserver;
 import com.gdx.game.battle.BattleState;
 import static com.gdx.game.common.UtilityClass.registerBonusClass;
+import com.gdx.game.component.Component;
 import com.gdx.game.entities.Entity;
 import com.gdx.game.entities.EntityBonus;
+import com.gdx.game.entities.EntityFactory;
 import com.gdx.game.entities.player.PlayerHUD;
 import com.gdx.game.inventory.InventoryObserver;
 import com.gdx.game.inventory.InventoryUI;
@@ -75,14 +78,45 @@ public class BattleScreen extends BaseScreen implements BattleObserver {
         return battleHUD;
     }*/
 
-    private void removeEntities() {
-        Array<Entity> entities = mapManager.getCurrentMapEntities();
-        for(Entity entity: entities) {
-            if (entity.getEntityConfig().getEntityID().equals(mapManager.getPlayer().getEntityEncounteredType().toString())) {
-                mapManager.removeMapEntity(entity);
+    /**
+     * Sau khi escape, đẩy player ra xa foe đang đụng để tránh re-collision
+     * (foe sẽ tự follow lại nếu trong radius 75, nhưng chậm — player có thời gian thoát).
+     */
+    private void pushPlayerAwayFromOpponent() {
+        Entity player = mapManager.getPlayer();
+        EntityFactory.EntityName encounteredType = player.getEntityEncounteredType();
+        if (encounteredType == null) {
+            return;
+        }
+        Entity foe = null;
+        for (Entity e : mapManager.getCurrentMapEntities()) {
+            if (encounteredType.toString().equals(e.getEntityConfig().getEntityID())) {
+                foe = e;
+                break;
             }
         }
-        mapManager.getPlayer().setEntityEncounteredType(null);
+        if (foe == null) {
+            return;
+        }
+
+        Vector2 playerPos = player.getCurrentPosition();
+        Vector2 foePos = foe.getCurrentPosition();
+        if (playerPos == null || foePos == null) {
+            return;
+        }
+        float dx = playerPos.x - foePos.x;
+        float dy = playerPos.y - foePos.y;
+        float len = (float) Math.sqrt(dx * dx + dy * dy);
+        if (len < 0.001f) {
+            dx = 1f; dy = 0f; len = 1f;
+        }
+        float pushDistance = 2.0f;
+        Vector2 newPlayerPos = new Vector2(
+                playerPos.x + dx / len * pushDistance,
+                playerPos.y + dy / len * pushDistance
+        );
+        player.sendMessage(Component.MESSAGE.INIT_START_POSITION,
+                new com.badlogic.gdx.utils.Json().toJson(newPlayerPos));
     }
 
     private void setupGameOver() {
@@ -129,9 +163,9 @@ public class BattleScreen extends BaseScreen implements BattleObserver {
                 refreshInventory();
                 refreshStats();
                 ProfileManager.getInstance().saveProfile();
-                
-                removeEntities();
-                 if (finalBossDefeated) {
+
+                mapManager.getPlayer().setEntityEncounteredType(null);
+                if (finalBossDefeated) {
                     setupWinScreen();
                 } else {
                     setScreenWithTransition(
@@ -149,8 +183,9 @@ public class BattleScreen extends BaseScreen implements BattleObserver {
             case PLAYER_RUNNING -> {
                 refreshStatus();
                 refreshInventory();
+                pushPlayerAwayFromOpponent();
+                mapManager.getPlayer().setEntityEncounteredType(null);
                 setScreenWithTransition((BaseScreen) gdxGame.getScreen(), gdxGame.getGameScreen(), new ArrayList<>());
-                removeEntities();
             }
             default -> {
             }

@@ -27,6 +27,7 @@ public class PlayerPhysicsComponent extends PhysicsComponent {
     private boolean isMouseSelectEnabled = false;
     private String previousDiscovery;
     private String previousEnemySpawn;
+    private String lastCollidedFoeId = null;
 
     public PlayerPhysicsComponent() {
         super.velocity = new Vector2(5f, 5f);
@@ -106,6 +107,7 @@ public class PlayerPhysicsComponent extends PhysicsComponent {
         tempEntities.addAll(mapMgr.getCurrentMapEntities());
         tempEntities.addAll(mapMgr.getCurrentMapQuestEntities());
         boolean isCollisionWithMapEntities = false;
+        String currentFoeId = null;
 
         for(Entity mapEntity: tempEntities) {
             //Check for testing against self
@@ -115,16 +117,25 @@ public class PlayerPhysicsComponent extends PhysicsComponent {
 
             Rectangle targetRect = mapEntity.getCurrentBoundingBox();
             if (boundingBox.overlaps(targetRect)){
-                //Collision
                 if ("FOE".equals(mapEntity.getEntityConfig().getEntityStatus())) {
-                    entity.sendMessage(MESSAGE.COLLISION_WITH_FOE, mapEntity.getEntityConfig().getEntityID());
+                    String foeId = mapEntity.getEntityConfig().getEntityID();
+                    currentFoeId = foeId;
+                    if (!foeId.equals(lastCollidedFoeId)) {
+                        // Fresh contact: trigger battle and block movement
+                        entity.sendMessage(MESSAGE.COLLISION_WITH_FOE, foeId);
+                        isCollisionWithMapEntities = true;
+                        break;
+                    }
+                    // Cooldown foe (just escaped): pass-through, don't block, don't re-trigger.
+                    // Continue loop to check other entities.
                 } else {
                     entity.sendMessage(MESSAGE.COLLISION_WITH_ENTITY, mapEntity.getEntityConfig().getEntityID());
+                    isCollisionWithMapEntities = true;
+                    break;
                 }
-                isCollisionWithMapEntities = true;
-                break;
             }
         }
+        lastCollidedFoeId = currentFoeId;
         tempEntities.clear();
         return isCollisionWithMapEntities;
     }
