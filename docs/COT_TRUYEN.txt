@@ -1,10 +1,24 @@
 Bối cảnh
- Ngày xưa, thế giới Aethermere được nuôi dưỡng bởi Cây Mana — nguồn sống của vạn vật. Một ngày nọ, Cây Mana nổ tung, tạo nên sự kiện được gọi là “Manafall”. Mana tràn khắp nơi, biến nhiều sinh vật thành những quái vật hung dữ. Thế giới rơi vào hỗn loạn, còn con người sống trong sợ hãi.
+ Ngày xưa, thế giới Aethermere được nuôi dưỡng bởi Cây Mana — nguồn sống của vạn vật. Một ngày nọ, Cây Mana nổ tung, tạo nên sự kiện được gọi là "Manafall". Mana tràn khắp nơi, biến nhiều sinh vật thành những quái vật hung dữ — đông nhất là loài Rabite, sinh ra từ mana hỗn loạn. Thế giới rơi vào hỗn loạn, con người co cụm trong những ngôi làng nhỏ, sống trong sợ hãi.
+
 Nhân vật chính
- Nhiều năm sau Manafall, một đứa trẻ được sinh ra với mana trong máu — kết quả của một sự may mắn hiếm có, khi lượng mana tàn dư thấm vào cơ thể từ lúc còn trong bụng mẹ. Lớn lên, đứa trẻ phát hiện mình sở hữu sức mạnh đặc biệt: có thể sử dụng mana để chiến đấu và tiêu diệt quái vật.
+ Nhiều năm sau Manafall, một đứa trẻ được sinh ra với mana trong máu — kết quả của một sự may mắn hiếm có, khi lượng mana tàn dư thấm vào cơ thể từ lúc còn trong bụng mẹ. Lớn lên ở ngôi làng Village dưới chân ngọn núi cũ, đứa trẻ phát hiện mình sở hữu sức mạnh đặc biệt: có thể sử dụng mana để chiến đấu và tiêu diệt quái vật.
+
 Chế độ Co-op
- Người chơi thứ hai là một người khác cũng được sinh ra với mana trong người — cùng cảnh ngộ, cùng sức mạnh, và cùng đồng hành trên hành trình.
+ Người chơi thứ hai là một người khác cũng được sinh ra với mana trong người — cùng cảnh ngộ, cùng sức mạnh, và cùng đồng hành trên hành trình. Hai người chia sẻ thế giới: cùng nhau di chuyển khắp các vùng đất, cùng đối đầu quái vật. Khi một người đánh quái còn dở dang, người còn lại có thể tiếp tục trận đấu với máu quái còn lại.
+
 Hành trình
- Nhân vật rời khỏi ngôi làng của mình, bắt đầu cuộc phiêu lưu khắp thế giới: tiêu diệt quái vật, giúp đỡ dân làng, nhận nhiệm vụ từ các NPC, và thu thập vũ khí cùng vật phẩm. Càng đi xa, quái vật càng trở nên mạnh hơn, và nhân vật cũng dần trưởng thành hơn qua từng trận chiến.
+ Nhân vật rời khỏi Village, nơi gặp Thợ Rèn (Blacksmith) để rèn vũ khí, Pháp Sư (Mage) để học cách điều khiển mana, và Chủ Quán Trọ (Innkeeper) để nghỉ ngơi và lắng nghe tin đồn về thế giới ngoài kia.
+
+ Vùng đầu tiên là Forest — khu rừng tối nơi đàn Rabite yếu (Rabite1, Rabite2) lảng vảng. Đây là lò luyện cho người mới, nơi nhân vật học cách chiến đấu thực thụ.
+
+ Trên đường đi, nhân vật ghé Cave 1, bắt gặp một Thợ Săn bị thương (Hunter Wounded). Cứu giúp anh ta sẽ mở ra manh mối về vùng đất phía sâu hơn — nơi mana đang tích tụ bất thường.
+
+ Tiến sâu vào Cave 3, mana đậm đặc khiến lũ Rabite trở nên hung tợn hơn (Rabite4, Rabite5). Vượt qua hang động này, nhân vật đến Castle Room — phế tích lâu đài cổ bị quái vật chiếm đóng (Rabite6, Rabite7, Rabite9), cửa ngõ dẫn tới trung tâm Manafall.
+
+ Cuối cùng, Castle Final mở ra trước mắt — sảnh chính của lâu đài, nơi tàn dư của Cây Mana đã biến dạng thành một thực thể khổng lồ. Ba con Rabite tinh nhuệ (Rabite10, Rabite11, Rabite12) canh giữ ngai vàng, và phía sau chúng là Boss cuối — Mana Lord (Rabite20), sinh vật mạnh nhất được sinh ra từ Manafall.
+
 Kết thúc
- Cuối cùng, nhân vật đối mặt với Boss cuối — sinh vật mạnh nhất được sinh ra từ Manafall, đang đe dọa hủy diệt những gì còn sót lại của loài người. Sau khi đánh bại Boss, nhân vật được tôn làm Vua — vị vua duy nhất mang trong mình sức mạnh mana. Từ đó, nhân vật dùng mana của mình để chữa lành đất đai, tái thiết thế giới, và dẫn dắt loài người bước vào một kỷ nguyên mới.
+ Trận chiến cuối cùng đòi hỏi nhân vật phải dùng hết kỹ năng và trang bị đã thu thập trên hành trình; thậm chí có lúc phải rút lui, hồi sức ở quán trọ, rồi quay lại tiếp tục đánh tiếp với máu Boss còn lại từ trận trước. Khi Boss gục ngã, mana hỗn loạn trong xác nó tan ra và quay về với đất.
+
+ Nhân vật được tôn làm Vua — vị vua duy nhất mang trong mình sức mạnh mana. Từ đó, nhân vật dùng mana của mình để chữa lành đất đai, tái thiết thế giới, và dẫn dắt loài người bước vào một kỷ nguyên mới.
