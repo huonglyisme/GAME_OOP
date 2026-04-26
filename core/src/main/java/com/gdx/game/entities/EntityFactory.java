@@ -134,7 +134,11 @@ public class EntityFactory {
     }
 
     public Entity getEntityByName(EntityName entityName) {
-        EntityConfig config = new EntityConfig(entities.get(entityName.toString()));
+        Object stored = com.gdx.game.profile.ProfileManager.getInstance()
+                .getProperty(entityName.toString(), Object.class);
+        EntityConfig config = (stored instanceof EntityConfig saved)
+                ? new EntityConfig(saved)
+                : new EntityConfig(entities.get(entityName.toString()));
         return Entity.initEntity(config);
     }
 

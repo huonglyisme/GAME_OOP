@@ -28,9 +28,9 @@ Co-op "2 player chung battle screen" mất 5-8 ngày → **không vừa**. Thay 
 ## DAY 1 — Single-player gameplay
 
 ### Gameplay từ ảnh
-- [ ] **T1.1** Escape bất kỳ lúc nào
+- [x] **T1.1** Escape bất kỳ lúc nào
   → [BattleState.java:269-280](../core/src/main/java/com/gdx/game/battle/BattleState.java#L269-L280) bỏ check `escapeChance`, luôn `notify(PLAYER_RUNNING)`
-- [ ] **T1.2** Boss buff RABITE10/11/12/20 + cần ≥2 turn
+- [x] **T1.2** Boss buff RABITE10/11/12/20 + cần ≥2 turn
   → KHÔNG đụng RABITE1/2/4/5/6/7/9 (giữ stats gốc).
   → Trong [enemies.json](../core/src/main/resources/scripts/enemies.json) đổi `entityProperties` cho 4 entry sau:
 
@@ -42,7 +42,7 @@ Co-op "2 player chung battle screen" mất 5-8 ngày → **không vừa**. Thay 
   | RABITE20 (BOSS) | **600** | **55** | **34** | **45** | **45** | **13** | 6000 | 2500 |
 
   → Boss HP=600 với DP player full gear ≈24 → boss ATK 55−24=31 dmg/đòn → player 160 HP chỉ chịu ~5 hit → bắt buộc retry/potion, không thể 1-shot.
-- [ ] **T1.3** Lưu HP quái giữa các lần battle
+- [x] **T1.3** Lưu HP quái giữa các lần battle
   → trong `BattleState.playerRuns()` (escape) + nhánh `OPPONENT_DEFEATED`:
   ```java
   ProfileManager.getInstance().setProperty(

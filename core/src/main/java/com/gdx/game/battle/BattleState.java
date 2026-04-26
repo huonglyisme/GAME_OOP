@@ -211,6 +211,7 @@ public class BattleState extends BattleSubject {
 
                 if (currentOpponentHP == 0) {
                     calculateDrops();
+                    BattleState.this.saveOpponentState();
                     BattleState.this.notify(currentOpponent, BattleObserver.BattleEvent.OPPONENT_DEFEATED);
                 }
 
@@ -268,6 +269,18 @@ public class BattleState extends BattleSubject {
 
     public void playerRuns() {
         notify(currentOpponent, BattleObserver.BattleEvent.PLAYER_PHASE_START);
+        saveOpponentState();
         notify(currentOpponent, BattleObserver.BattleEvent.PLAYER_RUNNING);
+    }
+
+    private void saveOpponentState() {
+        if (currentOpponent == null) {
+            return;
+        }
+        String entityID = currentOpponent.getEntityConfig().getEntityID();
+        if (entityID == null) {
+            return;
+        }
+        ProfileManager.getInstance().setProperty(entityID, currentOpponent.getEntityConfig());
     }
 }

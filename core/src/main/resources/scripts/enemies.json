@@ -291,14 +291,14 @@
 		"dropTableID": "RABITE10_DROPS",
 		"itemTypeID": "NONE",
 		"entityProperties": {
-			"ENTITY_HEALTH_POINTS": { "class": "java.lang.String", "value": 220 },
-			"ENTITY_PHYSICAL_ATTACK_POINTS": { "class": "java.lang.String", "value": 60 },
-			"ENTITY_PHYSICAL_DEFENSE_POINTS": { "class": "java.lang.String", "value": 42 },
-			"ENTITY_MAGIC_ATTACK_POINTS": { "class": "java.lang.String", "value": 32 },
-			"ENTITY_MAGIC_DEFENSE_POINTS": { "class": "java.lang.String", "value": 32 },
+			"ENTITY_HEALTH_POINTS": { "class": "java.lang.String", "value": 200 },
+			"ENTITY_PHYSICAL_ATTACK_POINTS": { "class": "java.lang.String", "value": 45 },
+			"ENTITY_PHYSICAL_DEFENSE_POINTS": { "class": "java.lang.String", "value": 32 },
+			"ENTITY_MAGIC_ATTACK_POINTS": { "class": "java.lang.String", "value": 30 },
+			"ENTITY_MAGIC_DEFENSE_POINTS": { "class": "java.lang.String", "value": 30 },
 			"ENTITY_SPEED_POINTS": { "class": "java.lang.String", "value": 11 },
-			"ENTITY_XP_REWARD": { "class": "java.lang.String", "value": 500 },
-			"ENTITY_GP_REWARD": { "class": "java.lang.String", "value": 200 }
+			"ENTITY_XP_REWARD": { "class": "java.lang.String", "value": 450 },
+			"ENTITY_GP_REWARD": { "class": "java.lang.String", "value": 180 }
 		},
 		"drops": [
 			{ "itemTypeID": "HERB001", "probability": 0.6 },
@@ -331,14 +331,14 @@
 		"dropTableID": "RABITE11_DROPS",
 		"itemTypeID": "NONE",
 		"entityProperties": {
-			"ENTITY_HEALTH_POINTS": { "class": "java.lang.String", "value": 220 },
-			"ENTITY_PHYSICAL_ATTACK_POINTS": { "class": "java.lang.String", "value": 60 },
-			"ENTITY_PHYSICAL_DEFENSE_POINTS": { "class": "java.lang.String", "value": 42 },
-			"ENTITY_MAGIC_ATTACK_POINTS": { "class": "java.lang.String", "value": 32 },
-			"ENTITY_MAGIC_DEFENSE_POINTS": { "class": "java.lang.String", "value": 32 },
+			"ENTITY_HEALTH_POINTS": { "class": "java.lang.String", "value": 200 },
+			"ENTITY_PHYSICAL_ATTACK_POINTS": { "class": "java.lang.String", "value": 45 },
+			"ENTITY_PHYSICAL_DEFENSE_POINTS": { "class": "java.lang.String", "value": 32 },
+			"ENTITY_MAGIC_ATTACK_POINTS": { "class": "java.lang.String", "value": 30 },
+			"ENTITY_MAGIC_DEFENSE_POINTS": { "class": "java.lang.String", "value": 30 },
 			"ENTITY_SPEED_POINTS": { "class": "java.lang.String", "value": 11 },
-			"ENTITY_XP_REWARD": { "class": "java.lang.String", "value": 500 },
-			"ENTITY_GP_REWARD": { "class": "java.lang.String", "value": 200 }
+			"ENTITY_XP_REWARD": { "class": "java.lang.String", "value": 450 },
+			"ENTITY_GP_REWARD": { "class": "java.lang.String", "value": 180 }
 		},
 		"drops": [
 			{ "itemTypeID": "HERB001", "probability": 0.6 },
@@ -371,14 +371,14 @@
 		"dropTableID": "RABITE12_DROPS",
 		"itemTypeID": "NONE",
 		"entityProperties": {
-			"ENTITY_HEALTH_POINTS": { "class": "java.lang.String", "value": 220 },
-			"ENTITY_PHYSICAL_ATTACK_POINTS": { "class": "java.lang.String", "value": 60 },
-			"ENTITY_PHYSICAL_DEFENSE_POINTS": { "class": "java.lang.String", "value": 42 },
+			"ENTITY_HEALTH_POINTS": { "class": "java.lang.String", "value": 240 },
+			"ENTITY_PHYSICAL_ATTACK_POINTS": { "class": "java.lang.String", "value": 50 },
+			"ENTITY_PHYSICAL_DEFENSE_POINTS": { "class": "java.lang.String", "value": 36 },
 			"ENTITY_MAGIC_ATTACK_POINTS": { "class": "java.lang.String", "value": 32 },
 			"ENTITY_MAGIC_DEFENSE_POINTS": { "class": "java.lang.String", "value": 32 },
 			"ENTITY_SPEED_POINTS": { "class": "java.lang.String", "value": 11 },
-			"ENTITY_XP_REWARD": { "class": "java.lang.String", "value": 500 },
-			"ENTITY_GP_REWARD": { "class": "java.lang.String", "value": 200 }
+			"ENTITY_XP_REWARD": { "class": "java.lang.String", "value": 550 },
+			"ENTITY_GP_REWARD": { "class": "java.lang.String", "value": 220 }
 		},
 		"drops": [
 			{ "itemTypeID": "HERB001", "probability": 0.6 },
@@ -411,14 +411,14 @@
 		"dropTableID": "RABITE20_DROPS",
 		"itemTypeID": "NONE",
 		"entityProperties": {
-			"ENTITY_HEALTH_POINTS": { "class": "java.lang.String", "value": 1500 },
-			"ENTITY_PHYSICAL_ATTACK_POINTS": { "class": "java.lang.String", "value": 180 },
-			"ENTITY_PHYSICAL_DEFENSE_POINTS": { "class": "java.lang.String", "value": 100 },
-			"ENTITY_MAGIC_ATTACK_POINTS": { "class": "java.lang.String", "value": 100 },
-			"ENTITY_MAGIC_DEFENSE_POINTS": { "class": "java.lang.String", "value": 100 },
-			"ENTITY_SPEED_POINTS": { "class": "java.lang.String", "value": 14 },
-			"ENTITY_XP_REWARD": { "class": "java.lang.String", "value": 8000 },
-			"ENTITY_GP_REWARD": { "class": "java.lang.String", "value": 3000 }
+			"ENTITY_HEALTH_POINTS": { "class": "java.lang.String", "value": 600 },
+			"ENTITY_PHYSICAL_ATTACK_POINTS": { "class": "java.lang.String", "value": 55 },
+			"ENTITY_PHYSICAL_DEFENSE_POINTS": { "class": "java.lang.String", "value": 34 },
+			"ENTITY_MAGIC_ATTACK_POINTS": { "class": "java.lang.String", "value": 45 },
+			"ENTITY_MAGIC_DEFENSE_POINTS": { "class": "java.lang.String", "value": 45 },
+			"ENTITY_SPEED_POINTS": { "class": "java.lang.String", "value": 13 },
+			"ENTITY_XP_REWARD": { "class": "java.lang.String", "value": 6000 },
+			"ENTITY_GP_REWARD": { "class": "java.lang.String", "value": 2500 }
 		},
 		"drops": [
 			{ "itemTypeID": "HERB001", "probability": 1.0 },
