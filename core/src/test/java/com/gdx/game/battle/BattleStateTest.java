@@ -152,7 +152,7 @@ public class BattleStateTest {
     private static Stream<Arguments> determineRun() {
         return Stream.of(
                 Arguments.of(100f, BattleObserver.BattleEvent.PLAYER_RUNNING),
-                Arguments.of(-1.2f, BattleObserver.BattleEvent.PLAYER_TURN_DONE)
+                Arguments.of(-1.2f, BattleObserver.BattleEvent.PLAYER_RUNNING)
         );
     }
 

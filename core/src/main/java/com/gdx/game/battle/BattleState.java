@@ -268,14 +268,6 @@ public class BattleState extends BattleSubject {
 
     public void playerRuns() {
         notify(currentOpponent, BattleObserver.BattleEvent.PLAYER_PHASE_START);
-
-        double escapeChance = BattleUtils.escapeChance(speedRatio);
-
-        if (BattleUtils.isSuccessful(escapeChance)) {
-            LOGGER.debug("Player flees with {}% escape chance", escapeChance * 100);
-            notify(currentOpponent, BattleObserver.BattleEvent.PLAYER_RUNNING);
-        } else {
-            notify(currentOpponent, BattleObserver.BattleEvent.PLAYER_TURN_DONE);
-        }
+        notify(currentOpponent, BattleObserver.BattleEvent.PLAYER_RUNNING);
     }
 }
