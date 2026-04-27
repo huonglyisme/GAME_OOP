@@ -61,6 +61,7 @@ public class InventoryItem extends Image {
         POTIONS01,POTIONS02,POTIONS03,
         SCROLL01,SCROLL02,SCROLL03,
         HERB001,BABY001,HORNS001,FUR001,
+        MANA_CRYSTAL,
         NONE
     }
 

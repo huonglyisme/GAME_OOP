@@ -231,6 +231,9 @@ public class BattleScreen extends BaseScreen implements BattleObserver {
                 }
                 ProfileManager.getInstance().saveProfile();
 
+                // 2-second cooldown: pass-through ALL foes (covers dense clusters like CASTLE_FINAL)
+                com.gdx.game.entities.player.PlayerPhysicsComponent.startEscapeCooldown(2000L);
+
                 setScreenWithTransition((BaseScreen) gdxGame.getScreen(), gdxGame.getGameScreen(), new ArrayList<>());
             }
             default -> {

@@ -209,6 +209,8 @@ public class BattleState extends BattleSubject {
                     BattleState.this.notify(currentOpponent, BattleObserver.BattleEvent.OPPONENT_HIT_DAMAGE);
                 }
 
+                BattleState.this.tryActivateBossPhase2(currentOpponentHP);
+
                 if (currentOpponentHP == 0) {
                     calculateDrops();
                     BattleState.this.saveOpponentState();
@@ -271,6 +273,36 @@ public class BattleState extends BattleSubject {
         notify(currentOpponent, BattleObserver.BattleEvent.PLAYER_PHASE_START);
         saveOpponentState();
         notify(currentOpponent, BattleObserver.BattleEvent.PLAYER_RUNNING);
+    }
+
+    /**
+     * A1 — Boss phase 2: when RABITE20 drops below 50% max HP (300/600),
+     * permanently buff its ATK x1.5 and SPD x1.3. Persists via entityConfig
+     * property so it survives escape/re-enter.
+     */
+    private void tryActivateBossPhase2(int currentHp) {
+        if (currentOpponent == null) {
+            return;
+        }
+        if (!"RABITE20".equals(currentOpponent.getEntityConfig().getEntityID())) {
+            return;
+        }
+        if (currentHp <= 0 || currentHp >= 300) {
+            return;
+        }
+        EntityConfig cfg = currentOpponent.getEntityConfig();
+        if ("true".equals(cfg.getPropertyValue("PHASE_2_ACTIVATED"))) {
+            return;
+        }
+        int curATK = Integer.parseInt(cfg.getPropertyValue(EntityConfig.EntityProperties.ENTITY_PHYSICAL_ATTACK_POINTS.toString()));
+        int curSPD = Integer.parseInt(cfg.getPropertyValue(EntityConfig.EntityProperties.ENTITY_SPEED_POINTS.toString()));
+        int newATK = (int) Math.round(curATK * 1.5);
+        int newSPD = (int) Math.round(curSPD * 1.3);
+        cfg.setPropertyValue(EntityConfig.EntityProperties.ENTITY_PHYSICAL_ATTACK_POINTS.toString(), String.valueOf(newATK));
+        cfg.setPropertyValue(EntityConfig.EntityProperties.ENTITY_SPEED_POINTS.toString(), String.valueOf(newSPD));
+        cfg.setPropertyValue("PHASE_2_ACTIVATED", "true");
+        LOGGER.debug("BOSS PHASE 2 activated! ATK {} -> {}, SPD {} -> {}", curATK, newATK, curSPD, newSPD);
+        saveOpponentState();
     }
 
     private void saveOpponentState() {

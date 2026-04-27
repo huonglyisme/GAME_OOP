@@ -29,6 +29,12 @@ public class PlayerPhysicsComponent extends PhysicsComponent {
     private String previousDiscovery;
     private String previousEnemySpawn;
     private String lastCollidedFoeId = null;
+    private static long escapeCooldownUntil = 0L;
+
+    /** Called from BattleScreen on escape — disables all foe-battle triggers for {@code durationMs}. */
+    public static void startEscapeCooldown(long durationMs) {
+        escapeCooldownUntil = System.currentTimeMillis() + durationMs;
+    }
 
     public PlayerPhysicsComponent() {
         super.velocity = new Vector2(5f, 5f);
@@ -123,6 +129,14 @@ public class PlayerPhysicsComponent extends PhysicsComponent {
                     String hpStr = mapEntity.getEntityConfig().getPropertyValue(
                             EntityConfig.EntityProperties.ENTITY_HEALTH_POINTS.toString());
                     if (hpStr != null && !hpStr.isEmpty() && Integer.parseInt(hpStr) <= 0) {
+                        continue;
+                    }
+
+                    // Global escape cooldown: pass-through ANY foe, don't trigger battle.
+                    // Used after escape to let player exit dense enemy clusters (e.g. boss area).
+                    if (System.currentTimeMillis() < escapeCooldownUntil) {
+                        String foeId = mapEntity.getEntityConfig().getEntityID();
+                        currentFoeId = foeId;
                         continue;
                     }
 
@@ -299,7 +313,10 @@ public class PlayerPhysicsComponent extends PhysicsComponent {
                     nextEntityPosition.x = mapMgr.getPlayerStartUnitScaled().x;
                     nextEntityPosition.y = mapMgr.getPlayerStartUnitScaled().y;
 
-                    LOGGER.debug("Portal Activated");
+                    // A3: Auto-save when crossing portal
+                    com.gdx.game.profile.ProfileManager.getInstance().saveProfile();
+
+                    LOGGER.debug("Portal Activated — auto-saved");
                     return true;
                 }
             }

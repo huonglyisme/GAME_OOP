@@ -136,6 +136,13 @@ HORNS001
   orig: 52, 52
   offset: 0, 0
   index: -1
+MANA_CRYSTAL
+  rotate: false
+  xy: 217, 163
+  size: 52, 52
+  orig: 52, 52
+  offset: 0, 0
+  index: -1
 inv_boot
   rotate: false
   xy: 271, 217

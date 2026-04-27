@@ -5,7 +5,7 @@
   "direction": "DOWN",
   "conversationConfigPath": "conversations/conversation_town_innkeeper.json",
   "resumeConfigPath": "",
-  "questConfigPath": "",
+  "questConfigPath": "quests/quest005.json",
   "currentQuestID": "",
   "itemTypeID": "NONE",
   "animationConfig": [

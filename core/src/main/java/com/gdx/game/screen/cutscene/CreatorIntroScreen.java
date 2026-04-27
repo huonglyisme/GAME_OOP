@@ -19,7 +19,7 @@ public class CreatorIntroScreen extends CutSceneBaseScreen {
         super(game, resourceManager);
 
         creator = getAnimatedImage(EntityFactory.EntityType.THIEF);
-        creator.setName("Creator");
+        creator.setName("Storyteller");
 
         setupScene01 = new RunnableAction() {
             @Override
@@ -48,14 +48,14 @@ public class CreatorIntroScreen extends CutSceneBaseScreen {
                 Actions.addAction(Actions.moveTo(17, 10, 5, Interpolation.linear), creator),
                 Actions.delay(Float.parseFloat("2.5")),
                 Actions.addAction(Actions.run(() -> creator.setCurrentAnimation(Entity.AnimationType.IMMOBILE))),
-                Actions.run(() -> showMessage(creator, "Hello adventurer! Welcome to my game, or at least my prototype game!")),
+                Actions.run(() -> showMessage(creator, "Long ago, the world of Aethermere was nurtured by the Mana Tree — the source of all life.")),
                 Actions.delay(5),
-                Actions.run(() -> showMessage(creator, "Many thanks for your interest in my project, i hope you will like it.")),
+                Actions.run(() -> showMessage(creator, "One day, the Tree shattered. The cataclysm known as 'Manafall' twisted countless creatures into demons.")),
                 Actions.delay(5),
-                Actions.run(() -> showMessage(creator, "Do not hesitate to contribute or suggest any idea that you might have. Help is always welcome!")),
+                Actions.run(() -> showMessage(creator, "Years later, a child was born with mana in their blood — a rare blessing in a broken world.")),
                 Actions.delay(5),
-                Actions.run(() -> showMessage(creator, "Have fun :)")),
-                Actions.delay(3),
+                Actions.run(() -> showMessage(creator, "That child is you. Your village calls. Your journey begins now.")),
+                Actions.delay(4),
                 Actions.after(getSwitchScreenAction())
         );
     }

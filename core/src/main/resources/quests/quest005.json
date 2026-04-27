@@ -1,8 +1,8 @@
 {
-  "questTitle": "The Hunter's Request",
-  "questID": 4,
-  "goldReward": 50,
-  "xpReward": 50,
+  "questTitle": "Peril in the Forest",
+  "questID": 5,
+  "goldReward": 60,
+  "xpReward": 80,
   "isQuestComplete": false,
   "questTasks": {
     "2": {
@@ -13,7 +13,7 @@
         },
         "TARGET_TYPE": {
           "class": "java.lang.String",
-          "value": "scripts/quest004_task002.json"
+          "value": "scripts/quest005_task002.json"
         },
         "TARGET_NUM": {
           "class": "java.lang.String",
@@ -25,7 +25,7 @@
         }
       },
       "id": 2,
-      "taskPhrase": "Collect 3 furs from the forest",
+      "taskPhrase": "Defeat Rabites in the forest and collect 3 horns as proof",
       "questType": "FETCH"
     },
     "1": {
@@ -36,15 +36,15 @@
         },
         "TARGET_TYPE": {
           "class": "java.lang.String",
-          "value": "HUNTER_WOUNDED"
+          "value": "TOWN_INNKEEPER"
         },
         "TARGET_LOCATION": {
           "class": "java.lang.String",
-          "value": "CAVE_1"
+          "value": "VILLAGE"
         }
       },
       "id": 1,
-      "taskPhrase": "Bring the furs back to the Wounded Hunter",
+      "taskPhrase": "Bring the Rabite horns back to the Innkeeper",
       "questType": "RETURN"
     }
   },

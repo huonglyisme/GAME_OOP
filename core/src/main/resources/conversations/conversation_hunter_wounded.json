@@ -2,19 +2,23 @@
     "conversations": {
         "1": {
             "id": 1,
-            "dialog": "Ugh... tránh ra đi, lữ khách. Ta bị một con Rabite phục kích ở sâu trong hang. Chúng rất nguy hiểm — hãy cẩn thận."
+            "dialog": "Ugh... stay back, traveler. A Rabite ambushed me deep in this cave. The Rabites here are bad enough, but I've heard the ones in Cave 3 are far larger and fiercer — saturated with mana, almost impossible to kill."
         },
         "2": {
             "id": 2,
-            "dialog": "Nếu ngươi muốn giúp, hãy tìm cho ta 3 bộ lông thú trong rừng. Ta cần chúng để băng bó vết thương. Ngươi có sẵn lòng không?"
+            "dialog": "And that's not all... There's an old legend that in the abandoned castle far to the east — the place called Castle Room — monsters far stronger still hold court. And deeper, in Castle Final, where the Mana Tree once stood, a horrifying being awaits. Never go there unless you're truly ready."
         },
         "3": {
             "id": 3,
-            "dialog": "Cảm ơn ngươi! Hãy tìm chúng trong khu rừng phía ngoài. Cẩn thận với lũ Rabite nhé."
+            "dialog": "If you wish to help me, find 3 furs in the forest. I need them to bandage my wounds. Are you willing?"
         },
         "4": {
             "id": 4,
-            "dialog": "Không sao, ta hiểu. Hãy cẩn thận nhé."
+            "dialog": "Thank you! Look for them in the forest outside. Be careful of the Rabites — and remember what I said about the Castle."
+        },
+        "5": {
+            "id": 5,
+            "dialog": "I understand. Stay safe, and don't forget the legend of Castle Final."
         }
     },
     "associatedChoices": {
@@ -23,14 +27,14 @@
                 "class": "com.gdx.game.dialog.ConversationChoice",
                 "sourceId": 1,
                 "destinationId": 2,
-                "choicePhrase": "Tôi có thể giúp gì?",
+                "choicePhrase": "Tell me more about the lands beyond.",
                 "conversationCommandEvent": "NONE"
             },
             {
                 "class": "com.gdx.game.dialog.ConversationChoice",
                 "sourceId": 1,
-                "destinationId": 4,
-                "choicePhrase": "Giữ gìn sức khỏe.",
+                "destinationId": 5,
+                "choicePhrase": "Take care of yourself.",
                 "conversationCommandEvent": "EXIT_CONVERSATION"
             }
         ],
@@ -39,19 +43,35 @@
                 "class": "com.gdx.game.dialog.ConversationChoice",
                 "sourceId": 2,
                 "destinationId": 3,
-                "choicePhrase": "Tôi sẽ giúp!",
-                "conversationCommandEvent": "ACCEPT_QUEST"
+                "choicePhrase": "Is there anything I can do for you now?",
+                "conversationCommandEvent": "NONE"
             },
             {
                 "class": "com.gdx.game.dialog.ConversationChoice",
                 "sourceId": 2,
-                "destinationId": 4,
-                "choicePhrase": "Xin lỗi, tôi không thể.",
+                "destinationId": 5,
+                "choicePhrase": "Thanks for the warning. Farewell.",
                 "conversationCommandEvent": "EXIT_CONVERSATION"
             }
         ],
-        "3": [],
-        "4": []
+        "3": [
+            {
+                "class": "com.gdx.game.dialog.ConversationChoice",
+                "sourceId": 3,
+                "destinationId": 4,
+                "choicePhrase": "I'll help!",
+                "conversationCommandEvent": "ACCEPT_QUEST"
+            },
+            {
+                "class": "com.gdx.game.dialog.ConversationChoice",
+                "sourceId": 3,
+                "destinationId": 5,
+                "choicePhrase": "Sorry, I can't.",
+                "conversationCommandEvent": "EXIT_CONVERSATION"
+            }
+        ],
+        "4": [],
+        "5": []
     },
     "currentConversationID": "1"
 }

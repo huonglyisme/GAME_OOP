@@ -363,5 +363,14 @@
 		"itemRarity": "COMMON",
 		"itemShortDescription": "Quest Item Horns",
 		"itemValue": -1
+	},
+	{
+		"itemAttributes": 4,
+		"itemUseType": 2048,
+		"itemUseTypeValue": 0,
+		"itemTypeID": "MANA_CRYSTAL",
+		"itemRarity": "UNIQUE",
+		"itemShortDescription": "A shard of crystallized mana torn from the Mana Lord — proof that the Manafall has been undone.",
+		"itemValue": 5000
 	}
 ]

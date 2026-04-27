@@ -57,27 +57,25 @@ Co-op "2 player chung battle screen" mất 5-8 ngày → **không vừa**. Thay 
   → trong [GameScreen.java:212-215](../core/src/main/java/com/gdx/game/screen/GameScreen.java#L212-L215) hook check trước khi `START_BATTLE` portal trigger
   → nếu chưa diệt hết, hiện toast "Hãy diệt hết quái trước!"
 - [x] **T1.6** Quest từ NPC
-  → thêm quest `quest004.json`: "Nhiệm vụ Thợ Săn" — thu thập 3 bộ lông thú trong rừng
-  → cập nhật `hunter_wounded.json` với `questConfigPath: "quests/quest004.json"`
-  → cập nhật conversation với dialog quest accept/decline
-  → thêm `MAP_QUEST_ITEM_SPAWN_LAYER` vào `FOREST.tmx` với 3 spawn points
-  → thêm `quest004_task002.json` cho fur item entity
+  → **Quest 004 — HUNTER_WOUNDED (Cave 1)**: thu thập 3 bộ lông thú trong rừng. Conversation đã được mở rộng với lore về quái Cave 3 hung tợn hơn + truyền thuyết về Castle Room / Castle Final nguy hiểm.
+  → **Quest 005 — TOWN_INNKEEPER (Village)**: "Mối nguy trong Rừng" — diệt Rabite trong Forest và mang về 3 chiếc sừng (HORNS001) làm bằng chứng. Reward 60 gold + 80 XP.
+  → File mới: `quests/quest005.json`, `scripts/quest005_task002.json`.
+  → Cập nhật `town_innkeeper.json` set `questConfigPath: "quests/quest005.json"`.
+  → Cập nhật `conversation_town_innkeeper.json` với dialog quest accept/decline.
+  → Cập nhật `conversation_hunter_wounded.json` thêm dialog lore về Cave 3 + Castle.
+  → Thêm 3 spawn objects `name="5"` vào `MAP_QUEST_ITEM_SPAWN_LAYER` của `FOREST.tmx`.
 
 ### Bonus features điểm cao
-- [ ] **A1** Boss phase 2
-  → trong `BattleState.getOpponentAttackCalculationTimer()`: đọc HP, nếu < 50% và chưa phase2:
-  ```java
-  if (hpRatio < 0.5 && !phase2Activated) {
-      currentOpponent.config.setProperty(ATK, currentATK * 1.5);
-      currentOpponent.config.setProperty(SPD, currentSPD * 1.3);
-      phase2Activated = true;
-      notify(BOSS_PHASE_2);  // event mới cho UI nhấp nháy
-  }
-  ```
-- [ ] **A2** Boss drop MANA_CRYSTAL
-  → thêm item config + thêm vào `RABITE20_DROPS` trong [drop_tables.json](../core/src/main/resources/scripts/drop_tables.json) `{ itemTypeID: "MANA_CRYSTAL", probability: 1.0 }`
-- [ ] **A3** Auto-save on portal
-  → trong portal handler GameScreen: gọi `ProfileManager.getInstance().writeProfileToStorage()` sau khi load map mới
+- [x] **A1** Boss phase 2 + buff player base stats
+  → [BattleState.java](../core/src/main/java/com/gdx/game/battle/BattleState.java) — thêm `tryActivateBossPhase2(currentHp)` gọi sau mỗi player attack: nếu RABITE20 HP < 300 (50% của 600) và chưa kích hoạt → `ATK *1.5`, `SPD *1.3`, set property `PHASE_2_ACTIVATED=true`, gọi `saveOpponentState()` để persist qua escape/re-enter.
+  → [player_warrior.json](../core/src/main/resources/scripts/player_warrior.json) buff base stats: AP 6→12, DP 5→10, MATK 2→4, MDEF 3→6, SPD 2→4 → 1 player với full gear (helmet+sword+boots+armor+shield) clear được Forest + Cave 3.
+- [x] **A2** Boss drop MANA_CRYSTAL
+  → [InventoryItem.java](../core/src/main/java/com/gdx/game/inventory/item/InventoryItem.java) — thêm `MANA_CRYSTAL` vào enum `ItemTypeID`.
+  → [inventory_items.json](../core/src/main/resources/scripts/inventory_items.json) — thêm config: rarity UNIQUE, value 5000, lore "A shard of crystallized mana torn from the Mana Lord".
+  → [items.atlas](../core/src/main/resources/skins/items.atlas) — thêm region `MANA_CRYSTAL` (reuse coords HORNS001 làm sprite tạm).
+  → [drop_tables.json](../core/src/main/resources/scripts/drop_tables.json) — `RABITE20_DROPS` thêm `{ itemTypeID: "MANA_CRYSTAL", probability: 1.0 }`.
+- [x] **A3** Auto-save on portal
+  → [PlayerPhysicsComponent.updatePortalLayerActivation()](../core/src/main/java/com/gdx/game/entities/player/PlayerPhysicsComponent.java#L319) — sau khi `mapMgr.loadMap()` + cập nhật `currentEntityPosition`, gọi `ProfileManager.getInstance().saveProfile()` để ghi save xuống disk.
 - [ ] **A4** SFX attack/hit
   → check `AudioObserver` có sẵn audio events; nếu có asset wav, thêm `notify(AudioCommand.SOUND_PLAY_ONCE, AudioTypeEvent.HIT)` vào `OPPONENT_HIT_DAMAGE` / `PLAYER_HIT_DAMAGE`
   → nếu không có asset: SKIP, không cố ép
