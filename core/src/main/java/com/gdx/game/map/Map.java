@@ -192,7 +192,16 @@ public abstract class Map implements AudioSubject {
 
     protected void updateMapEntities(MapManager mapMgr, Batch batch, float delta) {
         for(int i = 0; i < mapEntities.size; i++) {
-            mapEntities.get(i).update(mapMgr, batch, delta);
+            com.gdx.game.entities.Entity e = mapEntities.get(i);
+            // Skip dead enemies — keep them in list for portal "all defeated" check, but hide visually.
+            if ("FOE".equals(e.getEntityConfig().getEntityStatus())) {
+                String hpStr = e.getEntityConfig().getPropertyValue(
+                        com.gdx.game.entities.EntityConfig.EntityProperties.ENTITY_HEALTH_POINTS.toString());
+                if (hpStr != null && !hpStr.isEmpty() && Integer.parseInt(hpStr) <= 0) {
+                    continue;
+                }
+            }
+            e.update(mapMgr, batch, delta);
         }
         for(int i = 0; i < mapQuestEntities.size; i++) {
             mapQuestEntities.get(i).update(mapMgr, batch, delta);

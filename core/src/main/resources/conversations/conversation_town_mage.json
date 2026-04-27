@@ -2,15 +2,15 @@
     "conversations": {
         "1": {
             "id": 1,
-            "dialog": "The mana within you is indeed very special. I happen to have a few... trinkets that might help you master it. *Chuckles* But of course, such potency comes at a certain price."
+            "dialog": "I sense the mana within you, young one. I keep wands, scrolls and potions for those who walk the path of magic. Would you like to see my goods?"
         },
         "2": {
             "id": 2,
-            "dialog": "Straight to the point, I like it. Now then, let's see what I have for you."
+            "dialog": "A wise choice. Magic is power — and power has a price."
         },
         "3": {
             "id": 3,
-            "dialog": "Ok"
+            "dialog": "When you're ready to embrace the arcane, return to me."
         }
     },
     "associatedChoices": {
@@ -19,26 +19,19 @@
                 "class": "com.gdx.game.dialog.ConversationChoice",
                 "sourceId": 1,
                 "destinationId": 2,
-                "choicePhrase": "It's not yet time, I have other things to do.",
-                "conversationCommandEvent": "EXIT_CONVERSATION"
+                "choicePhrase": "Show me your goods (open shop)",
+                "conversationCommandEvent": "LOAD_STORE_INVENTORY"
             },
             {
                 "class": "com.gdx.game.dialog.ConversationChoice",
                 "sourceId": 1,
-                "destinationId": 2,
-                "choicePhrase": "I'm willing to pay the price",
-                "conversationCommandEvent": "NONE"
+                "destinationId": 3,
+                "choicePhrase": "Not now.",
+                "conversationCommandEvent": "EXIT_CONVERSATION"
             }
         ],
-        "2": [
-            {
-                "class": "com.gdx.game.dialog.ConversationChoice",
-                "sourceId": 2,
-                "destinationId": 3,
-                "choicePhrase": "...",
-                "conversationCommandEvent": "LOAD_STORE_INVENTORY"
-            }
-        ]
+        "2": [],
+        "3": []
     },
     "currentConversationID": 1
 }

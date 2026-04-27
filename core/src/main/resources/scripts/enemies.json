@@ -973,7 +973,7 @@
 			},
 			"ENTITY_SPEED_POINTS": {
 				"class": "java.lang.String",
-				"value": 13
+				"value": 5
 			},
 			"ENTITY_XP_REWARD": {
 				"class": "java.lang.String",

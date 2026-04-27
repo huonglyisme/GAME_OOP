@@ -2,15 +2,15 @@
     "conversations": {
         "1": {
             "id": 1,
-            "dialog": "I'm the blacksmith here. If you ever need something forged, just go kill some monsters and bring the materials back."
+            "dialog": "Welcome, traveler! I'm the village blacksmith. I forge shields, armor, helmets, boots and weapons. Care to take a look at my wares?"
         },
         "2": {
             "id": 2,
-            "dialog": "Alright, let me see what I can do."
+            "dialog": "Take your time. Quality steel doesn't come cheap, but it'll save your life out there."
         },
         "3": {
             "id": 3,
-            "dialog": "Ok"
+            "dialog": "Come back when you have gold to spend."
         }
     },
     "associatedChoices": {
@@ -19,26 +19,19 @@
                 "class": "com.gdx.game.dialog.ConversationChoice",
                 "sourceId": 1,
                 "destinationId": 2,
-                "choicePhrase": "I've brought the materials",
-                "conversationCommandEvent": "NONE"
+                "choicePhrase": "Show me your wares (open shop)",
+                "conversationCommandEvent": "LOAD_STORE_INVENTORY"
             },
             {
                 "class": "com.gdx.game.dialog.ConversationChoice",
                 "sourceId": 1,
                 "destinationId": 3,
-                "choicePhrase": "Seems that I don't have enough materials",
+                "choicePhrase": "Maybe later.",
                 "conversationCommandEvent": "EXIT_CONVERSATION"
             }
         ],
-        "2": [
-            {
-                "class": "com.gdx.game.dialog.ConversationChoice",
-                "sourceId": 2,
-                "destinationId": 3,
-                "choicePhrase": "...",
-                "conversationCommandEvent": "LOAD_STORE_INVENTORY"
-            }
-        ]
+        "2": [],
+        "3": []
     },
     "currentConversationID": 1
 }

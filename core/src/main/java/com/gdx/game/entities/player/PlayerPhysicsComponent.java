@@ -295,8 +295,13 @@ public class PlayerPhysicsComponent extends PhysicsComponent {
                         return false;
                     }
 
-                    // T1.5: Block portal if enemies are still alive
-                    if (!mapMgr.allEnemiesDefeated()) {
+                    // Return-portal: nếu map đích đã từng vào trước đây, luôn cho qua
+                    com.badlogic.gdx.utils.Array<String> visited =
+                            com.gdx.game.profile.ProfileManager.getInstance().getProperty("visitedMaps", com.badlogic.gdx.utils.Array.class);
+                    boolean isReturnPortal = visited != null && visited.contains(mapName, false);
+
+                    // T1.5: Block portal đi tới map mới nếu chưa diệt hết quái map hiện tại
+                    if (!isReturnPortal && !mapMgr.allEnemiesDefeated()) {
                         if (!portalBlockedNotified) {
                             notify("Hãy diệt hết quái trước!", ComponentObserver.ComponentEvent.PORTAL_BLOCKED);
                             portalBlockedNotified = true;
@@ -313,10 +318,19 @@ public class PlayerPhysicsComponent extends PhysicsComponent {
                     nextEntityPosition.x = mapMgr.getPlayerStartUnitScaled().x;
                     nextEntityPosition.y = mapMgr.getPlayerStartUnitScaled().y;
 
+                    // Đánh dấu map vừa vào → portal quay lại sẽ luôn mở
+                    if (visited == null) {
+                        visited = new com.badlogic.gdx.utils.Array<>();
+                    }
+                    if (!visited.contains(mapName, false)) {
+                        visited.add(mapName);
+                    }
+                    com.gdx.game.profile.ProfileManager.getInstance().setProperty("visitedMaps", visited);
+
                     // A3: Auto-save when crossing portal
                     com.gdx.game.profile.ProfileManager.getInstance().saveProfile();
 
-                    LOGGER.debug("Portal Activated — auto-saved");
+                    LOGGER.debug("Portal Activated — auto-saved, visited={}", visited);
                     return true;
                 }
             }
