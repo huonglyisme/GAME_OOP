@@ -5,7 +5,7 @@
   "direction": "DOWN",
   "conversationConfigPath": "conversations/conversation_hunter_wounded.json",
   "resumeConfigPath": "",
-  "questConfigPath": "",
+  "questConfigPath": "quests/quest004.json",
   "currentQuestID": "",
   "itemTypeID": "NONE",
   "animationConfig": [

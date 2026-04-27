@@ -1,0 +1,61 @@
+{
+  "questTitle": "Nhiệm vụ Thợ Săn",
+  "questID": 4,
+  "goldReward": 50,
+  "xpReward": 50,
+  "isQuestComplete": false,
+  "questTasks": {
+    "2": {
+      "taskProperties": {
+        "IS_TASK_COMPLETE": {
+          "class": "java.lang.String",
+          "value": "false"
+        },
+        "TARGET_TYPE": {
+          "class": "java.lang.String",
+          "value": "scripts/quest004_task002.json"
+        },
+        "TARGET_NUM": {
+          "class": "java.lang.String",
+          "value": "3"
+        },
+        "TARGET_LOCATION": {
+          "class": "java.lang.String",
+          "value": "FOREST"
+        }
+      },
+      "id": 2,
+      "taskPhrase": "Thu thập 3 bộ lông thú trong rừng",
+      "questType": "FETCH"
+    },
+    "1": {
+      "taskProperties": {
+        "IS_TASK_COMPLETE": {
+          "class": "java.lang.String",
+          "value": "false"
+        },
+        "TARGET_TYPE": {
+          "class": "java.lang.String",
+          "value": "HUNTER_WOUNDED"
+        },
+        "TARGET_LOCATION": {
+          "class": "java.lang.String",
+          "value": "CAVE_1"
+        }
+      },
+      "id": 1,
+      "taskPhrase": "Mang bộ lông thú về cho Thợ Săn bị thương",
+      "questType": "RETURN"
+    }
+  },
+  "questTaskDependencies": {
+    "1": [
+      {
+        "class": "com.gdx.game.quest.QuestTaskDependency",
+        "sourceId": 1,
+        "destinationId": 2
+      }
+    ],
+    "2": []
+  }
+}

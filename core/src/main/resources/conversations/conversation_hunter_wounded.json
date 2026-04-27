@@ -2,11 +2,19 @@
     "conversations": {
         "1": {
             "id": 1,
-            "dialog": "Ugh... stay back, traveler. I was ambushed by a Rabite deeper in this cave. Those creatures are no joke — watch yourself."
+            "dialog": "Ugh... tránh ra đi, lữ khách. Ta bị một con Rabite phục kích ở sâu trong hang. Chúng rất nguy hiểm — hãy cẩn thận."
         },
         "2": {
             "id": 2,
-            "dialog": "Thanks for the concern. I'll rest here a while longer. Safe travels."
+            "dialog": "Nếu ngươi muốn giúp, hãy tìm cho ta 3 bộ lông thú trong rừng. Ta cần chúng để băng bó vết thương. Ngươi có sẵn lòng không?"
+        },
+        "3": {
+            "id": 3,
+            "dialog": "Cảm ơn ngươi! Hãy tìm chúng trong khu rừng phía ngoài. Cẩn thận với lũ Rabite nhé."
+        },
+        "4": {
+            "id": 4,
+            "dialog": "Không sao, ta hiểu. Hãy cẩn thận nhé."
         }
     },
     "associatedChoices": {
@@ -15,11 +23,35 @@
                 "class": "com.gdx.game.dialog.ConversationChoice",
                 "sourceId": 1,
                 "destinationId": 2,
-                "choicePhrase": "Hang in there.",
+                "choicePhrase": "Tôi có thể giúp gì?",
+                "conversationCommandEvent": "NONE"
+            },
+            {
+                "class": "com.gdx.game.dialog.ConversationChoice",
+                "sourceId": 1,
+                "destinationId": 4,
+                "choicePhrase": "Giữ gìn sức khỏe.",
                 "conversationCommandEvent": "EXIT_CONVERSATION"
             }
         ],
-        "2": []
+        "2": [
+            {
+                "class": "com.gdx.game.dialog.ConversationChoice",
+                "sourceId": 2,
+                "destinationId": 3,
+                "choicePhrase": "Tôi sẽ giúp!",
+                "conversationCommandEvent": "ACCEPT_QUEST"
+            },
+            {
+                "class": "com.gdx.game.dialog.ConversationChoice",
+                "sourceId": 2,
+                "destinationId": 4,
+                "choicePhrase": "Xin lỗi, tôi không thể.",
+                "conversationCommandEvent": "EXIT_CONVERSATION"
+            }
+        ],
+        "3": [],
+        "4": []
     },
     "currentConversationID": "1"
 }

@@ -81,7 +81,8 @@ public class BattleScreen extends BaseScreen implements BattleObserver {
 
     /**
      * Compute a position that pushes the player away from the opponent they just fought.
-     * Returns null if the foe can't be found or positions are invalid.
+     * Uses the enemy's position as the anchor and tries 4 directions to find a
+     * collision-free spot. Returns null if the foe can't be found.
      */
     private Vector2 computePushedPosition() {
         Entity player = mapManager.getPlayer();
@@ -100,24 +101,49 @@ public class BattleScreen extends BaseScreen implements BattleObserver {
             return null;
         }
 
-        // Use physics position (currentEntityPosition) not graphics position
-        // because graphics position lags behind by 1 frame
-        Vector2 playerPos = player.getCurrentPosition();
         Vector2 foePos = foe.getCurrentPosition();
-        if (playerPos == null || foePos == null) {
+        if (foePos == null) {
             return null;
         }
-        float dx = playerPos.x - foePos.x;
-        float dy = playerPos.y - foePos.y;
-        float len = (float) Math.sqrt(dx * dx + dy * dy);
-        if (len < 0.001f) {
-            dx = 1f; dy = 0f; len = 1f;
-        }
+
         float pushDistance = 2.0f;
-        return new Vector2(
-                playerPos.x + dx / len * pushDistance,
-                playerPos.y + dy / len * pushDistance
-        );
+        // Try 4 cardinal directions: down, up, left, right
+        float[][] offsets = {{0, -pushDistance}, {0, pushDistance}, {-pushDistance, 0}, {pushDistance, 0}};
+        for (float[] offset : offsets) {
+            Vector2 candidate = new Vector2(foePos.x + offset[0], foePos.y + offset[1]);
+            if (!isPositionInCollision(candidate)) {
+                return candidate;
+            }
+        }
+        // Fallback: push down (even if in collision, better than staying on enemy)
+        return new Vector2(foePos.x, foePos.y - pushDistance);
+    }
+
+    /**
+     * Check if a unit-scaled position would collide with the map collision layer.
+     */
+    private boolean isPositionInCollision(Vector2 unitScaledPos) {
+        com.badlogic.gdx.maps.MapLayer collisionLayer = mapManager.getCollisionLayer();
+        if (collisionLayer == null) return false;
+
+        // Convert to map pixel coordinates for collision check
+        float mapX = unitScaledPos.x / com.gdx.game.map.Map.UNIT_SCALE;
+        float mapY = unitScaledPos.y / com.gdx.game.map.Map.UNIT_SCALE;
+        // Player bounding box dimensions (approx)
+        float bboxW = Entity.FRAME_WIDTH * 0.7f;
+        float bboxH = Entity.FRAME_HEIGHT * 0.5f;
+
+        com.badlogic.gdx.math.Rectangle playerRect = new com.badlogic.gdx.math.Rectangle(mapX, mapY, bboxW, bboxH);
+
+        for (com.badlogic.gdx.maps.MapObject obj : collisionLayer.getObjects()) {
+            if (obj instanceof com.badlogic.gdx.maps.objects.RectangleMapObject) {
+                com.badlogic.gdx.math.Rectangle rect = ((com.badlogic.gdx.maps.objects.RectangleMapObject) obj).getRectangle();
+                if (playerRect.overlaps(rect)) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     private void setupGameOver() {

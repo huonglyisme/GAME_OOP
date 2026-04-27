@@ -56,9 +56,12 @@ Co-op "2 player chung battle screen" mất 5-8 ngày → **không vừa**. Thay 
   → thêm method `Map.allEnemiesDefeated()`: duyệt `mapEntities`, check HP=0 với mỗi enemy
   → trong [GameScreen.java:212-215](../core/src/main/java/com/gdx/game/screen/GameScreen.java#L212-L215) hook check trước khi `START_BATTLE` portal trigger
   → nếu chưa diệt hết, hiện toast "Hãy diệt hết quái trước!"
-- [ ] **T1.6** Quest từ NPC
-  → thêm 1 quest đơn giản dùng `HUNTER_WOUNDED` hiện có (đã có config + conversation): "Tìm 3 fur trong rừng"
-  → reuse `QuestGraph` infra, chỉ thêm entry json mới
+- [x] **T1.6** Quest từ NPC
+  → thêm quest `quest004.json`: "Nhiệm vụ Thợ Săn" — thu thập 3 bộ lông thú trong rừng
+  → cập nhật `hunter_wounded.json` với `questConfigPath: "quests/quest004.json"`
+  → cập nhật conversation với dialog quest accept/decline
+  → thêm `MAP_QUEST_ITEM_SPAWN_LAYER` vào `FOREST.tmx` với 3 spawn points
+  → thêm `quest004_task002.json` cho fur item entity
 
 ### Bonus features điểm cao
 - [ ] **A1** Boss phase 2
